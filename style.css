@@ -1,0 +1,85 @@
+/* ===== 基本 ===== */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Noto Sans JP", sans-serif;
+  margin: 1.5rem;
+  text-align: center;
+}
+
+h1 { font-size: clamp(1.4rem, 5vw, 2rem); }
+
+#card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,.05);
+}
+
+#word   { font-size: clamp(1.8rem, 8vw, 2.5rem); margin: 0.5rem 0 1rem; }
+#meaning{ font-size: clamp(1.4rem, 6vw, 1.8rem); color: royalblue; }
+
+.hidden { visibility: hidden; }  /* ← 高さは確保、文字だけ消える */
+
+button, label {
+  font-size: 1rem;
+  padding: 0.6rem 1.2rem;
+  margin: 0.3rem;
+  border-radius: 6px;
+}
+
+button, label {
+   font-size: 1rem;
+   padding: 0.6rem 1.2rem;
+   margin: 0.3rem;
+   border-radius: 6px;
+}
+
+/* ★追加：進捗バー */
+#progressBarWrap {
+  width: 100%;
+  background: #eee;
+  border-radius: 4px;
+  margin: 0.5rem 0 1rem;
+}
+#progressBar {
+  height: 8px;
+  width: 0;
+  background: mediumseagreen;
+  border-radius: 4px;
+  transition: width .3s;
+}
+
+/* ★追加：ダイアログ */
+dialog {
+  border: none;
+  border-radius: 8px;
+  padding: 1rem;
+  width: min(90vw, 500px);
+}
+#summaryList label {
+  display: inline-block;
+  width: 48%;
+  margin: .2rem 1%;
+  text-align: left;
+}
+
+
+button { border: 1px solid #999; background:#fff; }
+button:active { background:#f0f0f0; }
+
+/* ===== モバイル最適化 ===== */
+@media (max-width: 600px) {
+  body    { margin: 1rem; }
+  button  { width: 90%; max-width: 320px; }
+  #nav, #pageNav { display: flex; flex-direction: column; gap: 0.5rem; align-items: center; }
+  #rememberLbl { display: block; margin: 0.5rem auto; }
+}
+
+/* === 下段アクション行 === */
+#actions {
+  display: flex;
+  justify-content: center;  /* 中央寄せ */
+  gap: 1rem;                /* ボタンとチェックの間隔 */
+  margin-top: 1rem;
+}
+#rememberLbl { display: flex; align-items: center; gap: 0.3rem; }
