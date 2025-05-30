@@ -1,85 +1,106 @@
-/* ===== 基本 ===== */
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Noto Sans JP", sans-serif;
-  margin: 1.5rem;
-  text-align: center;
+/* =========================
+   基本レイアウト & 共通色
+   ========================= */
+:root{
+  --main-blue:#1976d2;
+  --accent-red:#d32f2f;
+  --light-gray:#eee;
 }
 
-h1 { font-size: clamp(1.4rem, 5vw, 2rem); }
-
-#card {
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  padding: 1.5rem;
-  margin-bottom: 1rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,.05);
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Noto Sans JP",sans-serif;
+  margin:1.5rem;
+  text-align:center;
+  color:#222;
 }
 
-#word   { font-size: clamp(1.8rem, 8vw, 2.5rem); margin: 0.5rem 0 1rem; }
-#meaning{ font-size: clamp(1.4rem, 6vw, 1.8rem); color: royalblue; }
+/* ------------ 見出し ------------ */
+h1{font-size:clamp(1.4rem,5vw,2rem);margin:.2rem 0}
 
-.hidden { visibility: hidden; }  /* ← 高さは確保、文字だけ消える */
-
-button, label {
-  font-size: 1rem;
-  padding: 0.6rem 1.2rem;
-  margin: 0.3rem;
-  border-radius: 6px;
+/* ------------ ヘッダーバー ------------ */
+#topBar{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:.8rem;
+}
+#topBar button{
+  background:none;border:none;font-size:1.6rem;cursor:pointer;
 }
 
-button, label {
-   font-size: 1rem;
-   padding: 0.6rem 1.2rem;
-   margin: 0.3rem;
-   border-radius: 6px;
+/* ------------ 学習カード ------------ */
+#card{
+  border:1px solid #ccc;border-radius:10px;
+  padding:1.5rem;margin-bottom:1rem;
+  box-shadow:0 2px 6px rgba(0,0,0,.05);
+}
+#word   {font-size:clamp(1.8rem,8vw,2.5rem);margin:.5rem 0 1rem}
+#meaning{font-size:clamp(1.4rem,6vw,1.8rem);color:var(--main-blue)}
+.hidden {visibility:hidden}           /* 高さは確保 */
+
+/* -- 下段アクション ------------------ */
+#actions{
+  display:flex;justify-content:center;gap:1rem;margin-top:1rem;
+}
+#rememberLbl{display:flex;align-items:center;gap:.3rem}
+
+/* ------------ ボタン汎用 ------------ */
+button,label{
+  font-size:1rem;padding:.6rem 1.2rem;margin:.3rem;border-radius:6px;
+}
+button{
+  border:1px solid #999;background:#fff;cursor:pointer;
+}
+button:active{background:#f0f0f0}
+
+/* 青系ボタン */
+#actions button,
+#pageNav button,
+#randomBtn{
+  background:var(--main-blue);color:#fff;border:none;
+}
+#randomBtn{display:inline-block}
+
+/* ------------ 進捗バー -------------- */
+#progressBarWrap{width:100%;background:var(--light-gray);
+  border-radius:4px;margin:.5rem 0 1rem;height:8px}
+#progressBar{
+  height:100%;width:0;background:mediumseagreen;border-radius:4px;
+  transition:width .3s;
 }
 
-/* ★追加：進捗バー */
-#progressBarWrap {
-  width: 100%;
-  background: #eee;
-  border-radius: 4px;
-  margin: 0.5rem 0 1rem;
+/* ------------ ナビゲーション ---------- */
+#nav,#pageNav{
+  display:flex;gap:.5rem;justify-content:center;align-items:center;
+  flex-wrap:wrap
 }
-#progressBar {
-  height: 8px;
-  width: 0;
-  background: mediumseagreen;
-  border-radius: 4px;
-  transition: width .3s;
+#pageCounter{min-width:4.5rem;text-align:center}
+
+/* ------------ ダイアログ -------------- */
+dialog{
+  border:none;border-radius:8px;padding:1rem;
+  width:min(90vw,500px)
+}
+/* 一覧内チェックラベル */
+#summaryList label{
+  display:inline-block;width:48%;margin:.2rem 1%;text-align:left
 }
 
-/* ★追加：ダイアログ */
-dialog {
-  border: none;
-  border-radius: 8px;
-  padding: 1rem;
-  width: min(90vw, 500px);
-}
-#summaryList label {
-  display: inline-block;
-  width: 48%;
-  margin: .2rem 1%;
-  text-align: left;
-}
+/* 一覧でクリック可能な単語 */
+.summaryWord{cursor:pointer;text-decoration:underline}
+.summaryItem{user-select:none}
 
-
-button { border: 1px solid #999; background:#fff; }
-button:active { background:#f0f0f0; }
-
-/* ===== モバイル最適化 ===== */
-@media (max-width: 600px) {
-  body    { margin: 1rem; }
-  button  { width: 90%; max-width: 320px; }
-  #nav, #pageNav { display: flex; flex-direction: column; gap: 0.5rem; align-items: center; }
-  #rememberLbl { display: block; margin: 0.5rem auto; }
+/* =========================
+   モバイル最適化 (≤600px)
+   ========================= */
+@media (max-width:600px){
+  body{margin:1rem}
+  /* ボタンは横幅いっぱい */
+  button{width:90%;max-width:320px}
+  #nav,#pageNav{
+    flex-direction:column;gap:.5rem;align-items:center
+  }
+  #rememberLbl{display:block;margin:.5rem auto}
+  #actions{flex-direction:column;gap:.8rem}
+  #actions button,#rememberLbl{width:100%}
+  #word{font-size:8vw}
+  #meaning{font-size:6.2vw}
 }
-
-/* === 下段アクション行 === */
-#actions {
-  display: flex;
-  justify-content: center;  /* 中央寄せ */
-  gap: 1rem;                /* ボタンとチェックの間隔 */
-  margin-top: 1rem;
-}
-#rememberLbl { display: flex; align-items: center; gap: 0.3rem; }

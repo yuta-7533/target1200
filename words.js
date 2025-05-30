@@ -1,6802 +1,1704 @@
 const words = [
-  {
-    "word": "change",
-    "meaning": "変える"
-  },
-  {
-    "word": "learn",
-    "meaning": "学ぶ"
-  },
-  {
-    "word": "help",
-    "meaning": "手伝う，助ける"
-  },
-  {
-    "word": "need",
-    "meaning": "必要とする"
-  },
-  {
-    "word": "live",
-    "meaning": "住んでいる"
-  },
-  {
-    "word": "ask",
-    "meaning": "頼む"
-  },
-  {
-    "word": "enjoy",
-    "meaning": "楽しむ"
-  },
-  {
-    "word": "wait",
-    "meaning": "待つ"
-  },
-  {
-    "word": "cook",
-    "meaning": "調理する"
-  },
-  {
-    "word": "talk",
-    "meaning": "話す (t-)"
-  },
-  {
-    "word": "speak",
-    "meaning": "話す (s-)"
-  },
-  {
-    "word": "meet",
-    "meaning": "会う"
-  },
-  {
-    "word": "mean",
-    "meaning": "意味する"
-  },
-  {
-    "word": "buy",
-    "meaning": "買う"
-  },
-  {
-    "word": "travel",
-    "meaning": "旅行する"
-  },
-  {
-    "word": "build",
-    "meaning": "建てる"
-  },
-  {
-    "word": "close",
-    "meaning": "閉じる"
-  },
-  {
-    "word": "stay",
-    "meaning": "滞在する"
-  },
-  {
-    "word": "move",
-    "meaning": "動かす"
-  },
-  {
-    "word": "plan",
-    "meaning": "計画する"
-  },
-  {
-    "word": "write",
-    "meaning": "書く"
-  },
-  {
-    "word": "listen",
-    "meaning": "聞く (l-)"
-  },
-  {
-    "word": "happen",
-    "meaning": "起こる，生じる"
-  },
-  {
-    "word": "lose",
-    "meaning": "失う，なくす"
-  },
-  {
-    "word": "stand",
-    "meaning": "立つ，立っている"
-  },
-  {
-    "word": "grow",
-    "meaning": "育つ"
-  },
-  {
-    "word": "sound",
-    "meaning": "〜のように聞こえる"
-  },
-  {
-    "word": "rain",
-    "meaning": "雨が降る"
-  },
-  {
-    "word": "worry",
-    "meaning": "心配する"
-  },
-  {
-    "word": "teach",
-    "meaning": "教える"
-  },
-  {
-    "word": "hope",
-    "meaning": "望む"
-  },
-  {
-    "word": "hold",
-    "meaning": "持つ，抱える"
-  },
-  {
-    "word": "life",
-    "meaning": "一生，生涯"
-  },
-  {
-    "word": "thing",
-    "meaning": "事"
-  },
-  {
-    "word": "country",
-    "meaning": "国"
-  },
-  {
-    "word": "example",
-    "meaning": "例"
-  },
-  {
-    "word": "place",
-    "meaning": "場所"
-  },
-  {
-    "word": "part",
-    "meaning": "部分"
-  },
-  {
-    "word": "trip",
-    "meaning": "旅行"
-  },
-  {
-    "word": "problem",
-    "meaning": "問題"
-  },
-  {
-    "word": "question",
-    "meaning": "質問"
-  },
-  {
-    "word": "color",
-    "meaning": "色"
-  },
-  {
-    "word": "point",
-    "meaning": "要点"
-  },
-  {
-    "word": "language",
-    "meaning": "言語"
-  },
-  {
-    "word": "word",
-    "meaning": "単語，語"
-  },
-  {
-    "word": "health",
-    "meaning": "健康"
-  },
-  {
-    "word": "report",
-    "meaning": "報告書"
-  },
-  {
-    "word": "minute",
-    "meaning": "分"
-  },
-  {
-    "word": "reason",
-    "meaning": "理由"
-  },
-  {
-    "word": "line",
-    "meaning": "路線"
-  },
-  {
-    "word": "month",
-    "meaning": "（暦の）月"
-  },
-  {
-    "word": "week",
-    "meaning": "週"
-  },
-  {
-    "word": "date",
-    "meaning": "日にち"
-  },
-  {
-    "word": "event",
-    "meaning": "行事"
-  },
-  {
-    "word": "future",
-    "meaning": "未来，将来"
-  },
-  {
-    "word": "design",
-    "meaning": "デザイン"
-  },
-  {
-    "word": "end",
-    "meaning": "終わり"
-  },
-  {
-    "word": "computer",
-    "meaning": "コンピューター"
-  },
-  {
-    "word": "plant",
-    "meaning": "植物"
-  },
-  {
-    "word": "art",
-    "meaning": "美術"
-  },
-  {
-    "word": "chance",
-    "meaning": "機会，好機"
-  },
-  {
-    "word": "history",
-    "meaning": "歴史"
-  },
-  {
-    "word": "festival",
-    "meaning": "祭り"
-  },
-  {
-    "word": "season",
-    "meaning": "季節"
-  },
-  {
-    "word": "fun",
-    "meaning": "楽しみ"
-  },
-  {
-    "word": "host",
-    "meaning": "主人"
-  },
-  {
-    "word": "message",
-    "meaning": "伝言"
-  },
-  {
-    "word": "step",
-    "meaning": "段階"
-  },
-  {
-    "word": "popular",
-    "meaning": "人気のある"
-  },
-  {
-    "word": "most",
-    "meaning": "大部分の"
-  },
-  {
-    "word": "different",
-    "meaning": "違う"
-  },
-  {
-    "word": "such",
-    "meaning": "そのような"
-  },
-  {
-    "word": "last",
-    "meaning": "この前の"
-  },
-  {
-    "word": "same",
-    "meaning": "同じ"
-  },
-  {
-    "word": "great",
-    "meaning": "すばらしい (g-)"
-  },
-  {
-    "word": "open",
-    "meaning": "開いている"
-  },
-  {
-    "word": "own",
-    "meaning": "自分自身の"
-  },
-  {
-    "word": "kind",
-    "meaning": "親切な"
-  },
-  {
-    "word": "difficult",
-    "meaning": "難しい"
-  },
-  {
-    "word": "enough",
-    "meaning": "十分な"
-  },
-  {
-    "word": "special",
-    "meaning": "特別な"
-  },
-  {
-    "word": "famous",
-    "meaning": "有名な"
-  },
-  {
-    "word": "bad",
-    "meaning": "悪い"
-  },
-  {
-    "word": "short",
-    "meaning": "短い"
-  },
-  {
-    "word": "useful",
-    "meaning": "役に立つ"
-  },
-  {
-    "word": "afraid",
-    "meaning": "恐れて"
-  },
-  {
-    "word": "favorite",
-    "meaning": "お気に入りの"
-  },
-  {
-    "word": "expensive",
-    "meaning": "高価な"
-  },
-  {
-    "word": "carry",
-    "meaning": "運ぶ"
-  },
-  {
-    "word": "break",
-    "meaning": "壊れる，割れる"
-  },
-  {
-    "word": "arrive",
-    "meaning": "到着する"
-  },
-  {
-    "word": "fall",
-    "meaning": "落ちる"
-  },
-  {
-    "word": "miss",
-    "meaning": "がいなくてさみしく思う"
-  },
-  {
-    "word": "cover",
-    "meaning": "覆う"
-  },
-  {
-    "word": "catch",
-    "meaning": "捕まえる"
-  },
-  {
-    "word": "save",
-    "meaning": "救う"
-  },
-  {
-    "word": "check",
-    "meaning": "点検する"
-  },
-  {
-    "word": "introduce",
-    "meaning": "紹介する"
-  },
-  {
-    "word": "join",
-    "meaning": "加わる"
-  },
-  {
-    "word": "clean",
-    "meaning": "きれいにする"
-  },
-  {
-    "word": "answer",
-    "meaning": "答える"
-  },
-  {
-    "word": "throw",
-    "meaning": "投げる"
-  },
-  {
-    "word": "invite",
-    "meaning": "招待する"
-  },
-  {
-    "word": "pick",
-    "meaning": "摘み取る"
-  },
-  {
-    "word": "die",
-    "meaning": "死ぬ"
-  },
-  {
-    "word": "return",
-    "meaning": "戻る"
-  },
-  {
-    "word": "fly",
-    "meaning": "飛ぶ"
-  },
-  {
-    "word": "cut",
-    "meaning": "切る"
-  },
-  {
-    "word": "hit",
-    "meaning": "襲う，打つ"
-  },
-  {
-    "word": "excuse",
-    "meaning": "許す"
-  },
-  {
-    "word": "wash",
-    "meaning": "洗う"
-  },
-  {
-    "word": "cry",
-    "meaning": "叫ぶ"
-  },
-  {
-    "word": "borrow",
-    "meaning": "借りる"
-  },
-  {
-    "word": "kill",
-    "meaning": "殺す"
-  },
-  {
-    "word": "push",
-    "meaning": "押す"
-  },
-  {
-    "word": "climb",
-    "meaning": "登る"
-  },
-  {
-    "word": "laugh",
-    "meaning": "笑う"
-  },
-  {
-    "word": "smile",
-    "meaning": "ほほえむ"
-  },
-  {
-    "word": "hurry",
-    "meaning": "急ぐ"
-  },
-  {
-    "word": "cheer",
-    "meaning": "元気づける"
-  },
-  {
-    "word": "volunteer",
-    "meaning": "ボランティア"
-  },
-  {
-    "word": "side",
-    "meaning": "側"
-  },
-  {
-    "word": "front",
-    "meaning": "前，正面"
-  },
-  {
-    "word": "concert",
-    "meaning": "コンサート"
-  },
-  {
-    "word": "fire",
-    "meaning": "火事"
-  },
-  {
-    "word": "village",
-    "meaning": "村"
-  },
-  {
-    "word": "lesson",
-    "meaning": "レッスン"
-  },
-  {
-    "word": "light",
-    "meaning": "明かり"
-  },
-  {
-    "word": "Internet",
-    "meaning": "インターネット"
-  },
-  {
-    "word": "weather",
-    "meaning": "天気"
-  },
-  {
-    "word": "voice",
-    "meaning": "声"
-  },
-  {
-    "word": "piece",
-    "meaning": "１つ，１枚"
-  },
-  {
-    "word": "goal",
-    "meaning": "目標"
-  },
-  {
-    "word": "speech",
-    "meaning": "スピーチ"
-  },
-  {
-    "word": "fan",
-    "meaning": "ファン"
-  },
-  {
-    "word": "dream",
-    "meaning": "夢"
-  },
-  {
-    "word": "mistake",
-    "meaning": "間違い"
-  },
-  {
-    "word": "meter",
-    "meaning": "メートル"
-  },
-  {
-    "word": "land",
-    "meaning": "土地"
-  },
-  {
-    "word": "hundred",
-    "meaning": "百"
-  },
-  {
-    "word": "thousand",
-    "meaning": "千"
-  },
-  {
-    "word": "million",
-    "meaning": "百万"
-  },
-  {
-    "word": "medicine",
-    "meaning": "薬"
-  },
-  {
-    "word": "uniform",
-    "meaning": "制服"
-  },
-  {
-    "word": "heat",
-    "meaning": "暑さ"
-  },
-  {
-    "word": "evening",
-    "meaning": "夕方"
-  },
-  {
-    "word": "noon",
-    "meaning": "正午"
-  },
-  {
-    "word": "holiday",
-    "meaning": "休日，祝日"
-  },
-  {
-    "word": "course",
-    "meaning": "講座"
-  },
-  {
-    "word": "rule",
-    "meaning": "ルール"
-  },
-  {
-    "word": "forest",
-    "meaning": "森林"
-  },
-  {
-    "word": "farm",
-    "meaning": "農場"
-  },
-  {
-    "word": "treasure",
-    "meaning": "大切な物"
-  },
-  {
-    "word": "hole",
-    "meaning": "穴"
-  },
-  {
-    "word": "cloud",
-    "meaning": "雲"
-  },
-  {
-    "word": "phone",
-    "meaning": "電話"
-  },
-  {
-    "word": "sorry",
-    "meaning": "すまなく思って"
-  },
-  {
-    "word": "careful",
-    "meaning": "注意深い"
-  },
-  {
-    "word": "wonderful",
-    "meaning": "すばらしい (w-)"
-  },
-  {
-    "word": "heavy",
-    "meaning": "重い"
-  },
-  {
-    "word": "sick",
-    "meaning": "病気の"
-  },
-  {
-    "word": "dear",
-    "meaning": "親愛なる"
-  },
-  {
-    "word": "glad",
-    "meaning": "うれしい"
-  },
-  {
-    "word": "dark",
-    "meaning": "暗い"
-  },
-  {
-    "word": "sad",
-    "meaning": "悲しい"
-  },
-  {
-    "word": "cute",
-    "meaning": "かわいい"
-  },
-  {
-    "word": "free",
-    "meaning": "暇な"
-  },
-  {
-    "word": "foreign",
-    "meaning": "外国の"
-  },
-  {
-    "word": "low",
-    "meaning": "低い"
-  },
-  {
-    "word": "safe",
-    "meaning": "安全な"
-  },
-  {
-    "word": "angry",
-    "meaning": "怒った"
-  },
-  {
-    "word": "lucky",
-    "meaning": "幸運な"
-  },
-  {
-    "word": "bright",
-    "meaning": "輝いて"
-  },
-  {
-    "word": "soft",
-    "meaning": "柔らかい"
-  },
-  {
-    "word": "loud",
-    "meaning": "（音が）大きい"
-  },
-  {
-    "word": "even",
-    "meaning": "〜でさえ"
-  },
-  {
-    "word": "back",
-    "meaning": "戻って"
-  },
-  {
-    "word": "still",
-    "meaning": "まだ，なお"
-  },
-  {
-    "word": "early",
-    "meaning": "早く"
-  },
-  {
-    "word": "soon",
-    "meaning": "すぐに，まもなく"
-  },
-  {
-    "word": "away",
-    "meaning": "離れて"
-  },
-  {
-    "word": "almost",
-    "meaning": "ほとんど，ほぼ"
-  },
-  {
-    "word": "together",
-    "meaning": "一緒に"
-  },
-  {
-    "word": "maybe",
-    "meaning": "もしかすると"
-  },
-  {
-    "word": "once",
-    "meaning": "１度"
-  },
-  {
-    "word": "else",
-    "meaning": "ほかに"
-  },
-  {
-    "word": "ago",
-    "meaning": "〜前に"
-  },
-  {
-    "word": "straight",
-    "meaning": "まっすぐに"
-  },
-  {
-    "word": "slowly",
-    "meaning": "ゆっくりと"
-  },
-  {
-    "word": "suddenly",
-    "meaning": "突然，急に"
-  },
-  {
-    "word": "until",
-    "meaning": "…するまで"
-  },
-  {
-    "word": "since",
-    "meaning": "…したときから"
-  },
-  {
-    "word": "around",
-    "meaning": "〜のあちこちを"
-  },
-  {
-    "word": "over",
-    "meaning": "〜を超えて"
-  },
-  {
-    "word": "without",
-    "meaning": "〜なしに"
-  },
-  {
-    "word": "through",
-    "meaning": "〜の間じゅう"
-  },
-  {
-    "word": "between",
-    "meaning": "〜の間に (b-)"
-  },
-  {
-    "word": "during",
-    "meaning": "〜の間に (d-)"
-  },
-  {
-    "word": "behind",
-    "meaning": "〜の後ろに"
-  },
-  {
-    "word": "along",
-    "meaning": "〜に沿って"
-  },
-  {
-    "word": "come from",
-    "meaning": "〜から来ている"
-  },
-  {
-    "word": "come true",
-    "meaning": "実現する"
-  },
-  {
-    "word": "cut off",
-    "meaning": "〜を切り取る"
-  },
-  {
-    "word": "do one’s best",
-    "meaning": "全力を尽くす"
-  },
-  {
-    "word": "get off",
-    "meaning": "〜を降りる"
-  },
-  {
-    "word": "get on",
-    "meaning": "〜に乗る"
-  },
-  {
-    "word": "get to",
-    "meaning": "〜に到着する"
-  },
-  {
-    "word": "go through",
-    "meaning": "〜を経験する"
-  },
-  {
-    "word": "grow up",
-    "meaning": "成長する，大人になる"
-  },
-  {
-    "word": "hear of",
-    "meaning": "〜のことを聞く"
-  },
-  {
-    "word": "help oneself to",
-    "meaning": "〜を自由にとって食べる［飲む］"
-  },
-  {
-    "word": "look for",
-    "meaning": "〜を探す"
-  },
-  {
-    "word": "look forward to",
-    "meaning": "〜を楽しみに待つ"
-  },
-  {
-    "word": "look like",
-    "meaning": "〜に似ている"
-  },
-  {
-    "word": "pick up",
-    "meaning": "〜を拾い上げる"
-  },
-  {
-    "word": "speak to / speak with",
-    "meaning": "〜と話す"
-  },
-  {
-    "word": "take care of",
-    "meaning": "〜の世話をする"
-  },
-  {
-    "word": "take off",
-    "meaning": "〜を脱ぐ"
-  },
-  {
-    "word": "take part in",
-    "meaning": "〜に参加する"
-  },
-  {
-    "word": "think of",
-    "meaning": "〜を思いつく"
-  },
-  {
-    "word": "after school",
-    "meaning": "放課後に"
-  },
-  {
-    "word": "all over",
-    "meaning": "〜の至る所に"
-  },
-  {
-    "word": "all the time",
-    "meaning": "いつも"
-  },
-  {
-    "word": "at first",
-    "meaning": "最初は，初めのうちは"
-  },
-  {
-    "word": "at home",
-    "meaning": "在宅して"
-  },
-  {
-    "word": "at last",
-    "meaning": "ついに，やっと"
-  },
-  {
-    "word": "at that time",
-    "meaning": "その時に，当時"
-  },
-  {
-    "word": "at the same time",
-    "meaning": "同時に"
-  },
-  {
-    "word": "for a long time",
-    "meaning": "長い間"
-  },
-  {
-    "word": "for the first time",
-    "meaning": "初めて"
-  },
-  {
-    "word": "in the end",
-    "meaning": "結局"
-  },
-  {
-    "word": "in the future",
-    "meaning": "将来"
-  },
-  {
-    "word": "in this way",
-    "meaning": "このようにして"
-  },
-  {
-    "word": "more than",
-    "meaning": "〜より多い"
-  },
-  {
-    "word": "of course",
-    "meaning": "もちろん"
-  },
-  {
-    "word": "on one’s way to",
-    "meaning": "〜に行く途中で"
-  },
-  {
-    "word": "over there",
-    "meaning": "あそこに，あそこで"
-  },
-  {
-    "word": "these days",
-    "meaning": "近ごろ"
-  },
-  {
-    "word": "a kind of",
-    "meaning": "一種の"
-  },
-  {
-    "word": "a lot of / lots of",
-    "meaning": "たくさんの"
-  },
-  {
-    "word": "A such as B",
-    "meaning": "BのようなA"
-  },
-  {
-    "word": "and so on",
-    "meaning": "など"
-  },
-  {
-    "word": "here is [are]",
-    "meaning": "これが〜です"
-  },
-  {
-    "word": "How about ~ ?",
-    "meaning": "〜（して）はいかがですか？"
-  },
-  {
-    "word": "no longer",
-    "meaning": "もはや〜ない"
-  },
-  {
-    "word": "not only A but (also) B",
-    "meaning": "AだけでなくBも"
-  },
-  {
-    "word": "so ~ that …",
-    "meaning": "とても〜なので…"
-  },
-  {
-    "word": "too ~ to",
-    "meaning": "あまりに〜なので…できない"
-  },
-  {
-    "word": "used to",
-    "meaning": "以前はよく…した"
-  },
-  {
-    "word": "would like to",
-    "meaning": "…したいと思う"
-  },
-  {
-    "word": "create",
-    "meaning": "創造する"
-  },
-  {
-    "word": "base",
-    "meaning": "基礎を置く"
-  },
-  {
-    "word": "repair",
-    "meaning": "修理する，修復する"
-  },
-  {
-    "word": "fail",
-    "meaning": "失敗する"
-  },
-  {
-    "word": "accept",
-    "meaning": "受け入れる"
-  },
-  {
-    "word": "belong",
-    "meaning": "属する"
-  },
-  {
-    "word": "exchange",
-    "meaning": "交換する"
-  },
-  {
-    "word": "complete",
-    "meaning": "完成させる"
-  },
-  {
-    "word": "treat",
-    "meaning": "扱う"
-  },
-  {
-    "word": "cross",
-    "meaning": "横切る"
-  },
-  {
-    "word": "hide",
-    "meaning": "隠す"
-  },
-  {
-    "word": "shake",
-    "meaning": "振る"
-  },
-  {
-    "word": "challenge",
-    "meaning": "挑戦する"
-  },
-  {
-    "word": "connect",
-    "meaning": "つなぐ"
-  },
-  {
-    "word": "reply",
-    "meaning": "返事をする"
-  },
-  {
-    "word": "beat",
-    "meaning": "打ち負かす"
-  },
-  {
-    "word": "share",
-    "meaning": "分かち合う"
-  },
-  {
-    "word": "observe",
-    "meaning": "観察する"
-  },
-  {
-    "word": "mark",
-    "meaning": "しるしをつける"
-  },
-  {
-    "word": "burn",
-    "meaning": "焦がす，焦げる"
-  },
-  {
-    "word": "locate",
-    "meaning": "位置している"
-  },
-  {
-    "word": "fix",
-    "meaning": "修理する，固定する"
-  },
-  {
-    "word": "suit",
-    "meaning": "に最適である"
-  },
-  {
-    "word": "destroy",
-    "meaning": "破壊する"
-  },
-  {
-    "word": "control",
-    "meaning": "抑制する，制御する"
-  },
-  {
-    "word": "respond",
-    "meaning": "返答する"
-  },
-  {
-    "word": "depend",
-    "meaning": "当てにする"
-  },
-  {
-    "word": "forgive",
-    "meaning": "許す"
-  },
-  {
-    "word": "attack",
-    "meaning": "襲う"
-  },
-  {
-    "word": "sink",
-    "meaning": "沈む"
-  },
-  {
-    "word": "appreciate",
-    "meaning": "感謝する"
-  },
-  {
-    "word": "feed",
-    "meaning": "に食べ物を与える"
-  },
-  {
-    "word": "success",
-    "meaning": "成功"
-  },
-  {
-    "word": "mystery",
-    "meaning": "謎，未知のこと"
-  },
-  {
-    "word": "ceremony",
-    "meaning": "式典，儀式"
-  },
-  {
-    "word": "schedule",
-    "meaning": "予定，予定表"
-  },
-  {
-    "word": "damage",
-    "meaning": "損害，悪影響"
-  },
-  {
-    "word": "model",
-    "meaning": "型，模型"
-  },
-  {
-    "word": "search",
-    "meaning": "捜索"
-  },
-  {
-    "word": "project",
-    "meaning": "計画，事業"
-  },
-  {
-    "word": "form",
-    "meaning": "形態"
-  },
-  {
-    "word": "scene",
-    "meaning": "場面"
-  },
-  {
-    "word": "accident",
-    "meaning": "事故"
-  },
-  {
-    "word": "contact",
-    "meaning": "連絡"
-  },
-  {
-    "word": "image",
-    "meaning": "イメージ"
-  },
-  {
-    "word": "trust",
-    "meaning": "信頼，信用"
-  },
-  {
-    "word": "quality",
-    "meaning": "質，品質"
-  },
-  {
-    "word": "action",
-    "meaning": "行動"
-  },
-  {
-    "word": "lack",
-    "meaning": "不足，ないこと"
-  },
-  {
-    "word": "spot",
-    "meaning": "場所"
-  },
-  {
-    "word": "truth",
-    "meaning": "真実，本当のこと"
-  },
-  {
-    "word": "effort",
-    "meaning": "努力"
-  },
-  {
-    "word": "type",
-    "meaning": "型，タイプ"
-  },
-  {
-    "word": "site",
-    "meaning": "敷地，土地"
-  },
-  {
-    "word": "tool",
-    "meaning": "手段，道具"
-  },
-  {
-    "word": "couple",
-    "meaning": "２つ，２人"
-  },
-  {
-    "word": "hero",
-    "meaning": "ヒーロー，英雄"
-  },
-  {
-    "word": "courage",
-    "meaning": "勇気"
-  },
-  {
-    "word": "board",
-    "meaning": "板，掲示板"
-  },
-  {
-    "word": "purpose",
-    "meaning": "目的，意図"
-  },
-  {
-    "word": "waste",
-    "meaning": "無駄，浪費"
-  },
-  {
-    "word": "shape",
-    "meaning": "形"
-  },
-  {
-    "word": "technique",
-    "meaning": "技能，技術"
-  },
-  {
-    "word": "middle",
-    "meaning": "真ん中，中央"
-  },
-  {
-    "word": "spirit",
-    "meaning": "精神，心"
-  },
-  {
-    "word": "partner",
-    "meaning": "パートナー"
-  },
-  {
-    "word": "population",
-    "meaning": "人口"
-  },
-  {
-    "word": "fever",
-    "meaning": "熱，発熱"
-  },
-  {
-    "word": "method",
-    "meaning": "方法"
-  },
-  {
-    "word": "structure",
-    "meaning": "構造"
-  },
-  {
-    "word": "background",
-    "meaning": "経歴，生い立ち"
-  },
-  {
-    "word": "combination",
-    "meaning": "組み合わせ"
-  },
-  {
-    "word": "official",
-    "meaning": "公式の"
-  },
-  {
-    "word": "flat",
-    "meaning": "平らな"
-  },
-  {
-    "word": "serious",
-    "meaning": "深刻な"
-  },
-  {
-    "word": "ordinary",
-    "meaning": "普通の"
-  },
-  {
-    "word": "private",
-    "meaning": "私的な，個人的な"
-  },
-  {
-    "word": "major",
-    "meaning": "重大な"
-  },
-  {
-    "word": "classical",
-    "meaning": "クラシックの"
-  },
-  {
-    "word": "honest",
-    "meaning": "正直な"
-  },
-  {
-    "word": "excellent",
-    "meaning": "とても優れた"
-  },
-  {
-    "word": "whole",
-    "meaning": "全体の"
-  },
-  {
-    "word": "central",
-    "meaning": "中心の"
-  },
-  {
-    "word": "ancient",
-    "meaning": "古代の"
-  },
-  {
-    "word": "fantastic",
-    "meaning": "とてもすばらしい"
-  },
-  {
-    "word": "regular",
-    "meaning": "定期的な"
-  },
-  {
-    "word": "basic",
-    "meaning": "基本的な，初歩的な"
-  },
-  {
-    "word": "huge",
-    "meaning": "巨大な"
-  },
-  {
-    "word": "empty",
-    "meaning": "空の，空いている"
-  },
-  {
-    "word": "smart",
-    "meaning": "頭のよい，賢い"
-  },
-  {
-    "word": "general",
-    "meaning": "大まかな，一般的な"
-  },
-  {
-    "word": "single",
-    "meaning": "たった１つの"
-  },
-  {
-    "word": "responsible",
-    "meaning": "責任のある"
-  },
-  {
-    "word": "fresh",
-    "meaning": "新鮮な"
-  },
-  {
-    "word": "familiar",
-    "meaning": "熟知している"
-  },
-  {
-    "word": "native",
-    "meaning": "出生地の，母国の"
-  },
-  {
-    "word": "instant",
-    "meaning": "即席の"
-  },
-  {
-    "word": "lovely",
-    "meaning": "すてきな"
-  },
-  {
-    "word": "clear",
-    "meaning": "明白な"
-  },
-  {
-    "word": "convenient",
-    "meaning": "都合のよい，便利な"
-  },
-  {
-    "word": "crazy",
-    "meaning": "夢中で，頭の狂った"
-  },
-  {
-    "word": "funny",
-    "meaning": "おかしい"
-  },
-  {
-    "word": "secret",
-    "meaning": "秘密の"
-  },
-  {
-    "word": "remote",
-    "meaning": "（遠く）離れた"
-  },
-  {
-    "word": "wake",
-    "meaning": "目を覚ます"
-  },
-  {
-    "word": "release",
-    "meaning": "解放する"
-  },
-  {
-    "word": "establish",
-    "meaning": "設立する"
-  },
-  {
-    "word": "examine",
-    "meaning": "調べる"
-  },
-  {
-    "word": "celebrate",
-    "meaning": "祝う"
-  },
-  {
-    "word": "float",
-    "meaning": "漂う，浮く"
-  },
-  {
-    "word": "recommend",
-    "meaning": "推薦する"
-  },
-  {
-    "word": "supply",
-    "meaning": "供給する"
-  },
-  {
-    "word": "disappear",
-    "meaning": "見えなくなる"
-  },
-  {
-    "word": "apologize",
-    "meaning": "謝る"
-  },
-  {
-    "word": "paint",
-    "meaning": "塗る"
-  },
-  {
-    "word": "pull",
-    "meaning": "引く，引っ張る"
-  },
-  {
-    "word": "print",
-    "meaning": "印刷する"
-  },
-  {
-    "word": "lift",
-    "meaning": "持ち上げる"
-  },
-  {
-    "word": "separate",
-    "meaning": "分ける"
-  },
-  {
-    "word": "melt",
-    "meaning": "溶かす，溶ける"
-  },
-  {
-    "word": "strike",
-    "meaning": "強く打つ"
-  },
-  {
-    "word": "blow",
-    "meaning": "吹き飛ばす"
-  },
-  {
-    "word": "let",
-    "meaning": "させてやる"
-  },
-  {
-    "word": "roll",
-    "meaning": "転がる，転がす"
-  },
-  {
-    "word": "recover",
-    "meaning": "回復する"
-  },
-  {
-    "word": "surround",
-    "meaning": "囲む，取り囲む"
-  },
-  {
-    "word": "doubt",
-    "meaning": "疑う"
-  },
-  {
-    "word": "display",
-    "meaning": "展示する，陳列する"
-  },
-  {
-    "word": "announce",
-    "meaning": "発表する"
-  },
-  {
-    "word": "support",
-    "meaning": "支持する"
-  },
-  {
-    "word": "act",
-    "meaning": "行動する"
-  },
-  {
-    "word": "repeat",
-    "meaning": "繰り返す"
-  },
-  {
-    "word": "count",
-    "meaning": "数える"
-  },
-  {
-    "word": "compare",
-    "meaning": "比べる"
-  },
-  {
-    "word": "shine",
-    "meaning": "輝く"
-  },
-  {
-    "word": "replace",
-    "meaning": "に取って代わる"
-  },
-  {
-    "word": "reality",
-    "meaning": "現実"
-  },
-  {
-    "word": "strength",
-    "meaning": "力，強さ"
-  },
-  {
-    "word": "era",
-    "meaning": "時代"
-  },
-  {
-    "word": "area",
-    "meaning": "地域，区域"
-  },
-  {
-    "word": "respect",
-    "meaning": "尊敬"
-  },
-  {
-    "word": "pressure",
-    "meaning": "重圧"
-  },
-  {
-    "word": "pleasure",
-    "meaning": "喜び，楽しみ"
-  },
-  {
-    "word": "favor",
-    "meaning": "親切な行為"
-  },
-  {
-    "word": "statue",
-    "meaning": "像"
-  },
-  {
-    "word": "limit",
-    "meaning": "限度，限界"
-  },
-  {
-    "word": "bottom",
-    "meaning": "下部，底"
-  },
-  {
-    "word": "position",
-    "meaning": "立場"
-  },
-  {
-    "word": "memory",
-    "meaning": "記憶，記憶力"
-  },
-  {
-    "word": "level",
-    "meaning": "水準，レベル"
-  },
-  {
-    "word": "figure",
-    "meaning": "数，数値"
-  },
-  {
-    "word": "direction",
-    "meaning": "方向"
-  },
-  {
-    "word": "bit",
-    "meaning": "少し，少量"
-  },
-  {
-    "word": "contrast",
-    "meaning": "対比，差異"
-  },
-  {
-    "word": "religion",
-    "meaning": "宗教"
-  },
-  {
-    "word": "harmony",
-    "meaning": "調和，一致"
-  },
-  {
-    "word": "pattern",
-    "meaning": "模様，図柄"
-  },
-  {
-    "word": "stage",
-    "meaning": "段階"
-  },
-  {
-    "word": "degree",
-    "meaning": "程度"
-  },
-  {
-    "word": "emergency",
-    "meaning": "緊急"
-  },
-  {
-    "word": "origin",
-    "meaning": "起源"
-  },
-  {
-    "word": "battle",
-    "meaning": "戦闘"
-  },
-  {
-    "word": "enemy",
-    "meaning": "敵"
-  },
-  {
-    "word": "note",
-    "meaning": "メモ"
-  },
-  {
-    "word": "countryside",
-    "meaning": "田舎"
-  },
-  {
-    "word": "contest",
-    "meaning": "競技会，コンテスト"
-  },
-  {
-    "word": "sort",
-    "meaning": "種類"
-  },
-  {
-    "word": "depth",
-    "meaning": "深さ"
-  },
-  {
-    "word": "top",
-    "meaning": "最高部，頂上"
-  },
-  {
-    "word": "theme",
-    "meaning": "テーマ，主題"
-  },
-  {
-    "word": "sentence",
-    "meaning": "文"
-  },
-  {
-    "word": "cycle",
-    "meaning": "周期"
-  },
-  {
-    "word": "concept",
-    "meaning": "概念"
-  },
-  {
-    "word": "rhythm",
-    "meaning": "リズム"
-  },
-  {
-    "word": "tradition",
-    "meaning": "伝統"
-  },
-  {
-    "word": "theory",
-    "meaning": "理論，説"
-  },
-  {
-    "word": "correct",
-    "meaning": "正しい"
-  },
-  {
-    "word": "blank",
-    "meaning": "白紙の，空白の"
-  },
-  {
-    "word": "quiet",
-    "meaning": "静かな"
-  },
-  {
-    "word": "smooth",
-    "meaning": "滑らかな，すべすべした"
-  },
-  {
-    "word": "wet",
-    "meaning": "濡れた，湿った"
-  },
-  {
-    "word": "chief",
-    "meaning": "最高の，最高位の"
-  },
-  {
-    "word": "raw",
-    "meaning": "生の"
-  },
-  {
-    "word": "personal",
-    "meaning": "個人の，個人的な"
-  },
-  {
-    "word": "double",
-    "meaning": "２倍の"
-  },
-  {
-    "word": "dirty",
-    "meaning": "汚れた"
-  },
-  {
-    "word": "normal",
-    "meaning": "普通の"
-  },
-  {
-    "word": "full",
-    "meaning": "いっぱいの"
-  },
-  {
-    "word": "simple",
-    "meaning": "簡単な"
-  },
-  {
-    "word": "equal",
-    "meaning": "等しい，同等の"
-  },
-  {
-    "word": "quick",
-    "meaning": "短時間の，すばやい"
-  },
-  {
-    "word": "rapid",
-    "meaning": "急速な，急激な"
-  },
-  {
-    "word": "ideal",
-    "meaning": "理想的な"
-  },
-  {
-    "word": "rough",
-    "meaning": "大まかな，粗い"
-  },
-  {
-    "word": "silent",
-    "meaning": "無言の，静かな"
-  },
-  {
-    "word": "violent",
-    "meaning": "暴力的な"
-  },
-  {
-    "word": "rich",
-    "meaning": "豊富の，金持ちの"
-  },
-  {
-    "word": "perfect",
-    "meaning": "完全な，完璧な"
-  },
-  {
-    "word": "weak",
-    "meaning": "弱い，弱った"
-  },
-  {
-    "word": "upper",
-    "meaning": "上の方の，高い方の"
-  },
-  {
-    "word": "inner",
-    "meaning": "内部の，中心部の"
-  },
-  {
-    "word": "awful",
-    "meaning": "ひどい"
-  },
-  {
-    "word": "false",
-    "meaning": "間違った"
-  },
-  {
-    "word": "vivid",
-    "meaning": "鮮やかな"
-  },
-  {
-    "word": "pure",
-    "meaning": "純粋な"
-  },
-  {
-    "word": "minor",
-    "meaning": "重要でない，小さい方の"
-  },
-  {
-    "word": "mild",
-    "meaning": "（天候が）穏やかな"
-  },
-  {
-    "word": "admire",
-    "meaning": "賞賛する，感嘆する"
-  },
-  {
-    "word": "drop",
-    "meaning": "落とす"
-  },
-  {
-    "word": "reflect",
-    "meaning": "映し出す，反射する"
-  },
-  {
-    "word": "dig",
-    "meaning": "掘る"
-  },
-  {
-    "word": "beg",
-    "meaning": "懇願する"
-  },
-  {
-    "word": "freeze",
-    "meaning": "凍る"
-  },
-  {
-    "word": "adopt",
-    "meaning": "採用する"
-  },
-  {
-    "word": "measure",
-    "meaning": "測る"
-  },
-  {
-    "word": "flow",
-    "meaning": "流れる"
-  },
-  {
-    "word": "fulfill",
-    "meaning": "実現させる"
-  },
-  {
-    "word": "deliver",
-    "meaning": "配達する"
-  },
-  {
-    "word": "wrap",
-    "meaning": "包む"
-  },
-  {
-    "word": "knock",
-    "meaning": "ノックする"
-  },
-  {
-    "word": "spell",
-    "meaning": "つづる"
-  },
-  {
-    "word": "rush",
-    "meaning": "急いで行く"
-  },
-  {
-    "word": "pray",
-    "meaning": "祈る"
-  },
-  {
-    "word": "reject",
-    "meaning": "拒絶する"
-  },
-  {
-    "word": "protest",
-    "meaning": "抗議する"
-  },
-  {
-    "word": "handle",
-    "meaning": "扱う，処理する"
-  },
-  {
-    "word": "disturb",
-    "meaning": "邪魔する"
-  },
-  {
-    "word": "gather",
-    "meaning": "集める"
-  },
-  {
-    "word": "copy",
-    "meaning": "写しをとる"
-  },
-  {
-    "word": "press",
-    "meaning": "押す"
-  },
-  {
-    "word": "consist",
-    "meaning": "成り立つ"
-  },
-  {
-    "word": "assist",
-    "meaning": "手助けする"
-  },
-  {
-    "word": "kick",
-    "meaning": "蹴る"
-  },
-  {
-    "word": "link",
-    "meaning": "結びつける，関連づける"
-  },
-  {
-    "word": "adjust",
-    "meaning": "順応する，適応する"
-  },
-  {
-    "word": "defend",
-    "meaning": "守る"
-  },
-  {
-    "word": "shut",
-    "meaning": "閉める，閉じる"
-  },
-  {
-    "word": "bear",
-    "meaning": "耐える"
-  },
-  {
-    "word": "task",
-    "meaning": "仕事"
-  },
-  {
-    "word": "hug",
-    "meaning": "抱擁，ハグ"
-  },
-  {
-    "word": "clue",
-    "meaning": "手がかり"
-  },
-  {
-    "word": "percent",
-    "meaning": "パーセント"
-  },
-  {
-    "word": "dozen",
-    "meaning": "１ダース"
-  },
-  {
-    "word": "ghost",
-    "meaning": "幽霊"
-  },
-  {
-    "word": "error",
-    "meaning": "誤り"
-  },
-  {
-    "word": "trend",
-    "meaning": "流行，トレンド"
-  },
-  {
-    "word": "thought",
-    "meaning": "考え"
-  },
-  {
-    "word": "alarm",
-    "meaning": "警報"
-  },
-  {
-    "word": "sample",
-    "meaning": "見本，試供品"
-  },
-  {
-    "word": "shadow",
-    "meaning": "影，陰"
-  },
-  {
-    "word": "shade",
-    "meaning": "陰，日陰"
-  },
-  {
-    "word": "standard",
-    "meaning": "基準，標準"
-  },
-  {
-    "word": "hunger",
-    "meaning": "飢え，空腹"
-  },
-  {
-    "word": "appeal",
-    "meaning": "訴え，要求"
-  },
-  {
-    "word": "harm",
-    "meaning": "害，危害"
-  },
-  {
-    "word": "pile",
-    "meaning": "積み重ね"
-  },
-  {
-    "word": "plenty",
-    "meaning": "たくさん"
-  },
-  {
-    "word": "edge",
-    "meaning": "端，縁"
-  },
-  {
-    "word": "poison",
-    "meaning": "毒"
-  },
-  {
-    "word": "scale",
-    "meaning": "規模，目盛り"
-  },
-  {
-    "word": "section",
-    "meaning": "節，区分"
-  },
-  {
-    "word": "attempt",
-    "meaning": "試み"
-  },
-  {
-    "word": "merit",
-    "meaning": "長所，利点"
-  },
-  {
-    "word": "trick",
-    "meaning": "いたずら"
-  },
-  {
-    "word": "second",
-    "meaning": "少しの間，秒"
-  },
-  {
-    "word": "medium",
-    "meaning": "媒体，手段"
-  },
-  {
-    "word": "unit",
-    "meaning": "単位"
-  },
-  {
-    "word": "ambition",
-    "meaning": "願望，野心"
-  },
-  {
-    "word": "midnight",
-    "meaning": "夜の１２時"
-  },
-  {
-    "word": "power",
-    "meaning": "力"
-  },
-  {
-    "word": "principle",
-    "meaning": "信条"
-  },
-  {
-    "word": "vision",
-    "meaning": "展望"
-  },
-  {
-    "word": "quarter",
-    "meaning": "4分の1"
-  },
-  {
-    "word": "luck",
-    "meaning": "運，幸運"
-  },
-  {
-    "word": "quantity",
-    "meaning": "分量，数量"
-  },
-  {
-    "word": "fault",
-    "meaning": "責任，罪"
-  },
-  {
-    "word": "somehow",
-    "meaning": "何とかして"
-  },
-  {
-    "word": "forever",
-    "meaning": "永遠に"
-  },
-  {
-    "word": "mostly",
-    "meaning": "主に，たいてい"
-  },
-  {
-    "word": "forward",
-    "meaning": "前へ，先に"
-  },
-  {
-    "word": "nowadays",
-    "meaning": "近ごろ，最近では"
-  },
-  {
-    "word": "ahead",
-    "meaning": "前方に"
-  },
-  {
-    "word": "apart",
-    "meaning": "離れて"
-  },
-  {
-    "word": "altogether",
-    "meaning": "まったく，完全に"
-  },
-  {
-    "word": "throughout",
-    "meaning": "〜の間じゅう"
-  },
-  {
-    "word": "beyond",
-    "meaning": "〜の向こうに"
-  },
-  {
-    "word": "toward",
-    "meaning": "〜の方向へ"
-  },
-  {
-    "word": "within",
-    "meaning": "〜以内に"
-  },
-  {
-    "word": "above",
-    "meaning": "〜の上方に"
-  },
-  {
-    "word": "below",
-    "meaning": "〜より下に"
-  },
-  {
-    "word": "per",
-    "meaning": "〜につき"
-  },
-  {
-    "word": "except",
-    "meaning": "〜を除いて"
-  },
-  {
-    "word": "beside",
-    "meaning": "〜のそばに"
-  },
-  {
-    "word": "unlike",
-    "meaning": "〜と違って"
-  },
-  {
-    "word": "outside",
-    "meaning": "〜の外に"
-  },
-  {
-    "word": "inside",
-    "meaning": "〜の中に"
-  },
-  {
-    "word": "against",
-    "meaning": "〜に反対して"
-  },
-  {
-    "word": "beneath",
-    "meaning": "〜の下に"
-  },
-  {
-    "word": "plus",
-    "meaning": "〜を加えて"
-  },
-  {
-    "word": "across",
-    "meaning": "〜を横切って"
-  },
-  {
-    "word": "bring back",
-    "meaning": "〜を返す"
-  },
-  {
-    "word": "carry out",
-    "meaning": "〜を実行する"
-  },
-  {
-    "word": "date back to",
-    "meaning": "〜にさかのぼる"
-  },
-  {
-    "word": "find out",
-    "meaning": "知る"
-  },
-  {
-    "word": "get together",
-    "meaning": "集まる"
-  },
-  {
-    "word": "give off",
-    "meaning": "〜を発する"
-  },
-  {
-    "word": "hand in",
-    "meaning": "〜を提出する"
-  },
-  {
-    "word": "hang up",
-    "meaning": "電話を切る"
-  },
-  {
-    "word": "hold up",
-    "meaning": "〜を支えている"
-  },
-  {
-    "word": "live on",
-    "meaning": "〜で暮らしを立てる"
-  },
-  {
-    "word": "look after",
-    "meaning": "〜の世話をする"
-  },
-  {
-    "word": "look out",
-    "meaning": "注意する"
-  },
-  {
-    "word": "look up",
-    "meaning": "〜を調べる"
-  },
-  {
-    "word": "major in",
-    "meaning": "〜を専攻する"
-  },
-  {
-    "word": "name after",
-    "meaning": "〜にちなんで名付ける"
-  },
-  {
-    "word": "put down",
-    "meaning": "〜を書き留める"
-  },
-  {
-    "word": "see off",
-    "meaning": "〜を見送る"
-  },
-  {
-    "word": "take a look",
-    "meaning": "ちょっと見る"
-  },
-  {
-    "word": "take away",
-    "meaning": "〜を片付ける"
-  },
-  {
-    "word": "take one’s time",
-    "meaning": "…するのに時間をかける"
-  },
-  {
-    "word": "think of A as B",
-    "meaning": "AをBと見なす"
-  },
-  {
-    "word": "be about to",
-    "meaning": "…しようとしている"
-  },
-  {
-    "word": "be born into",
-    "meaning": "〜の家庭に生まれる"
-  },
-  {
-    "word": "be faced with",
-    "meaning": "〜に直面している"
-  },
-  {
-    "word": "be good at",
-    "meaning": "〜が上手だ"
-  },
-  {
-    "word": "be in need of",
-    "meaning": "〜を必要としている"
-  },
-  {
-    "word": "be made of [from]",
-    "meaning": "〜でできている"
-  },
-  {
-    "word": "be short of",
-    "meaning": "〜が足りない"
-  },
-  {
-    "word": "be up to",
-    "meaning": "〜次第である"
-  },
-  {
-    "word": "be worried about",
-    "meaning": "〜のことを心配している"
-  },
-  {
-    "word": "by oneself",
-    "meaning": "ひとりで，独力で"
-  },
-  {
-    "word": "on one’s own",
-    "meaning": "たったひとりで"
-  },
-  {
-    "word": "above all",
-    "meaning": "とりわけ"
-  },
-  {
-    "word": "across from",
-    "meaning": "〜の向かい側に"
-  },
-  {
-    "word": "after all",
-    "meaning": "結局は，やはり"
-  },
-  {
-    "word": "at a time",
-    "meaning": "１度に"
-  },
-  {
-    "word": "by accident",
-    "meaning": "偶然"
-  },
-  {
-    "word": "by mistake",
-    "meaning": "間違って"
-  },
-  {
-    "word": "day after day",
-    "meaning": "来る日も来る日も"
-  },
-  {
-    "word": "for free",
-    "meaning": "無料で"
-  },
-  {
-    "word": "from on",
-    "meaning": "〜以降"
-  },
-  {
-    "word": "from time to time",
-    "meaning": "時々"
-  },
-  {
-    "word": "in a hurry",
-    "meaning": "急いで"
-  },
-  {
-    "word": "in favor of",
-    "meaning": "〜に賛成して"
-  },
-  {
-    "word": "in order to",
-    "meaning": "…するために"
-  },
-  {
-    "word": "in the past",
-    "meaning": "昔は，過去に"
-  },
-  {
-    "word": "in those days",
-    "meaning": "その当時は"
-  },
-  {
-    "word": "on purpose",
-    "meaning": "故意に，わざと"
-  },
-  {
-    "word": "over and over",
-    "meaning": "何度も"
-  },
-  {
-    "word": "upside down",
-    "meaning": "逆さまに"
-  },
-  {
-    "word": "a large number of",
-    "meaning": "たくさんの"
-  },
-  {
-    "word": "a series of",
-    "meaning": "一連の，一続きの"
-  },
-  {
-    "word": "as long as",
-    "meaning": "…である限り"
-  },
-  {
-    "word": "as soon as",
-    "meaning": "…するとすぐに"
-  },
-  {
-    "word": "had better",
-    "meaning": "…するべきだ"
-  },
-  {
-    "word": "more and more",
-    "meaning": "ますます多くの"
-  },
-  {
-    "word": "not at all",
-    "meaning": "まったく〜ではない"
-  },
-  {
-    "word": "not A but B",
-    "meaning": "AではなくてB"
-  },
-  {
-    "word": "the first time",
-    "meaning": "初めて…したとき"
-  },
-  {
-    "word": "when it comes to",
-    "meaning": "〜のこととなると"
-  },
-  {
-    "word": "parent",
-    "meaning": "親"
-  },
-  {
-    "word": "husband",
-    "meaning": "夫"
-  },
-  {
-    "word": "wife",
-    "meaning": "妻"
-  },
-  {
-    "word": "kid",
-    "meaning": "子供"
-  },
-  {
-    "word": "twin",
-    "meaning": "双子（の１人）"
-  },
-  {
-    "word": "relative",
-    "meaning": "親戚"
-  },
-  {
-    "word": "cousin",
-    "meaning": "いとこ"
-  },
-  {
-    "word": "ancestor",
-    "meaning": "先祖"
-  },
-  {
-    "word": "job",
-    "meaning": "仕事"
-  },
-  {
-    "word": "work",
-    "meaning": "仕事"
-  },
-  {
-    "word": "occupation",
-    "meaning": "職業"
-  },
-  {
-    "word": "career",
-    "meaning": "職業"
-  },
-  {
-    "word": "businesss",
-    "meaning": "仕事，商売"
-  },
-  {
-    "word": "interview",
-    "meaning": "面接"
-  },
-  {
-    "word": "hire",
-    "meaning": "雇う"
-  },
-  {
-    "word": "retire",
-    "meaning": "退職する，引退する"
-  },
-  {
-    "word": "clerk",
-    "meaning": "店員"
-  },
-  {
-    "word": "officer",
-    "meaning": "警官"
-  },
-  {
-    "word": "engineer",
-    "meaning": "技師，技術者"
-  },
-  {
-    "word": "artist",
-    "meaning": "芸術家"
-  },
-  {
-    "word": "director",
-    "meaning": "監督"
-  },
-  {
-    "word": "actor",
-    "meaning": "俳優"
-  },
-  {
-    "word": "nurse",
-    "meaning": "看護師"
-  },
-  {
-    "word": "secretary",
-    "meaning": "秘書"
-  },
-  {
-    "word": "agent",
-    "meaning": "代行業者"
-  },
-  {
-    "word": "civil",
-    "meaning": "民間の"
-  },
-  {
-    "word": "mayor",
-    "meaning": "市長"
-  },
-  {
-    "word": "chairperson",
-    "meaning": "議長，委員長"
-  },
-  {
-    "word": "professor",
-    "meaning": "教授"
-  },
-  {
-    "word": "principal",
-    "meaning": "校長"
-  },
-  {
-    "word": "expert",
-    "meaning": "専門家"
-  },
-  {
-    "word": "leader",
-    "meaning": "指導者，リーダー"
-  },
-  {
-    "word": "queen",
-    "meaning": "女王"
-  },
-  {
-    "word": "prince",
-    "meaning": "王子"
-  },
-  {
-    "word": "royal",
-    "meaning": "国王の"
-  },
-  {
-    "word": "slave",
-    "meaning": "奴隷"
-  },
-  {
-    "word": "hall",
-    "meaning": "会館，ホール"
-  },
-  {
-    "word": "office",
-    "meaning": "事務所，会社"
-  },
-  {
-    "word": "bank",
-    "meaning": "銀行"
-  },
-  {
-    "word": "apartment",
-    "meaning": "アパート"
-  },
-  {
-    "word": "library",
-    "meaning": "図書館"
-  },
-  {
-    "word": "gym",
-    "meaning": "体育館，ジム"
-  },
-  {
-    "word": "museum",
-    "meaning": "博物館，美術館"
-  },
-  {
-    "word": "theater",
-    "meaning": "劇場"
-  },
-  {
-    "word": "studio",
-    "meaning": "スタジオ，（映画）撮影所"
-  },
-  {
-    "word": "stadium",
-    "meaning": "競技場，スタジアム"
-  },
-  {
-    "word": "temple",
-    "meaning": "寺院"
-  },
-  {
-    "word": "shrine",
-    "meaning": "聖堂，神社"
-  },
-  {
-    "word": "castle",
-    "meaning": "城"
-  },
-  {
-    "word": "tower",
-    "meaning": "塔"
-  },
-  {
-    "word": "entrance",
-    "meaning": "入口，玄関"
-  },
-  {
-    "word": "exit",
-    "meaning": "出口"
-  },
-  {
-    "word": "architecture",
-    "meaning": "建築"
-  },
-  {
-    "word": "avenue",
-    "meaning": "大通り，〜街"
-  },
-  {
-    "word": "block",
-    "meaning": "１区画，ブロック"
-  },
-  {
-    "word": "corner",
-    "meaning": "曲がり角"
-  },
-  {
-    "word": "intersection",
-    "meaning": "交差点"
-  },
-  {
-    "word": "zone",
-    "meaning": "地帯，区域"
-  },
-  {
-    "word": "square",
-    "meaning": "広場，正方形"
-  },
-  {
-    "word": "market",
-    "meaning": "市場"
-  },
-  {
-    "word": "path",
-    "meaning": "小道"
-  },
-  {
-    "word": "slope",
-    "meaning": "坂"
-  },
-  {
-    "word": "traffic",
-    "meaning": "交通，交通量"
-  },
-  {
-    "word": "drive",
-    "meaning": "（車を）運転する"
-  },
-  {
-    "word": "ride",
-    "meaning": "乗る"
-  },
-  {
-    "word": "railroad",
-    "meaning": "鉄道"
-  },
-  {
-    "word": "subway",
-    "meaning": "地下鉄"
-  },
-  {
-    "word": "automobile",
-    "meaning": "自動車"
-  },
-  {
-    "word": "engine",
-    "meaning": "エンジン"
-  },
-  {
-    "word": "wheel",
-    "meaning": "ハンドル"
-  },
-  {
-    "word": "license",
-    "meaning": "免許，免許証"
-  },
-  {
-    "word": "airport",
-    "meaning": "空港"
-  },
-  {
-    "word": "flight",
-    "meaning": "定期航空便，フライト"
-  },
-  {
-    "word": "port",
-    "meaning": "港"
-  },
-  {
-    "word": "canal",
-    "meaning": "運河"
-  },
-  {
-    "word": "key",
-    "meaning": "鍵"
-  },
-  {
-    "word": "stair",
-    "meaning": "階段"
-  },
-  {
-    "word": "upstairs",
-    "meaning": "上の階に［で］"
-  },
-  {
-    "word": "floor",
-    "meaning": "床"
-  },
-  {
-    "word": "shelf",
-    "meaning": "棚"
-  },
-  {
-    "word": "roof",
-    "meaning": "屋根"
-  },
-  {
-    "word": "ladder",
-    "meaning": "はしご"
-  },
-  {
-    "word": "yard",
-    "meaning": "庭"
-  },
-  {
-    "word": "closet",
-    "meaning": "クローゼット"
-  },
-  {
-    "word": "refrigerator",
-    "meaning": "冷蔵庫"
-  },
-  {
-    "word": "shower",
-    "meaning": "シャワー"
-  },
-  {
-    "word": "housework",
-    "meaning": "家事"
-  },
-  {
-    "word": "plastic",
-    "meaning": "プラスチックの"
-  },
-  {
-    "word": "plate",
-    "meaning": "皿"
-  },
-  {
-    "word": "glass",
-    "meaning": "グラス"
-  },
-  {
-    "word": "garbage",
-    "meaning": "生ゴミ，ごみ"
-  },
-  {
-    "word": "trash",
-    "meaning": "ごみ，紙くず"
-  },
-  {
-    "word": "dust",
-    "meaning": "ほこり"
-  },
-  {
-    "word": "trap",
-    "meaning": "わな"
-  },
-  {
-    "word": "brush",
-    "meaning": "ブラシ，はけ"
-  },
-  {
-    "word": "comb",
-    "meaning": "くし"
-  },
-  {
-    "word": "blanket",
-    "meaning": "毛布"
-  },
-  {
-    "word": "sheet",
-    "meaning": "紙，紙の１枚"
-  },
-  {
-    "word": "label",
-    "meaning": "ラベル"
-  },
-  {
-    "word": "envelope",
-    "meaning": "封筒"
-  },
-  {
-    "word": "fashion",
-    "meaning": "ファッション"
-  },
-  {
-    "word": "style",
-    "meaning": "スタイル"
-  },
-  {
-    "word": "formal",
-    "meaning": "正式の"
-  },
-  {
-    "word": "tight",
-    "meaning": "きつい"
-  },
-  {
-    "word": "loose",
-    "meaning": "ゆったりした"
-  },
-  {
-    "word": "wear",
-    "meaning": "着ている，身につけている"
-  },
-  {
-    "word": "clothes",
-    "meaning": "衣服，衣類"
-  },
-  {
-    "word": "dress",
-    "meaning": "衣服を着せる"
-  },
-  {
-    "word": "costume",
-    "meaning": "衣装，仮装"
-  },
-  {
-    "word": "tie",
-    "meaning": "結ぶ"
-  },
-  {
-    "word": "sew",
-    "meaning": "縫う，縫い付ける"
-  },
-  {
-    "word": "frame",
-    "meaning": "フレーム"
-  },
-  {
-    "word": "button",
-    "meaning": "ボタン"
-  },
-  {
-    "word": "ring",
-    "meaning": "指輪"
-  },
-  {
-    "word": "jewel",
-    "meaning": "宝石"
-  },
-  {
-    "word": "wallet",
-    "meaning": "財布"
-  },
-  {
-    "word": "mobile",
-    "meaning": "携帯電話"
-  },
-  {
-    "word": "portable",
-    "meaning": "持ち運びできる"
-  },
-  {
-    "word": "umbrella",
-    "meaning": "傘"
-  },
-  {
-    "word": "silk",
-    "meaning": "絹，絹糸"
-  },
-  {
-    "word": "cotton",
-    "meaning": "綿"
-  },
-  {
-    "word": "leather",
-    "meaning": "革"
-  },
-  {
-    "word": "feather",
-    "meaning": "羽，羽毛"
-  },
-  {
-    "word": "meal",
-    "meaning": "食事"
-  },
-  {
-    "word": "supper",
-    "meaning": "夕食"
-  },
-  {
-    "word": "snack",
-    "meaning": "軽食"
-  },
-  {
-    "word": "dessert",
-    "meaning": "デザート"
-  },
-  {
-    "word": "diet",
-    "meaning": "ダイエット"
-  },
-  {
-    "word": "chopstick",
-    "meaning": "箸"
-  },
-  {
-    "word": "bite",
-    "meaning": "噛む"
-  },
-  {
-    "word": "flavor",
-    "meaning": "風味，味"
-  },
-  {
-    "word": "delicious",
-    "meaning": "とてもおいしい"
-  },
-  {
-    "word": "bitter",
-    "meaning": "苦い"
-  },
-  {
-    "word": "sour",
-    "meaning": "酸っぱい"
-  },
-  {
-    "word": "recipe",
-    "meaning": "調理法，レシピ"
-  },
-  {
-    "word": "mix",
-    "meaning": "混ぜる"
-  },
-  {
-    "word": "pour",
-    "meaning": "注ぐ，かける"
-  },
-  {
-    "word": "fry",
-    "meaning": "炒める，揚げる"
-  },
-  {
-    "word": "boil",
-    "meaning": "ゆでる，煮る"
-  },
-  {
-    "word": "steam",
-    "meaning": "蒸す"
-  },
-  {
-    "word": "bake",
-    "meaning": "（パンなどを）焼く"
-  },
-  {
-    "word": "harvest",
-    "meaning": "収穫，収穫物"
-  },
-  {
-    "word": "vegetable",
-    "meaning": "野菜"
-  },
-  {
-    "word": "meat",
-    "meaning": "肉"
-  },
-  {
-    "word": "wheat",
-    "meaning": "小麦"
-  },
-  {
-    "word": "flour",
-    "meaning": "小麦粉"
-  },
-  {
-    "word": "honey",
-    "meaning": "ハチミツ"
-  },
-  {
-    "word": "salt",
-    "meaning": "塩"
-  },
-  {
-    "word": "menu",
-    "meaning": "メニュー"
-  },
-  {
-    "word": "choice",
-    "meaning": "選択"
-  },
-  {
-    "word": "service",
-    "meaning": "サービス，応対"
-  },
-  {
-    "word": "tip",
-    "meaning": "チップ"
-  },
-  {
-    "word": "cancel",
-    "meaning": "取り消す，中止する"
-  },
-  {
-    "word": "culture",
-    "meaning": "文化"
-  },
-  {
-    "word": "hobby",
-    "meaning": "趣味"
-  },
-  {
-    "word": "amusement",
-    "meaning": "楽しみ"
-  },
-  {
-    "word": "entertainment",
-    "meaning": "娯楽"
-  },
-  {
-    "word": "collect",
-    "meaning": "集める，収集する"
-  },
-  {
-    "word": "exhibit",
-    "meaning": "展示する"
-  },
-  {
-    "word": "instrument",
-    "meaning": "楽器"
-  },
-  {
-    "word": "tune",
-    "meaning": "（音楽の）調子"
-  },
-  {
-    "word": "film",
-    "meaning": "映画"
-  },
-  {
-    "word": "cartoon",
-    "meaning": "（子供向けの）アニメ"
-  },
-  {
-    "word": "comic",
-    "meaning": "漫画"
-  },
-  {
-    "word": "photograph",
-    "meaning": "写真"
-  },
-  {
-    "word": "portrait",
-    "meaning": "肖像画"
-  },
-  {
-    "word": "magic",
-    "meaning": "手品"
-  },
-  {
-    "word": "tour",
-    "meaning": "旅行，ツアー"
-  },
-  {
-    "word": "journey",
-    "meaning": "旅行"
-  },
-  {
-    "word": "sightseeing",
-    "meaning": "観光"
-  },
-  {
-    "word": "adventure",
-    "meaning": "冒険"
-  },
-  {
-    "word": "explore",
-    "meaning": "探検する"
-  },
-  {
-    "word": "wander",
-    "meaning": "歩き回る，ぶらつく"
-  },
-  {
-    "word": "camp",
-    "meaning": "キャンプ"
-  },
-  {
-    "word": "tourist",
-    "meaning": "観光客"
-  },
-  {
-    "word": "passenger",
-    "meaning": "乗客"
-  },
-  {
-    "word": "guide",
-    "meaning": "ガイド，案内人"
-  },
-  {
-    "word": "vacation",
-    "meaning": "休暇"
-  },
-  {
-    "word": "souvenir",
-    "meaning": "お土産"
-  },
-  {
-    "word": "pack",
-    "meaning": "荷物を詰める"
-  },
-  {
-    "word": "win",
-    "meaning": "勝つ"
-  },
-  {
-    "word": "victory",
-    "meaning": "勝利"
-  },
-  {
-    "word": "record",
-    "meaning": "記録"
-  },
-  {
-    "word": "score",
-    "meaning": "得点，スコア"
-  },
-  {
-    "word": "prize",
-    "meaning": "賞"
-  },
-  {
-    "word": "award",
-    "meaning": "賞，賞金"
-  },
-  {
-    "word": "race",
-    "meaning": "競争，人種"
-  },
-  {
-    "word": "match",
-    "meaning": "試合"
-  },
-  {
-    "word": "tournament",
-    "meaning": "トーナメント"
-  },
-  {
-    "word": "professional",
-    "meaning": "プロの"
-  },
-  {
-    "word": "athlete",
-    "meaning": "運動選手"
-  },
-  {
-    "word": "coach",
-    "meaning": "コーチ，指導員"
-  },
-  {
-    "word": "rival",
-    "meaning": "ライバル，競争相手"
-  },
-  {
-    "word": "train",
-    "meaning": "訓練する，トレーニングする"
-  },
-  {
-    "word": "exercise",
-    "meaning": "運動する"
-  },
-  {
-    "word": "practice",
-    "meaning": "練習する"
-  },
-  {
-    "word": "indoor",
-    "meaning": "屋内の，室内の"
-  },
-  {
-    "word": "flag",
-    "meaning": "旗，国旗"
-  },
-  {
-    "word": "nature",
-    "meaning": "自然"
-  },
-  {
-    "word": "climate",
-    "meaning": "気候"
-  },
-  {
-    "word": "forecast",
-    "meaning": "予報，予測"
-  },
-  {
-    "word": "temperature",
-    "meaning": "温度，気温"
-  },
-  {
-    "word": "wind",
-    "meaning": "風"
-  },
-  {
-    "word": "breeze",
-    "meaning": "そよ風"
-  },
-  {
-    "word": "storm",
-    "meaning": "嵐"
-  },
-  {
-    "word": "thunder",
-    "meaning": "雷，雷鳴"
-  },
-  {
-    "word": "wave",
-    "meaning": "波"
-  },
-  {
-    "word": "ray",
-    "meaning": "光線"
-  },
-  {
-    "word": "sunlight",
-    "meaning": "日光"
-  },
-  {
-    "word": "sunshine",
-    "meaning": "日差し，日なた"
-  },
-  {
-    "word": "sunset",
-    "meaning": "日没，夕焼け"
-  },
-  {
-    "word": "landscape",
-    "meaning": "風景，景色"
-  },
-  {
-    "word": "continent",
-    "meaning": "大陸"
-  },
-  {
-    "word": "ocean",
-    "meaning": "海，大洋"
-  },
-  {
-    "word": "island",
-    "meaning": "島"
-  },
-  {
-    "word": "ground",
-    "meaning": "地面"
-  },
-  {
-    "word": "cave",
-    "meaning": "洞窟"
-  },
-  {
-    "word": "bay",
-    "meaning": "湾，入り江"
-  },
-  {
-    "word": "coast",
-    "meaning": "海岸，沿岸"
-  },
-  {
-    "word": "shore",
-    "meaning": "岸"
-  },
-  {
-    "word": "horizon",
-    "meaning": "地平線，水平線"
-  },
-  {
-    "word": "valley",
-    "meaning": "谷，盆地"
-  },
-  {
-    "word": "desert",
-    "meaning": "砂漠"
-  },
-  {
-    "word": "sand",
-    "meaning": "砂"
-  },
-  {
-    "word": "mud",
-    "meaning": "泥"
-  },
-  {
-    "word": "rock",
-    "meaning": "岩，岩石"
-  },
-  {
-    "word": "environment",
-    "meaning": "環境"
-  },
-  {
-    "word": "recycle",
-    "meaning": "再処理する，リサイクルする"
-  },
-  {
-    "word": "pollution",
-    "meaning": "汚染，公害"
-  },
-  {
-    "word": "disaster",
-    "meaning": "災害"
-  },
-  {
-    "word": "earthquake",
-    "meaning": "地震"
-  },
-  {
-    "word": "flood",
-    "meaning": "洪水"
-  },
-  {
-    "word": "rescue",
-    "meaning": "救助する"
-  },
-  {
-    "word": "creature",
-    "meaning": "生き物，動物"
-  },
-  {
-    "word": "species",
-    "meaning": "種"
-  },
-  {
-    "word": "wild",
-    "meaning": "野生の"
-  },
-  {
-    "word": "wildlife",
-    "meaning": "野生動物"
-  },
-  {
-    "word": "insect",
-    "meaning": "昆虫"
-  },
-  {
-    "word": "dinosaur",
-    "meaning": "恐竜"
-  },
-  {
-    "word": "hunt",
-    "meaning": "狩りをする"
-  },
-  {
-    "word": "bark",
-    "meaning": "吠える"
-  },
-  {
-    "word": "nest",
-    "meaning": "巣"
-  },
-  {
-    "word": "wood",
-    "meaning": "森"
-  },
-  {
-    "word": "bush",
-    "meaning": "茂み"
-  },
-  {
-    "word": "branch",
-    "meaning": "枝"
-  },
-  {
-    "word": "root",
-    "meaning": "根"
-  },
-  {
-    "word": "grass",
-    "meaning": "芝生，草"
-  },
-  {
-    "word": "leaf",
-    "meaning": "葉"
-  },
-  {
-    "word": "bloom",
-    "meaning": "開花"
-  },
-  {
-    "word": "seed",
-    "meaning": "種"
-  },
-  {
-    "word": "human",
-    "meaning": "人間の"
-  },
-  {
-    "word": "person",
-    "meaning": "人，人間"
-  },
-  {
-    "word": "people",
-    "meaning": "人々"
-  },
-  {
-    "word": "crowd",
-    "meaning": "群衆，人混み"
-  },
-  {
-    "word": "generation",
-    "meaning": "世代"
-  },
-  {
-    "word": "male",
-    "meaning": "男性の，雄の"
-  },
-  {
-    "word": "female",
-    "meaning": "女性の，雌の"
-  },
-  {
-    "word": "gender",
-    "meaning": "ジェンダー，性"
-  },
-  {
-    "word": "neighbor",
-    "meaning": "隣人"
-  },
-  {
-    "word": "stranger",
-    "meaning": "（その土地に）不案内な人"
-  },
-  {
-    "word": "birth",
-    "meaning": "誕生"
-  },
-  {
-    "word": "childhood",
-    "meaning": "子供時代"
-  },
-  {
-    "word": "youth",
-    "meaning": "青年時代"
-  },
-  {
-    "word": "teenager",
-    "meaning": "13歳から19歳までの若者"
-  },
-  {
-    "word": "adult",
-    "meaning": "大人，成人"
-  },
-  {
-    "word": "junior",
-    "meaning": "年少者"
-  },
-  {
-    "word": "senior",
-    "meaning": "年長者，高齢者"
-  },
-  {
-    "word": "elderly",
-    "meaning": "年配の"
-  },
-  {
-    "word": "dead",
-    "meaning": "死んでいる"
-  },
-  {
-    "word": "age",
-    "meaning": "年齢"
-  },
-  {
-    "word": "physical",
-    "meaning": "身体の，肉体の"
-  },
-  {
-    "word": "condition",
-    "meaning": "状態，体調"
-  },
-  {
-    "word": "function",
-    "meaning": "機能，働き"
-  },
-  {
-    "word": "sight",
-    "meaning": "視力"
-  },
-  {
-    "word": "weight",
-    "meaning": "体重"
-  },
-  {
-    "word": "fat",
-    "meaning": "太った"
-  },
-  {
-    "word": "thin",
-    "meaning": "やせた"
-  },
-  {
-    "word": "slim",
-    "meaning": "ほっそりした，スリムな"
-  },
-  {
-    "word": "ugly",
-    "meaning": "醜い，不格好な"
-  },
-  {
-    "word": "thirsty",
-    "meaning": "喉の渇いた"
-  },
-  {
-    "word": "tear",
-    "meaning": "涙"
-  },
-  {
-    "word": "sweat",
-    "meaning": "汗"
-  },
-  {
-    "word": "hospital",
-    "meaning": "病院"
-  },
-  {
-    "word": "ambulance",
-    "meaning": "救急車"
-  },
-  {
-    "word": "wheelchair",
-    "meaning": "車椅子"
-  },
-  {
-    "word": "patient",
-    "meaning": "患者"
-  },
-  {
-    "word": "disease",
-    "meaning": "病気"
-  },
-  {
-    "word": "illness",
-    "meaning": "病気"
-  },
-  {
-    "word": "ill",
-    "meaning": "病気で，気分が悪い"
-  },
-  {
-    "word": "pain",
-    "meaning": "痛み"
-  },
-  {
-    "word": "injure",
-    "meaning": "傷つける，痛める"
-  },
-  {
-    "word": "headache",
-    "meaning": "頭痛"
-  },
-  {
-    "word": "cancer",
-    "meaning": "癌"
-  },
-  {
-    "word": "breathe",
-    "meaning": "呼吸する"
-  },
-  {
-    "word": "touch",
-    "meaning": "触れる"
-  },
-  {
-    "word": "pat",
-    "meaning": "（手のひらで）軽くたたく"
-  },
-  {
-    "word": "shout",
-    "meaning": "叫ぶ，大声で話す"
-  },
-  {
-    "word": "scream",
-    "meaning": "金切り声を出す"
-  },
-  {
-    "word": "whisper",
-    "meaning": "ささやく"
-  },
-  {
-    "word": "bow",
-    "meaning": "おじぎをする"
-  },
-  {
-    "word": "bend",
-    "meaning": "かがむ"
-  },
-  {
-    "word": "forehead",
-    "meaning": "額"
-  },
-  {
-    "word": "cheek",
-    "meaning": "頬"
-  },
-  {
-    "word": "lip",
-    "meaning": "唇"
-  },
-  {
-    "word": "tooth",
-    "meaning": "歯"
-  },
-  {
-    "word": "throat",
-    "meaning": "喉"
-  },
-  {
-    "word": "shoulder",
-    "meaning": "肩"
-  },
-  {
-    "word": "chest",
-    "meaning": "胸"
-  },
-  {
-    "word": "elbow",
-    "meaning": "肘"
-  },
-  {
-    "word": "finger",
-    "meaning": "（手の）指"
-  },
-  {
-    "word": "thumb",
-    "meaning": "（手の）親指"
-  },
-  {
-    "word": "nail",
-    "meaning": "爪"
-  },
-  {
-    "word": "toe",
-    "meaning": "（足の）指，つま先"
-  },
-  {
-    "word": "ankle",
-    "meaning": "足首"
-  },
-  {
-    "word": "skin",
-    "meaning": "皮膚，肌"
-  },
-  {
-    "word": "brain",
-    "meaning": "脳"
-  },
-  {
-    "word": "heart",
-    "meaning": "心臓"
-  },
-  {
-    "word": "stomach",
-    "meaning": "胃"
-  },
-  {
-    "word": "blood",
-    "meaning": "血液"
-  },
-  {
-    "word": "bone",
-    "meaning": "骨"
-  },
-  {
-    "word": "muscle",
-    "meaning": "筋肉"
-  },
-  {
-    "word": "emotion",
-    "meaning": "感情"
-  },
-  {
-    "word": "mind",
-    "meaning": "心，精神"
-  },
-  {
-    "word": "mental",
-    "meaning": "心の，精神の"
-  },
-  {
-    "word": "pleasant",
-    "meaning": "楽しい"
-  },
-  {
-    "word": "suffer",
-    "meaning": "苦しむ"
-  },
-  {
-    "word": "upset",
-    "meaning": "取り乱して，動転して"
-  },
-  {
-    "word": "nervous",
-    "meaning": "心配して，緊張して"
-  },
-  {
-    "word": "lonely",
-    "meaning": "孤独な，ひとりぼっちの"
-  },
-  {
-    "word": "shocked",
-    "meaning": "ショックを受けた"
-  },
-  {
-    "word": "stress",
-    "meaning": "ストレス"
-  },
-  {
-    "word": "mad",
-    "meaning": "怒って"
-  },
-  {
-    "word": "anger",
-    "meaning": "怒り"
-  },
-  {
-    "word": "joy",
-    "meaning": "喜び"
-  },
-  {
-    "word": "relaxed",
-    "meaning": "くつろいだ"
-  },
-  {
-    "word": "fear",
-    "meaning": "恐怖"
-  },
-  {
-    "word": "panic",
-    "meaning": "パニック"
-  },
-  {
-    "word": "character",
-    "meaning": "性格"
-  },
-  {
-    "word": "humor",
-    "meaning": "ユーモア"
-  },
-  {
-    "word": "frank",
-    "meaning": "率直な"
-  },
-  {
-    "word": "cheerful",
-    "meaning": "元気な，陽気な"
-  },
-  {
-    "word": "friendly",
-    "meaning": "親切な，好意的な"
-  },
-  {
-    "word": "gentle",
-    "meaning": "優しい"
-  },
-  {
-    "word": "calm",
-    "meaning": "落ち着いた"
-  },
-  {
-    "word": "lively",
-    "meaning": "元気な，活発な"
-  },
-  {
-    "word": "shy",
-    "meaning": "恥ずかしがりの"
-  },
-  {
-    "word": "strict",
-    "meaning": "厳しい，厳格な"
-  },
-  {
-    "word": "positive",
-    "meaning": "前向きの，積極的な"
-  },
-  {
-    "word": "negative",
-    "meaning": "後ろ向きの，消極的な"
-  },
-  {
-    "word": "active",
-    "meaning": "活動的な，活発な"
-  },
-  {
-    "word": "lazy",
-    "meaning": "怠惰な"
-  },
-  {
-    "word": "communication",
-    "meaning": "コミュニケーション，意思伝達"
-  },
-  {
-    "word": "greet",
-    "meaning": "挨拶する"
-  },
-  {
-    "word": "conversation",
-    "meaning": "会話"
-  },
-  {
-    "word": "chat",
-    "meaning": "おしゃべりする"
-  },
-  {
-    "word": "text",
-    "meaning": "メッセージを送る"
-  },
-  {
-    "word": "e-mail",
-    "meaning": "Eメール"
-  },
-  {
-    "word": "address",
-    "meaning": "住所，アドレス"
-  },
-  {
-    "word": "translate",
-    "meaning": "翻訳する"
-  },
-  {
-    "word": "argue",
-    "meaning": "口論する，言い争う"
-  },
-  {
-    "word": "claim",
-    "meaning": "主張する"
-  },
-  {
-    "word": "insist",
-    "meaning": "強く主張する"
-  },
-  {
-    "word": "praise",
-    "meaning": "ほめる，賞賛する"
-  },
-  {
-    "word": "debate",
-    "meaning": "討論，ディベート"
-  },
-  {
-    "word": "blame",
-    "meaning": "非難する"
-  },
-  {
-    "word": "joke",
-    "meaning": "冗談"
-  },
-  {
-    "word": "pronounce",
-    "meaning": "発音する"
-  },
-  {
-    "word": "express",
-    "meaning": "言い表す"
-  },
-  {
-    "word": "state",
-    "meaning": "はっきりと述べる"
-  },
-  {
-    "word": "define",
-    "meaning": "定義する"
-  },
-  {
-    "word": "describe",
-    "meaning": "特徴を述べる"
-  },
-  {
-    "word": "refer",
-    "meaning": "言及する"
-  },
-  {
-    "word": "predict",
-    "meaning": "予測する，予言する"
-  },
-  {
-    "word": "comment",
-    "meaning": "論評，コメント"
-  },
-  {
-    "word": "term",
-    "meaning": "用語，専門用語"
-  },
-  {
-    "word": "publish",
-    "meaning": "出版する"
-  },
-  {
-    "word": "novel",
-    "meaning": "小説"
-  },
-  {
-    "word": "fiction",
-    "meaning": "フィクション，作り話"
-  },
-  {
-    "word": "essay",
-    "meaning": "小論文，エッセイ"
-  },
-  {
-    "word": "newspaper",
-    "meaning": "新聞"
-  },
-  {
-    "word": "magazine",
-    "meaning": "雑誌"
-  },
-  {
-    "word": "journal",
-    "meaning": "専門誌"
-  },
-  {
-    "word": "article",
-    "meaning": "記事"
-  },
-  {
-    "word": "title",
-    "meaning": "題名，タイトル"
-  },
-  {
-    "word": "poem",
-    "meaning": "詩"
-  },
-  {
-    "word": "tale",
-    "meaning": "話，物語"
-  },
-  {
-    "word": "chapter",
-    "meaning": "章"
-  },
-  {
-    "word": "education",
-    "meaning": "教育"
-  },
-  {
-    "word": "knowledge",
-    "meaning": "知識"
-  },
-  {
-    "word": "intelligent",
-    "meaning": "知能の高い"
-  },
-  {
-    "word": "logic",
-    "meaning": "論理"
-  },
-  {
-    "word": "talent",
-    "meaning": "才能"
-  },
-  {
-    "word": "master",
-    "meaning": "習得する"
-  },
-  {
-    "word": "solve",
-    "meaning": "解く，解決する"
-  },
-  {
-    "word": "review",
-    "meaning": "復習する，論評する"
-  },
-  {
-    "word": "textbook",
-    "meaning": "教科書"
-  },
-  {
-    "word": "dictionary",
-    "meaning": "辞書"
-  },
-  {
-    "word": "lecture",
-    "meaning": "講義"
-  },
-  {
-    "word": "subject",
-    "meaning": "科目"
-  },
-  {
-    "word": "mathematics",
-    "meaning": "数学"
-  },
-  {
-    "word": "biology",
-    "meaning": "生物学"
-  },
-  {
-    "word": "elementary",
-    "meaning": "初等の"
-  },
-  {
-    "word": "college",
-    "meaning": "大学"
-  },
-  {
-    "word": "university",
-    "meaning": "総合大学"
-  },
-  {
-    "word": "scholar",
-    "meaning": "学者"
-  },
-  {
-    "word": "enter",
-    "meaning": "入学する，入る"
-  },
-  {
-    "word": "attend",
-    "meaning": "出席する"
-  },
-  {
-    "word": "absent",
-    "meaning": "欠席の"
-  },
-  {
-    "word": "graduate",
-    "meaning": "卒業する"
-  },
-  {
-    "word": "grade",
-    "meaning": "成績，評点"
-  },
-  {
-    "word": "quiz",
-    "meaning": "小テスト"
-  },
-  {
-    "word": "homework",
-    "meaning": "宿題"
-  },
-  {
-    "word": "science",
-    "meaning": "科学"
-  },
-  {
-    "word": "chemical",
-    "meaning": "化学の"
-  },
-  {
-    "word": "experiment",
-    "meaning": "実験"
-  },
-  {
-    "word": "element",
-    "meaning": "元素"
-  },
-  {
-    "word": "oxygen",
-    "meaning": "酸素"
-  },
-  {
-    "word": "technology",
-    "meaning": "科学技術"
-  },
-  {
-    "word": "advance",
-    "meaning": "進歩"
-  },
-  {
-    "word": "machine",
-    "meaning": "機械"
-  },
-  {
-    "word": "automatic",
-    "meaning": "自動の"
-  },
-  {
-    "word": "invent",
-    "meaning": "発明する"
-  },
-  {
-    "word": "operate",
-    "meaning": "操作する"
-  },
-  {
-    "word": "artificial",
-    "meaning": "人工の"
-  },
-  {
-    "word": "web",
-    "meaning": "ウェブ"
-  },
-  {
-    "word": "material",
-    "meaning": "材料，原料"
-  },
-  {
-    "word": "resource",
-    "meaning": "資源"
-  },
-  {
-    "word": "energy",
-    "meaning": "エネルギー"
-  },
-  {
-    "word": "electricity",
-    "meaning": "電気，電力"
-  },
-  {
-    "word": "battery",
-    "meaning": "バッテリー，電池"
-  },
-  {
-    "word": "oil",
-    "meaning": "石油"
-  },
-  {
-    "word": "gas",
-    "meaning": "ガス"
-  },
-  {
-    "word": "coal",
-    "meaning": "石炭"
-  },
-  {
-    "word": "metal",
-    "meaning": "金属"
-  },
-  {
-    "word": "steel",
-    "meaning": "鋼鉄"
-  },
-  {
-    "word": "nuclear",
-    "meaning": "核の，原子力の"
-  },
-  {
-    "word": "universe",
-    "meaning": "宇宙"
-  },
-  {
-    "word": "planet",
-    "meaning": "惑星"
-  },
-  {
-    "word": "astronaut",
-    "meaning": "宇宙飛行士"
-  },
-  {
-    "word": "earth",
-    "meaning": "地球，地面"
-  },
-  {
-    "word": "cash",
-    "meaning": "現金"
-  },
-  {
-    "word": "earn",
-    "meaning": "（お金を）得る"
-  },
-  {
-    "word": "reward",
-    "meaning": "報酬"
-  },
-  {
-    "word": "income",
-    "meaning": "収入"
-  },
-  {
-    "word": "budget",
-    "meaning": "予算"
-  },
-  {
-    "word": "tax",
-    "meaning": "税金"
-  },
-  {
-    "word": "consume",
-    "meaning": "消費する"
-  },
-  {
-    "word": "benefit",
-    "meaning": "利益，恩恵"
-  },
-  {
-    "word": "wealth",
-    "meaning": "富，財産"
-  },
-  {
-    "word": "price",
-    "meaning": "価格"
-  },
-  {
-    "word": "cheap",
-    "meaning": "安い"
-  },
-  {
-    "word": "reasonable",
-    "meaning": "（値段が）手頃な"
-  },
-  {
-    "word": "sale",
-    "meaning": "特売"
-  },
-  {
-    "word": "charge",
-    "meaning": "（サービスへの）料金"
-  },
-  {
-    "word": "advertisement",
-    "meaning": "広告"
-  },
-  {
-    "word": "commercial",
-    "meaning": "営利的な，商業的な"
-  },
-  {
-    "word": "trade",
-    "meaning": "貿易，取引"
-  },
-  {
-    "word": "import",
-    "meaning": "輸入する"
-  },
-  {
-    "word": "export",
-    "meaning": "輸出する"
-  },
-  {
-    "word": "factory",
-    "meaning": "工場"
-  },
-  {
-    "word": "agriculture",
-    "meaning": "農業"
-  },
-  {
-    "word": "society",
-    "meaning": "社会"
-  },
-  {
-    "word": "community",
-    "meaning": "地域社会"
-  },
-  {
-    "word": "organization",
-    "meaning": "組織，団体"
-  },
-  {
-    "word": "committee",
-    "meaning": "委員会"
-  },
-  {
-    "word": "charity",
-    "meaning": "慈善事業"
-  },
-  {
-    "word": "citizen",
-    "meaning": "国民，市民"
-  },
-  {
-    "word": "duty",
-    "meaning": "義務"
-  },
-  {
-    "word": "law",
-    "meaning": "法律"
-  },
-  {
-    "word": "judge",
-    "meaning": "裁判官"
-  },
-  {
-    "word": "court",
-    "meaning": "法廷，裁判所"
-  },
-  {
-    "word": "guard",
-    "meaning": "警戒，見張り"
-  },
-  {
-    "word": "arrest",
-    "meaning": "逮捕する"
-  },
-  {
-    "word": "punish",
-    "meaning": "罰する"
-  },
-  {
-    "word": "crime",
-    "meaning": "犯罪"
-  },
-  {
-    "word": "murder",
-    "meaning": "殺人，殺人事件"
-  },
-  {
-    "word": "shoot",
-    "meaning": "（銃で）撃つ"
-  },
-  {
-    "word": "steal",
-    "meaning": "盗む"
-  },
-  {
-    "word": "rob",
-    "meaning": "奪う"
-  },
-  {
-    "word": "thief",
-    "meaning": "泥棒"
-  },
-  {
-    "word": "victim",
-    "meaning": "犠牲者"
-  },
-  {
-    "word": "drug",
-    "meaning": "薬物"
-  },
-  {
-    "word": "poverty",
-    "meaning": "貧困"
-  },
-  {
-    "word": "government",
-    "meaning": "政府"
-  },
-  {
-    "word": "policy",
-    "meaning": "政策，方針"
-  },
-  {
-    "word": "nation",
-    "meaning": "国家"
-  },
-  {
-    "word": "capital",
-    "meaning": "首都"
-  },
-  {
-    "word": "international",
-    "meaning": "国際的な，国家間の"
-  },
-  {
-    "word": "global",
-    "meaning": "全世界の，地球全体の"
-  },
-  {
-    "word": "election",
-    "meaning": "選挙"
-  },
-  {
-    "word": "vote",
-    "meaning": "投票をする"
-  },
-  {
-    "word": "president",
-    "meaning": "大統領"
-  },
-  {
-    "word": "liberty",
-    "meaning": "自由"
-  },
-  {
-    "word": "fight",
-    "meaning": "戦う"
-  },
-  {
-    "word": "war",
-    "meaning": "戦争，戦争状態"
-  },
-  {
-    "word": "military",
-    "meaning": "軍の，軍隊の"
-  },
-  {
-    "word": "army",
-    "meaning": "軍隊，陸軍"
-  },
-  {
-    "word": "soldier",
-    "meaning": "兵士"
-  },
-  {
-    "word": "weapon",
-    "meaning": "武器，兵器"
-  },
-  {
-    "word": "bomb",
-    "meaning": "爆弾"
-  },
-  {
-    "word": "break out",
-    "meaning": "突然起こる，勃発する"
-  },
-  {
-    "word": "come across",
-    "meaning": "〜に偶然会う，〜をふと見つける"
-  },
-  {
-    "word": "come out",
-    "meaning": "発売される"
-  },
-  {
-    "word": "come up with",
-    "meaning": "〜を思いつく"
-  },
-  {
-    "word": "count on [upon]",
-    "meaning": "〜に頼る，〜を当てにする"
-  },
-  {
-    "word": "cut down [back] on",
-    "meaning": "〜を減らす"
-  },
-  {
-    "word": "die out",
-    "meaning": "（消えて）なくなる，絶滅する"
-  },
-  {
-    "word": "drop in [on]",
-    "meaning": "ちょっと訪れる"
-  },
-  {
-    "word": "feel free to",
-    "meaning": "自由に…する"
-  },
-  {
-    "word": "get along (with)",
-    "meaning": "仲よくやっている"
-  },
-  {
-    "word": "get out of",
-    "meaning": "〜から逃れる"
-  },
-  {
-    "word": "get over",
-    "meaning": "〜から回復する，立ち直る"
-  },
-  {
-    "word": "get through",
-    "meaning": "〜を切り抜ける"
-  },
-  {
-    "word": "give way (to)",
-    "meaning": "譲歩する，屈する"
-  },
-  {
-    "word": "go along with",
-    "meaning": "〜に賛成する，を支持する"
-  },
-  {
-    "word": "head for",
-    "meaning": "〜に向かう"
-  },
-  {
-    "word": "keep [bear] in mind",
-    "meaning": "〜を心に留めておく"
-  },
-  {
-    "word": "keep [stay] in touch (with)",
-    "meaning": "連絡を取り続ける"
-  },
-  {
-    "word": "learn (how) to",
-    "meaning": "…できるようになる"
-  },
-  {
-    "word": "look back (on)",
-    "meaning": "回想する，振り返る"
-  },
-  {
-    "word": "look into",
-    "meaning": "〜を調査する"
-  },
-  {
-    "word": "look over",
-    "meaning": "〜をざっと調べる，〜に目を通す"
-  },
-  {
-    "word": "look up to",
-    "meaning": "〜を尊敬する"
-  },
-  {
-    "word": "make a difference (to)",
-    "meaning": "影響がある，重要である"
-  },
-  {
-    "word": "make [earn] a living",
-    "meaning": "生計を立てる"
-  },
-  {
-    "word": "make up",
-    "meaning": "〜を構成する"
-  },
-  {
-    "word": "pass away",
-    "meaning": "亡くなる"
-  },
-  {
-    "word": "point out",
-    "meaning": "〜を指摘する"
-  },
-  {
-    "word": "put off",
-    "meaning": "〜を延期する"
-  },
-  {
-    "word": "put together",
-    "meaning": "〜を組み立てる，まとめ上げる"
-  },
-  {
-    "word": "put up with",
-    "meaning": "〜を我慢する"
-  },
-  {
-    "word": "run after",
-    "meaning": "〜を追いかける"
-  },
-  {
-    "word": "run away (from)",
-    "meaning": "逃げる"
-  },
-  {
-    "word": "run out of",
-    "meaning": "〜を使い果たす"
-  },
-  {
-    "word": "stand for",
-    "meaning": "〜を意味する，〜の略称である"
-  },
-  {
-    "word": "stand out",
-    "meaning": "ずば抜けている"
-  },
-  {
-    "word": "take A for B",
-    "meaning": "AをBだと思う"
-  },
-  {
-    "word": "take place",
-    "meaning": "起こる，行われる"
-  },
-  {
-    "word": "take up",
-    "meaning": "〜を始める"
-  },
-  {
-    "word": "work on",
-    "meaning": "〜に取り組む"
-  },
-  {
-    "word": "all at once",
-    "meaning": "（予期せず）突然"
-  },
-  {
-    "word": "all the way",
-    "meaning": "はるばる，ずっと"
-  },
-  {
-    "word": "along with",
-    "meaning": "〜と一緒に，〜に加えて"
-  },
-  {
-    "word": "at least",
-    "meaning": "少なくとも"
-  },
-  {
-    "word": "at (the) most",
-    "meaning": "せいぜい，多くても"
-  },
-  {
-    "word": "by way of",
-    "meaning": "〜を通って"
-  },
-  {
-    "word": "for some time",
-    "meaning": "かなり長い間"
-  },
-  {
-    "word": "face to face (with)",
-    "meaning": "面と向かって"
-  },
-  {
-    "word": "first of all",
-    "meaning": "まず第一に"
-  },
-  {
-    "word": "in advance",
-    "meaning": "あらかじめ，〜前に"
-  },
-  {
-    "word": "in all",
-    "meaning": "全部で"
-  },
-  {
-    "word": "in place of",
-    "meaning": "〜の代わりに"
-  },
-  {
-    "word": "in return (for)",
-    "meaning": "お返しに"
-  },
-  {
-    "word": "in the long run",
-    "meaning": "長い目で見れば"
-  },
-  {
-    "word": "in time (for)",
-    "meaning": "間に合うように，遅れずに"
-  },
-  {
-    "word": "on sale",
-    "meaning": "販売されて"
-  },
-  {
-    "word": "on time",
-    "meaning": "時間通りに，定刻に"
-  },
-  {
-    "word": "one by one",
-    "meaning": "１つずつ，１人ずつ"
-  },
-  {
-    "word": "out of the question",
-    "meaning": "論外で，不可能で"
-  },
-  {
-    "word": "side by side (with)",
-    "meaning": "（横に）並んで"
-  },
-  {
-    "word": "become",
-    "meaning": "になる"
-  },
-  {
-    "word": "turn",
-    "meaning": "になる，変わる"
-  },
-  {
-    "word": "remain",
-    "meaning": "のままである"
-  },
-  {
-    "word": "smell",
-    "meaning": "のにおいがする"
-  },
-  {
-    "word": "taste",
-    "meaning": "の味がする"
-  },
-  {
-    "word": "take",
-    "meaning": "連れて行く，持って行く"
-  },
-  {
-    "word": "put",
-    "meaning": "置く，入れる"
-  },
-  {
-    "word": "set",
-    "meaning": "置く，配置する"
-  },
-  {
-    "word": "spread",
-    "meaning": "広げる"
-  },
-  {
-    "word": "fold",
-    "meaning": "折る，折りたたむ"
-  },
-  {
-    "word": "show",
-    "meaning": "見せる，示す"
-  },
-  {
-    "word": "give",
-    "meaning": "与える，あげる"
-  },
-  {
-    "word": "choose",
-    "meaning": "選ぶ"
-  },
-  {
-    "word": "pay",
-    "meaning": "支払う"
-  },
-  {
-    "word": "leave",
-    "meaning": "残しておく"
-  },
-  {
-    "word": "offer",
-    "meaning": "申し出る"
-  },
-  {
-    "word": "bring",
-    "meaning": "持ってくる，連れてくる"
-  },
-  {
-    "word": "send",
-    "meaning": "送る"
-  },
-  {
-    "word": "pass",
-    "meaning": "手渡す"
-  },
-  {
-    "word": "sell",
-    "meaning": "売る"
-  },
-  {
-    "word": "draw",
-    "meaning": "描く，引く"
-  },
-  {
-    "word": "owe",
-    "meaning": "にお金を借りている"
-  },
-  {
-    "word": "lend",
-    "meaning": "貸す"
-  },
-  {
-    "word": "envy",
-    "meaning": "うらやむ"
-  },
-  {
-    "word": "make",
-    "meaning": "（ある状態）にする"
-  },
-  {
-    "word": "find",
-    "meaning": "見つける、気づく"
-  },
-  {
-    "word": "keep",
-    "meaning": "保つ"
-  },
-  {
-    "word": "call",
-    "meaning": "と呼ぶ"
-  },
-  {
-    "word": "know",
-    "meaning": "知っている"
-  },
-  {
-    "word": "understand",
-    "meaning": "理解する，わかる"
-  },
-  {
-    "word": "believe",
-    "meaning": "信じる，信用する"
-  },
-  {
-    "word": "notice",
-    "meaning": "気づく"
-  },
-  {
-    "word": "exist",
-    "meaning": "存在する"
-  },
-  {
-    "word": "discuss",
-    "meaning": "について議論する"
-  },
-  {
-    "word": "agree",
-    "meaning": "意見が一致する"
-  },
-  {
-    "word": "disagree",
-    "meaning": "意見が異なる"
-  },
-  {
-    "word": "raise",
-    "meaning": "上げる"
-  },
-  {
-    "word": "rise",
-    "meaning": "上がる"
-  },
-  {
-    "word": "approach",
-    "meaning": "近づく，接近する"
-  },
-  {
-    "word": "complain",
-    "meaning": "不平［苦情］を言う"
-  },
-  {
-    "word": "lie",
-    "meaning": "横たわる，ある"
-  },
-  {
-    "word": "lay",
-    "meaning": "横たえる，置く"
-  },
-  {
-    "word": "marry",
-    "meaning": "と結婚する"
-  },
-  {
-    "word": "order",
-    "meaning": "命じる"
-  },
-  {
-    "word": "demand",
-    "meaning": "要求する"
-  },
-  {
-    "word": "request",
-    "meaning": "頼む，要請する"
-  },
-  {
-    "word": "seem",
-    "meaning": "のように思える"
-  },
-  {
-    "word": "appear",
-    "meaning": "のように見える［思える］"
-  },
-  {
-    "word": "prove",
-    "meaning": "と判明する"
-  },
-  {
-    "word": "tell",
-    "meaning": "伝える，言う"
-  },
-  {
-    "word": "expect",
-    "meaning": "予期［予想］する"
-  },
-  {
-    "word": "warn",
-    "meaning": "に警告［注意］する"
-  },
-  {
-    "word": "forbid",
-    "meaning": "禁ずる"
-  },
-  {
-    "word": "feel",
-    "meaning": "感じる"
-  },
-  {
-    "word": "hear",
-    "meaning": "が聞こえる"
-  },
-  {
-    "word": "watch",
-    "meaning": "（じっと）見る"
-  },
-  {
-    "word": "decide",
-    "meaning": "決める"
-  },
-  {
-    "word": "manage",
-    "meaning": "何とかやり遂げる"
-  },
-  {
-    "word": "promise",
-    "meaning": "約束する"
-  },
-  {
-    "word": "afford",
-    "meaning": "の余裕がある"
-  },
-  {
-    "word": "pretend",
-    "meaning": "ふりをする"
-  },
-  {
-    "word": "refuse",
-    "meaning": "断る，拒否する"
-  },
-  {
-    "word": "consider",
-    "meaning": "よく考える"
-  },
-  {
-    "word": "stop",
-    "meaning": "やめる"
-  },
-  {
-    "word": "finish",
-    "meaning": "終える"
-  },
-  {
-    "word": "avoid",
-    "meaning": "避ける"
-  },
-  {
-    "word": "imagine",
-    "meaning": "想像する"
-  },
-  {
-    "word": "escape",
-    "meaning": "逃れる，免れる"
-  },
-  {
-    "word": "quit",
-    "meaning": "やめる"
-  },
-  {
-    "word": "dislike",
-    "meaning": "嫌う"
-  },
-  {
-    "word": "start",
-    "meaning": "始める，出発する"
-  },
-  {
-    "word": "begin",
-    "meaning": "始める"
-  },
-  {
-    "word": "continue",
-    "meaning": "続ける"
-  },
-  {
-    "word": "prefer",
-    "meaning": "の方を好む"
-  },
-  {
-    "word": "hate",
-    "meaning": "ひどく嫌う，憎む"
-  },
-  {
-    "word": "try",
-    "meaning": "試みる"
-  },
-  {
-    "word": "remember",
-    "meaning": "覚えている，思い出す"
-  },
-  {
-    "word": "forget",
-    "meaning": "忘れる"
-  },
-  {
-    "word": "regret",
-    "meaning": "後悔する"
-  },
-  {
-    "word": "air",
-    "meaning": "空気，大気"
-  },
-  {
-    "word": "cloth",
-    "meaning": "布，布地"
-  },
-  {
-    "word": "paper",
-    "meaning": "紙"
-  },
-  {
-    "word": "iron",
-    "meaning": "鉄，鉄分"
-  },
-  {
-    "word": "audience",
-    "meaning": "聴衆，観客"
-  },
-  {
-    "word": "police",
-    "meaning": "警察官"
-  },
-  {
-    "word": "staff",
-    "meaning": "スタッフ，職員"
-  },
-  {
-    "word": "furniture",
-    "meaning": "家具"
-  },
-  {
-    "word": "stuff",
-    "meaning": "（漠然と）物，こと"
-  },
-  {
-    "word": "baggage",
-    "meaning": "手荷物"
-  },
-  {
-    "word": "information",
-    "meaning": "情報"
-  },
-  {
-    "word": "ability",
-    "meaning": "能力"
-  },
-  {
-    "word": "advice",
-    "meaning": "助言，忠告"
-  },
-  {
-    "word": "beauty",
-    "meaning": "美，美しさ"
-  },
-  {
-    "word": "death",
-    "meaning": "死"
-  },
-  {
-    "word": "freedom",
-    "meaning": "自由"
-  },
-  {
-    "word": "peace",
-    "meaning": "平和"
-  },
-  {
-    "word": "customer",
-    "meaning": "（店の）客，顧客"
-  },
-  {
-    "word": "guest",
-    "meaning": "（招待）客，ゲスト"
-  },
-  {
-    "word": "habit",
-    "meaning": "（個人の）習慣，癖"
-  },
-  {
-    "word": "custom",
-    "meaning": "（社会的）慣習，風習"
-  },
-  {
-    "word": "fee",
-    "meaning": "（入場・加入などの）料金，会費"
-  },
-  {
-    "word": "fare",
-    "meaning": "（交通機関の）運賃，料金"
-  },
-  {
-    "word": "appointment",
-    "meaning": "（面会の）約束，（医者などの）予約"
-  },
-  {
-    "word": "idea",
-    "meaning": "考え，アイデア"
-  },
-  {
-    "word": "fact",
-    "meaning": "事実，現実"
-  },
-  {
-    "word": "feeling",
-    "meaning": "気持ち，感情"
-  },
-  {
-    "word": "evidence",
-    "meaning": "証拠"
-  },
-  {
-    "word": "other",
-    "meaning": "もう一方"
-  },
-  {
-    "word": "another",
-    "meaning": "別の物［人］"
-  },
-  {
-    "word": "each",
-    "meaning": "それぞれ"
-  },
-  {
-    "word": "both",
-    "meaning": "両方"
-  },
-  {
-    "word": "either",
-    "meaning": "（二者のうち）どちらか，どちらでも"
-  },
-  {
-    "word": "neither",
-    "meaning": "（二者のうち）どちらも…ない"
-  },
-  {
-    "word": "none",
-    "meaning": "どれ［誰］も…ない"
-  },
-  {
-    "word": "something",
-    "meaning": "何か"
-  },
-  {
-    "word": "anything",
-    "meaning": "何も（〜ない），何か，何でも"
-  },
-  {
-    "word": "nothing",
-    "meaning": "何も〜ない"
-  },
-  {
-    "word": "everything",
-    "meaning": "すべての物［こと］"
-  },
-  {
-    "word": "everyone",
-    "meaning": "みんな，誰でも"
-  },
-  {
-    "word": "someone",
-    "meaning": "誰か，ある人"
-  },
-  {
-    "word": "anyone",
-    "meaning": "誰か，誰も（〜ない），誰でも"
-  },
-  {
-    "word": "nobody",
-    "meaning": "誰も〜ない"
-  },
-  {
-    "word": "main",
-    "meaning": "主な，主要な"
-  },
-  {
-    "word": "daily",
-    "meaning": "毎日の，日々の"
-  },
-  {
-    "word": "alone",
-    "meaning": "ただ１人で"
-  },
-  {
-    "word": "aware",
-    "meaning": "気づいて"
-  },
-  {
-    "word": "awake",
-    "meaning": "目が覚めて"
-  },
-  {
-    "word": "asleep",
-    "meaning": "眠って"
-  },
-  {
-    "word": "alive",
-    "meaning": "生きて（いる）"
-  },
-  {
-    "word": "alike",
-    "meaning": "似ている，同様な"
-  },
-  {
-    "word": "right",
-    "meaning": "右の，正しい"
-  },
-  {
-    "word": "present",
-    "meaning": "現在の，出席して"
-  },
-  {
-    "word": "certain",
-    "meaning": "ある〜，確信して"
-  },
-  {
-    "word": "interested",
-    "meaning": "興味を持って"
-  },
-  {
-    "word": "surprised",
-    "meaning": "驚いて"
-  },
-  {
-    "word": "tired",
-    "meaning": "飽きて，うんざりして"
-  },
-  {
-    "word": "pleased",
-    "meaning": "喜んで"
-  },
-  {
-    "word": "satisfied",
-    "meaning": "満足して"
-  },
-  {
-    "word": "bored",
-    "meaning": "退屈して，うんざりして"
-  },
-  {
-    "word": "excited",
-    "meaning": "興奮して，わくわくして"
-  },
-  {
-    "word": "confused",
-    "meaning": "困惑［混乱］して"
-  },
-  {
-    "word": "scared",
-    "meaning": "怖がって"
-  },
-  {
-    "word": "able",
-    "meaning": "できる"
-  },
-  {
-    "word": "likely",
-    "meaning": "ありそうな"
-  },
-  {
-    "word": "sure",
-    "meaning": "確信して"
-  },
-  {
-    "word": "ready",
-    "meaning": "準備［用意］のできた"
-  },
-  {
-    "word": "eager",
-    "meaning": "熱望して"
-  },
-  {
-    "word": "polite",
-    "meaning": "礼儀正しい，丁寧な"
-  },
-  {
-    "word": "clever",
-    "meaning": "利口な"
-  },
-  {
-    "word": "brave",
-    "meaning": "勇敢な"
-  },
-  {
-    "word": "wise",
-    "meaning": "賢明な，賢い"
-  },
-  {
-    "word": "rude",
-    "meaning": "失礼な"
-  },
-  {
-    "word": "silly",
-    "meaning": "愚かな，ばかげた"
-  },
-  {
-    "word": "foolish",
-    "meaning": "愚かな，ばかげた"
-  },
-  {
-    "word": "stupid",
-    "meaning": "愚かな，ばかげた"
-  },
-  {
-    "word": "careless",
-    "meaning": "不注意な"
-  },
-  {
-    "word": "important",
-    "meaning": "重要な"
-  },
-  {
-    "word": "necessary",
-    "meaning": "必要な"
-  },
-  {
-    "word": "proper",
-    "meaning": "正当な，当然な"
-  },
-  {
-    "word": "strange",
-    "meaning": "奇妙な，不思議な"
-  },
-  {
-    "word": "wrong",
-    "meaning": "間違った"
-  },
-  {
-    "word": "few",
-    "meaning": "（可算名詞の前で）ほとんどない"
-  },
-  {
-    "word": "little",
-    "meaning": "（不可算名詞の前で）ほとんどない"
-  },
-  {
-    "word": "late",
-    "meaning": "遅れた／遅く，遅れて"
-  },
-  {
-    "word": "far",
-    "meaning": "遠い方の／遠くに［へ］"
-  },
-  {
-    "word": "hard",
-    "meaning": "難しい，困難な／懸命に，熱心に"
-  },
-  {
-    "word": "fast",
-    "meaning": "速い，素早い／速く"
-  },
-  {
-    "word": "deep",
-    "meaning": "深い／深く"
-  },
-  {
-    "word": "direct",
-    "meaning": "直接の／直接に，まっすぐ"
-  },
-  {
-    "word": "well",
-    "meaning": "健康で／十分に，よく"
-  },
-  {
-    "word": "wide",
-    "meaning": "広い／大きく，すっかり"
-  },
-  {
-    "word": "pretty",
-    "meaning": "かわいい／かなり"
-  },
-  {
-    "word": "sharp",
-    "meaning": "鋭い，とがった／ちょうど，きっかり"
-  },
-  {
-    "word": "just",
-    "meaning": "たった今，ちょうど（〜したばかり）"
-  },
-  {
-    "word": "already",
-    "meaning": "もう，すでに"
-  },
-  {
-    "word": "recently",
-    "meaning": "（ここ）最近"
-  },
-  {
-    "word": "lately",
-    "meaning": "（ここ）最近"
-  },
-  {
-    "word": "yet",
-    "meaning": "まだ（〜ない）"
-  },
-  {
-    "word": "ever",
-    "meaning": "これまでに，かつて"
-  },
-  {
-    "word": "twice",
-    "meaning": "２度，２回"
-  },
-  {
-    "word": "only",
-    "meaning": "だけ，しか（〜ない）"
-  },
-  {
-    "word": "always",
-    "meaning": "いつも，必ず"
-  },
-  {
-    "word": "sometimes",
-    "meaning": "時々"
-  },
-  {
-    "word": "usually",
-    "meaning": "たいてい，ふつうは"
-  },
-  {
-    "word": "nearly",
-    "meaning": "ほとんど，ほぼ"
-  },
-  {
-    "word": "hardly",
-    "meaning": "（程度が）ほとんど〜ない"
-  },
-  {
-    "word": "while",
-    "meaning": "…している間"
-  },
-  {
-    "word": "unless",
-    "meaning": "…でない限り，もし…でなければ"
-  },
-  {
-    "word": "nor",
-    "meaning": "もまた（…ない）"
-  },
-  {
-    "word": "whatever",
-    "meaning": "何が［を］…しようとも"
-  },
-  {
-    "word": "whichever",
-    "meaning": "どちらが［を］…しようとも"
-  },
-  {
-    "word": "whenever",
-    "meaning": "…するときはいつでも，…するたびに"
-  },
-  {
-    "word": "wherever",
-    "meaning": "…する所ならどこでも"
-  },
-  {
-    "word": "cause",
-    "meaning": "を引き起こす"
-  },
-  {
-    "word": "allow",
-    "meaning": "を可能にする"
-  },
-  {
-    "word": "enable",
-    "meaning": "を可能にする"
-  },
-  {
-    "word": "prevent",
-    "meaning": "を妨げる，中止させる"
-  },
-  {
-    "word": "force",
-    "meaning": "を強いる"
-  },
-  {
-    "word": "cost",
-    "meaning": "（金額・費用が）かかる"
-  },
-  {
-    "word": "remind",
-    "meaning": "に思い出させる"
-  },
-  {
-    "word": "believe in",
-    "meaning": "〜の存在を信じる"
-  },
-  {
-    "word": "bring out",
-    "meaning": "〜を引き出す"
-  },
-  {
-    "word": "bring up",
-    "meaning": "〜を育てる"
-  },
-  {
-    "word": "call for",
-    "meaning": "〜を必要とする"
-  },
-  {
-    "word": "call off",
-    "meaning": "〜を中心する，取り消す"
-  },
-  {
-    "word": "decide on [upon]",
-    "meaning": "〜に決める"
-  },
-  {
-    "word": "feel like (-ing)",
-    "meaning": "…したい気がする"
-  },
-  {
-    "word": "give up (-ing)",
-    "meaning": "…することをやめる，諦める"
-  },
-  {
-    "word": "go on (-ing)",
-    "meaning": "…し続ける"
-  },
-  {
-    "word": "have [be] nothing to do with",
-    "meaning": "〜と何も関係がない"
-  },
-  {
-    "word": "lie in [with]",
-    "meaning": "（責任・問題などが）〜にある"
-  },
-  {
-    "word": "make it",
-    "meaning": "うまくいく，成功する"
-  },
-  {
-    "word": "make oneself understood",
-    "meaning": "自分の考えが（相手に）通じる"
-  },
-  {
-    "word": "pass on",
-    "meaning": "伝える，渡す"
-  },
-  {
-    "word": "put away",
-    "meaning": "〜を片付ける"
-  },
-  {
-    "word": "put on",
-    "meaning": "〜を身につける，着る"
-  },
-  {
-    "word": "show up",
-    "meaning": "（人が）現れる，やって来る"
-  },
-  {
-    "word": "take [have] a walk",
-    "meaning": "散歩する"
-  },
-  {
-    "word": "take time (to do)",
-    "meaning": "（…するのに）時間がかかる"
-  },
-  {
-    "word": "tell A from B",
-    "meaning": "AとBを区別する"
-  },
-  {
-    "word": "throw away",
-    "meaning": "〜を捨てる"
-  },
-  {
-    "word": "try on",
-    "meaning": "〜を試着する"
-  },
-  {
-    "word": "turn A into B",
-    "meaning": "AをBに変える"
-  },
-  {
-    "word": "turn off",
-    "meaning": "〜を切る，消す"
-  },
-  {
-    "word": "turn on",
-    "meaning": "〜をつける"
-  },
-  {
-    "word": "turn out to be",
-    "meaning": "〜であることがわかる"
-  },
-  {
-    "word": "turn over",
-    "meaning": "〜をひっくり返す"
-  },
-  {
-    "word": "be known for",
-    "meaning": "〜のことで有名だ"
-  },
-  {
-    "word": "be unable to",
-    "meaning": "…することができない"
-  },
-  {
-    "word": "be used to (-ing)",
-    "meaning": "…することに慣れている"
-  },
-  {
-    "word": "be willing to",
-    "meaning": "…してもかまわない，…する気がある"
-  },
-  {
-    "word": "as ~ as ever",
-    "meaning": "相変わらず〜で"
-  },
-  {
-    "word": "as usual",
-    "meaning": "いつものように"
-  },
-  {
-    "word": "as well",
-    "meaning": "〜もまた，同じように"
-  },
-  {
-    "word": "at a loss",
-    "meaning": "途方に暮れて，困って"
-  },
-  {
-    "word": "at present",
-    "meaning": "現在，目下"
-  },
-  {
-    "word": "at the age of",
-    "meaning": "〜歳で"
-  },
-  {
-    "word": "before long",
-    "meaning": "間もなく，ほどなく"
-  },
-  {
-    "word": "for a while",
-    "meaning": "しばらくの間"
-  },
-  {
-    "word": "for sure [certain]",
-    "meaning": "確かに"
-  },
-  {
-    "word": "for the sake of",
-    "meaning": "〜のために"
-  },
-  {
-    "word": "in a [one] way",
-    "meaning": "ある意味で"
-  },
-  {
-    "word": "in danger of",
-    "meaning": "〜の恐れがあって"
-  },
-  {
-    "word": "in (actual) fact",
-    "meaning": "実際には"
-  },
-  {
-    "word": "in turn",
-    "meaning": "順番に，交替で"
-  },
-  {
-    "word": "little by little",
-    "meaning": "少しずつ"
-  },
-  {
-    "word": "no doubt",
-    "meaning": "きっと"
-  },
-  {
-    "word": "one after another [the other]",
-    "meaning": "次々と"
-  },
-  {
-    "word": "right away [off]",
-    "meaning": "直ちに，すぐに"
-  },
-  {
-    "word": "so far",
-    "meaning": "これまでのところ"
-  },
-  {
-    "word": "the other day",
-    "meaning": "先日"
-  },
-  {
-    "word": "to one’s surprise",
-    "meaning": "〜が驚いたことに"
-  },
-  {
-    "word": "as [so] far as",
-    "meaning": "…する限りは"
-  },
-  {
-    "word": "as many [much] as",
-    "meaning": "〜も多くの"
-  },
-  {
-    "word": "both A and B",
-    "meaning": "AもBも"
-  },
-  {
-    "word": "either A or B",
-    "meaning": "AかBのどちらか"
-  },
-  {
-    "word": "each other",
-    "meaning": "お互い"
-  },
-  {
-    "word": "every other",
-    "meaning": "〜ごとに，〜おきに"
-  },
-  {
-    "word": "something is wrong with",
-    "meaning": "〜はどこか調子が悪い"
-  },
-  {
-    "word": "What is ~ like?",
-    "meaning": "〜はどのようなもの［人］ですか"
-  },
-  {
-    "word": "spend",
-    "meaning": "費やす，使う"
-  },
-  {
-    "word": "increase",
-    "meaning": "増える"
-  },
-  {
-    "word": "decrease",
-    "meaning": "減る"
-  },
-  {
-    "word": "improve",
-    "meaning": "改善する，向上させる"
-  },
-  {
-    "word": "provide",
-    "meaning": "提供［供給］する"
-  },
-  {
-    "word": "include",
-    "meaning": "含む"
-  },
-  {
-    "word": "develop",
-    "meaning": "発達［発展］させる"
-  },
-  {
-    "word": "receive",
-    "meaning": "受け取る，受ける"
-  },
-  {
-    "word": "explain",
-    "meaning": "説明する"
-  },
-  {
-    "word": "lead",
-    "meaning": "至る，導く"
-  },
-  {
-    "word": "perform",
-    "meaning": "うまくいく，機能する"
-  },
-  {
-    "word": "realize",
-    "meaning": "気づく，認識する"
-  },
-  {
-    "word": "produce",
-    "meaning": "引き起こす，もたらす"
-  },
-  {
-    "word": "participate",
-    "meaning": "参加する"
-  },
-  {
-    "word": "suggest",
-    "meaning": "示す，暗示する"
-  },
-  {
-    "word": "encourage",
-    "meaning": "促進する，奨励する"
-  },
-  {
-    "word": "apply",
-    "meaning": "当てはまる"
-  },
-  {
-    "word": "affect",
-    "meaning": "影響する"
-  },
-  {
-    "word": "recognize",
-    "meaning": "わかる，識別する"
-  },
-  {
-    "word": "require",
-    "meaning": "要求する"
-  },
-  {
-    "word": "maintain",
-    "meaning": "維持する"
-  },
-  {
-    "word": "tend",
-    "meaning": "…する傾向がある，…しがちである"
-  },
-  {
-    "word": "contain",
-    "meaning": "含む"
-  },
-  {
-    "word": "represent",
-    "meaning": "表す，象徴する"
-  },
-  {
-    "word": "reach",
-    "meaning": "に届く，達する"
-  },
-  {
-    "word": "mention",
-    "meaning": "話に出す，言及する"
-  },
-  {
-    "word": "focus",
-    "meaning": "集中する，焦点を合わせる"
-  },
-  {
-    "word": "rent",
-    "meaning": "（有料で）借りる"
-  },
-  {
-    "word": "guess",
-    "meaning": "推測する"
-  },
-  {
-    "word": "add",
-    "meaning": "加える"
-  },
-  {
-    "word": "delay",
-    "meaning": "遅らせる"
-  },
-  {
-    "word": "select",
-    "meaning": "選び出す"
-  },
-  {
-    "word": "system",
-    "meaning": "（体系的）方法，方式"
-  },
-  {
-    "word": "experience",
-    "meaning": "経験，体験"
-  },
-  {
-    "word": "activity",
-    "meaning": "活動"
-  },
-  {
-    "word": "program",
-    "meaning": "計画，プログラム"
-  },
-  {
-    "word": "care",
-    "meaning": "注意"
-  },
-  {
-    "word": "situation",
-    "meaning": "状況，事態"
-  },
-  {
-    "word": "research",
-    "meaning": "研究，調査"
-  },
-  {
-    "word": "passage",
-    "meaning": "（本・音楽などの）一節"
-  },
-  {
-    "word": "factor",
-    "meaning": "要因，要素"
-  },
-  {
-    "word": "value",
-    "meaning": "価値"
-  },
-  {
-    "word": "influence",
-    "meaning": "影響，影響力"
-  },
-  {
-    "word": "author",
-    "meaning": "著者，作者"
-  },
-  {
-    "word": "role",
-    "meaning": "役割"
-  },
-  {
-    "word": "average",
-    "meaning": "平均"
-  },
-  {
-    "word": "friendship",
-    "meaning": "交友関係"
-  },
-  {
-    "word": "view",
-    "meaning": "意見，考え"
-  },
-  {
-    "word": "result",
-    "meaning": "結果"
-  },
-  {
-    "word": "surface",
-    "meaning": "外見，うわべ"
-  },
-  {
-    "word": "rate",
-    "meaning": "割合，比率"
-  },
-  {
-    "word": "process",
-    "meaning": "過程"
-  },
-  {
-    "word": "topic",
-    "meaning": "話題，トピック"
-  },
-  {
-    "word": "variety",
-    "meaning": "種類"
-  },
-  {
-    "word": "risk",
-    "meaning": "危険，リスク"
-  },
-  {
-    "word": "amount",
-    "meaning": "量，合計"
-  },
-  {
-    "word": "skill",
-    "meaning": "技能，技術"
-  },
-  {
-    "word": "period",
-    "meaning": "期間"
-  },
-  {
-    "word": "center",
-    "meaning": "中心"
-  },
-  {
-    "word": "sense",
-    "meaning": "感覚"
-  },
-  {
-    "word": "opportunity",
-    "meaning": "機会"
-  },
-  {
-    "word": "effect",
-    "meaning": "影響，効果"
-  },
-  {
-    "word": "public",
-    "meaning": "大衆，一般の人々"
-  },
-  {
-    "word": "transportation",
-    "meaning": "交通機関"
-  },
-  {
-    "word": "atmosphere",
-    "meaning": "雰囲気"
-  },
-  {
-    "word": "attention",
-    "meaning": "注意，注意力"
-  },
-  {
-    "word": "space",
-    "meaning": "場所，空間"
-  },
-  {
-    "word": "behavior",
-    "meaning": "振る舞い，行儀"
-  },
-  {
-    "word": "object",
-    "meaning": "物，物体"
-  },
-  {
-    "word": "company",
-    "meaning": "会社"
-  },
-  {
-    "word": "field",
-    "meaning": "分野，領域"
-  },
-  {
-    "word": "following",
-    "meaning": "次の，以下の"
-  },
-  {
-    "word": "various",
-    "meaning": "さまざまな，多様な"
-  },
-  {
-    "word": "several",
-    "meaning": "いくつかの"
-  },
-  {
-    "word": "local",
-    "meaning": "地元の，現地の"
-  },
-  {
-    "word": "related",
-    "meaning": "関連して"
-  },
-  {
-    "word": "possible",
-    "meaning": "可能な"
-  },
-  {
-    "word": "similar",
-    "meaning": "似ている，同様の"
-  },
-  {
-    "word": "concerned",
-    "meaning": "心配して"
-  },
-  {
-    "word": "available",
-    "meaning": "利用できる，手に入る"
-  },
-  {
-    "word": "dry",
-    "meaning": "雨の少ない，乾燥した"
-  },
-  {
-    "word": "past",
-    "meaning": "過ぎたばかりの，この前の"
-  },
-  {
-    "word": "modern",
-    "meaning": "近代的な，最新の"
-  },
-  {
-    "word": "unique",
-    "meaning": "特有の"
-  },
-  {
-    "word": "common",
-    "meaning": "よくある，普通の"
-  },
-  {
-    "word": "prepare",
-    "meaning": "準備［用意］する"
-  },
-  {
-    "word": "regard",
-    "meaning": "（〜と）思う，考える"
-  },
-  {
-    "word": "occur",
-    "meaning": "（予期せず）起こる"
-  },
-  {
-    "word": "suppose",
-    "meaning": "だと思う，考える"
-  },
-  {
-    "word": "serve",
-    "meaning": "（食事を）出す"
-  },
-  {
-    "word": "wonder",
-    "meaning": "だろうかと思う"
-  },
-  {
-    "word": "reduce",
-    "meaning": "減らす"
-  },
-  {
-    "word": "promote",
-    "meaning": "促進する"
-  },
-  {
-    "word": "survive",
-    "meaning": "生き延びる，切り抜ける"
-  },
-  {
-    "word": "gain",
-    "meaning": "得る"
-  },
-  {
-    "word": "devide",
-    "meaning": "分ける，分かれる"
-  },
-  {
-    "word": "attract",
-    "meaning": "引き寄せる"
-  },
-  {
-    "word": "achieve",
-    "meaning": "達成する"
-  },
-  {
-    "word": "fit",
-    "meaning": "適する，合致する"
-  },
-  {
-    "word": "reveal",
-    "meaning": "明らかにする"
-  },
-  {
-    "word": "wish",
-    "meaning": "願う"
-  },
-  {
-    "word": "fill",
-    "meaning": "満たす"
-  },
-  {
-    "word": "hurt",
-    "meaning": "傷つける，害する"
-  },
-  {
-    "word": "discover",
-    "meaning": "知る，わかる"
-  },
-  {
-    "word": "indicate",
-    "meaning": "示す"
-  },
-  {
-    "word": "overcome",
-    "meaning": "克服する，打ち勝つ"
-  },
-  {
-    "word": "protect",
-    "meaning": "守る，保護する"
-  },
-  {
-    "word": "remove",
-    "meaning": "取り去る，移動させる"
-  },
-  {
-    "word": "rely",
-    "meaning": "当てにする，頼る"
-  },
-  {
-    "word": "bother",
-    "meaning": "わざわざ…する，悩ませる"
-  },
-  {
-    "word": "seek",
-    "meaning": "追い求める"
-  },
-  {
-    "word": "matter",
-    "meaning": "重要［問題］だ"
-  },
-  {
-    "word": "concentrate",
-    "meaning": "集中する，専念する"
-  },
-  {
-    "word": "react",
-    "meaning": "反応［対応］する"
-  },
-  {
-    "word": "struggle",
-    "meaning": "奮闘する"
-  },
-  {
-    "word": "admit",
-    "meaning": "（しぶしぶ）認める"
-  },
-  {
-    "word": "lock",
-    "meaning": "しまい込む，閉じ込める"
-  },
-  {
-    "word": "issue",
-    "meaning": "問題，問題点"
-  },
-  {
-    "word": "relationship",
-    "meaning": "関係"
-  },
-  {
-    "word": "list",
-    "meaning": "リスト，一覧"
-  },
-  {
-    "word": "item",
-    "meaning": "１品，１点"
-  },
-  {
-    "word": "distance",
-    "meaning": "距離"
-  },
-  {
-    "word": "case",
-    "meaning": "場合"
-  },
-  {
-    "word": "opinion",
-    "meaning": "意見，見解"
-  },
-  {
-    "word": "century",
-    "meaning": "世紀"
-  },
-  {
-    "word": "trouble",
-    "meaning": "困難，困ったこと"
-  },
-  {
-    "word": "total",
-    "meaning": "合計"
-  },
-  {
-    "word": "advantage",
-    "meaning": "有利な点，強み"
-  },
-  {
-    "word": "detail",
-    "meaning": "細部"
-  },
-  {
-    "word": "moment",
-    "meaning": "時点"
-  },
-  {
-    "word": "bill",
-    "meaning": "請求書"
-  },
-  {
-    "word": "rest",
-    "meaning": "残り，休み"
-  },
-  {
-    "word": "deal",
-    "meaning": "量，取引"
-  },
-  {
-    "word": "feature",
-    "meaning": "特徴"
-  },
-  {
-    "word": "survey",
-    "meaning": "調査"
-  },
-  {
-    "word": "destination",
-    "meaning": "目的地，行き先"
-  },
-  {
-    "word": "conclusion",
-    "meaning": "結論"
-  },
-  {
-    "word": "attitude",
-    "meaning": "態度，考え方"
-  },
-  {
-    "word": "impact",
-    "meaning": "影響，衝撃"
-  },
-  {
-    "word": "source",
-    "meaning": "源"
-  },
-  {
-    "word": "row",
-    "meaning": "列，並び"
-  },
-  {
-    "word": "assistant",
-    "meaning": "助手，補佐"
-  },
-  {
-    "word": "impression",
-    "meaning": "印象"
-  },
-  {
-    "word": "noise",
-    "meaning": "騒音"
-  },
-  {
-    "word": "sign",
-    "meaning": "兆し，表れ"
-  },
-  {
-    "word": "aim",
-    "meaning": "目的，目標"
-  },
-  {
-    "word": "occasion",
-    "meaning": "（特定の）時，機会"
-  },
-  {
-    "word": "relation",
-    "meaning": "関係，関連"
-  },
-  {
-    "word": "signal",
-    "meaning": "合図"
-  },
-  {
-    "word": "balance",
-    "meaning": "バランス，均衡"
-  },
-  {
-    "word": "track",
-    "meaning": "小道"
-  },
-  {
-    "word": "symbol",
-    "meaning": "象徴，シンボル"
-  },
-  {
-    "word": "circle",
-    "meaning": "円，仲間"
-  },
-  {
-    "word": "leisure",
-    "meaning": "余暇，自由な時間"
-  },
-  {
-    "word": "angle",
-    "meaning": "角度，観点"
-  },
-  {
-    "word": "comfortable",
-    "meaning": "快適な"
-  },
-  {
-    "word": "recent",
-    "meaning": "最近の"
-  },
-  {
-    "word": "real",
-    "meaning": "現実の，実在する"
-  },
-  {
-    "word": "dangerous",
-    "meaning": "危険な"
-  },
-  {
-    "word": "current",
-    "meaning": "現在の，今の"
-  },
-  {
-    "word": "final",
-    "meaning": "最後の"
-  },
-  {
-    "word": "obvious",
-    "meaning": "明らかな"
-  },
-  {
-    "word": "fair",
-    "meaning": "妥当な，適正な"
-  },
-  {
-    "word": "proud",
-    "meaning": "誇りに思って"
-  },
-  {
-    "word": "anxious",
-    "meaning": "切望して，心配して"
-  },
-  {
-    "word": "impossible",
-    "meaning": "不可能な"
-  },
-  {
-    "word": "opposite",
-    "meaning": "反対側の，向かい側の"
-  },
-  {
-    "word": "terrible",
-    "meaning": "ひどい，恐ろしい"
-  },
-  {
-    "word": "thick",
-    "meaning": "厚い"
-  },
-  {
-    "word": "narrow",
-    "meaning": "狭い，細い"
-  },
-  {
-    "word": "actually",
-    "meaning": "実際に，実は"
-  },
-  {
-    "word": "especially",
-    "meaning": "特に，とりわけ"
-  },
-  {
-    "word": "perhaps",
-    "meaning": "もしかしたら"
-  },
-  {
-    "word": "fortunately",
-    "meaning": "幸運にも"
-  },
-  {
-    "word": "less",
-    "meaning": "より少なく"
-  },
-  {
-    "word": "least",
-    "meaning": "最も〜でない"
-  },
-  {
-    "word": "abroad",
-    "meaning": "外国に［で］"
-  },
-  {
-    "word": "overseas",
-    "meaning": "海外へ［に，で］"
-  },
-  {
-    "word": "rather",
-    "meaning": "むしろ"
-  },
-  {
-    "word": "probably",
-    "meaning": "たぶん"
-  },
-  {
-    "word": "easily",
-    "meaning": "たやすく，簡単に"
-  },
-  {
-    "word": "quite",
-    "meaning": "かなり"
-  },
-  {
-    "word": "exactly",
-    "meaning": "正確に，まさに"
-  },
-  {
-    "word": "instead",
-    "meaning": "その代わりに"
-  },
-  {
-    "word": "immediately",
-    "meaning": "直ちに"
-  },
-  {
-    "word": "somewhere",
-    "meaning": "どこかに［へ，で］"
-  },
-  {
-    "word": "gradually",
-    "meaning": "徐々に，だんだんと"
-  },
-  {
-    "word": "simply",
-    "meaning": "単に"
-  },
-  {
-    "word": "indeed",
-    "meaning": "確かに，本当に"
-  },
-  {
-    "word": "whether",
-    "meaning": "…かどうか"
-  },
-  {
-    "word": "also",
-    "meaning": "その上"
-  },
-  {
-    "word": "moreover",
-    "meaning": "その上，さらに"
-  },
-  {
-    "word": "besides",
-    "meaning": "その上"
-  },
-  {
-    "word": "though",
-    "meaning": "でも，だけど"
-  },
-  {
-    "word": "however",
-    "meaning": "しかしながら"
-  },
-  {
-    "word": "although",
-    "meaning": "…だけれども，…にもかかわらず"
-  },
-  {
-    "word": "true",
-    "meaning": "本当の，真実の"
-  },
-  {
-    "word": "because",
-    "meaning": "なぜなら，…なので"
-  },
-  {
-    "word": "therefore",
-    "meaning": "したがって，それゆえ"
-  },
-  {
-    "word": "anyway",
-    "meaning": "いずれにせよ"
-  },
-  {
-    "word": "bring about",
-    "meaning": "〜を引き起こす，もたらす"
-  },
-  {
-    "word": "catch up (with)",
-    "meaning": "追いつく"
-  },
-  {
-    "word": "check out",
-    "meaning": "〜を調べる"
-  },
-  {
-    "word": "deal with",
-    "meaning": "〜に対処する，処理する"
-  },
-  {
-    "word": "end up (-ing)",
-    "meaning": "最終的には…することになる"
-  },
-  {
-    "word": "figure out",
-    "meaning": "〜を理解する，解決する"
-  },
-  {
-    "word": "fill in",
-    "meaning": "〜に記入する"
-  },
-  {
-    "word": "get rid of",
-    "meaning": "〜を処分する，取り除く"
-  },
-  {
-    "word": "have A in common (with B)",
-    "meaning": "（Bと）共通のAを持つ"
-  },
-  {
-    "word": "keep up with",
-    "meaning": "〜に（遅れずに）ついて行く"
-  },
-  {
-    "word": "look to A (for B)",
-    "meaning": "Aに（Bを）期待する，当てにする"
-  },
-  {
-    "word": "make sense",
-    "meaning": "意味をなす，理解しやすい"
-  },
-  {
-    "word": "make sure",
-    "meaning": "…を確かめる"
-  },
-  {
-    "word": "make up for",
-    "meaning": "〜の埋め合わせをする，〜を償う"
-  },
-  {
-    "word": "make up one’s mind",
-    "meaning": "決心する"
-  },
-  {
-    "word": "never fail to",
-    "meaning": "必ず…する"
-  },
-  {
-    "word": "result in",
-    "meaning": "〜という結果になる"
-  },
-  {
-    "word": "set off (for)",
-    "meaning": "出発する"
-  },
-  {
-    "word": "set out to",
-    "meaning": "…し始める，…しようと試みる"
-  },
-  {
-    "word": "set up",
-    "meaning": "〜を始める，設立する"
-  },
-  {
-    "word": "stay up",
-    "meaning": "（寝ないで）起きている"
-  },
-  {
-    "word": "take advantage of",
-    "meaning": "〜を利用する"
-  },
-  {
-    "word": "take in",
-    "meaning": "〜をだます"
-  },
-  {
-    "word": "take over",
-    "meaning": "〜を引き継ぐ"
-  },
-  {
-    "word": "turn down",
-    "meaning": "〜を拒む，断る"
-  },
-  {
-    "word": "according to",
-    "meaning": "〜によれば"
-  },
-  {
-    "word": "at [from] a distance",
-    "meaning": "離れた所に［から］"
-  },
-  {
-    "word": "by means of",
-    "meaning": "〜によって，〜を用いて"
-  },
-  {
-    "word": "for a moment",
-    "meaning": "少しの間"
-  },
-  {
-    "word": "in a [one] sense",
-    "meaning": "ある意味では"
-  },
-  {
-    "word": "in case of",
-    "meaning": "〜の場合は"
-  },
-  {
-    "word": "in contrast to [with]",
-    "meaning": "〜とは対照的に"
-  },
-  {
-    "word": "in one’s opinion [view]",
-    "meaning": "〜の考え［意見］では"
-  },
-  {
-    "word": "in terms of",
-    "meaning": "〜の観点から"
-  },
-  {
-    "word": "instead of",
-    "meaning": "〜の代わりに，〜ではなくて"
-  },
-  {
-    "word": "next to",
-    "meaning": "〜の隣に"
-  },
-  {
-    "word": "no more than",
-    "meaning": "わずか〜，たった〜"
-  },
-  {
-    "word": "nothing but",
-    "meaning": "ただ〜だけ"
-  },
-  {
-    "word": "out of order",
-    "meaning": "故障して，調子が悪い"
-  },
-  {
-    "word": "regardless of",
-    "meaning": "〜に関係なく，かまわず"
-  },
-  {
-    "word": "to make matters worse",
-    "meaning": "さらに悪いことに"
-  },
-  {
-    "word": "with ease",
-    "meaning": "容易に"
-  },
-  {
-    "word": "a variety of",
-    "meaning": "いろいろな"
-  },
-  {
-    "word": "as ~ as possible [one can]",
-    "meaning": "できるだけ"
-  },
-  {
-    "word": "as if [though]",
-    "meaning": "…であるかのように"
-  },
-  {
-    "word": "by the time",
-    "meaning": "…するまでに"
-  },
-  {
-    "word": "even if",
-    "meaning": "たとえ…だとしても"
-  },
-  {
-    "word": "now (that)",
-    "meaning": "今や…だから"
-  },
-  {
-    "word": "the moment [minute]",
-    "meaning": "…するとすぐに"
-  },
-  {
-    "word": "by the way",
-    "meaning": "ところで，それはそうと"
-  },
-  {
-    "word": "as for",
-    "meaning": "〜については，〜はどうかと言えば"
-  },
-  {
-    "word": "in general",
-    "meaning": "一般に，概して"
-  },
-  {
-    "word": "on the whole",
-    "meaning": "全体的に見て"
-  },
-  {
-    "word": "for example [instance]",
-    "meaning": "例えば"
-  },
-  {
-    "word": "in particular",
-    "meaning": "特に，とりわけ"
-  },
-  {
-    "word": "that is (to say)",
-    "meaning": "すなわち，より正確に言えば"
-  },
-  {
-    "word": "in other words",
-    "meaning": "言い換えると，つまり"
-  },
-  {
-    "word": "to begin [start] with",
-    "meaning": "まず第一に"
-  },
-  {
-    "word": "in the first place",
-    "meaning": "まず第一に"
-  },
-  {
-    "word": "in addition",
-    "meaning": "その上，さらに"
-  },
-  {
-    "word": "A as well as B",
-    "meaning": "BだけでなくAも"
-  },
-  {
-    "word": "on the other hand",
-    "meaning": "他方では"
-  },
-  {
-    "word": "in spite of",
-    "meaning": "〜にもかかわらず"
-  },
-  {
-    "word": "because of",
-    "meaning": "〜のために，〜が原因で"
-  },
-  {
-    "word": "on account of",
-    "meaning": "〜のために，〜が原因で"
-  },
-  {
-    "word": "due to",
-    "meaning": "〜のために，〜が原因で"
-  },
-  {
-    "word": "thanks to",
-    "meaning": "〜のおかげで"
-  },
-  {
-    "word": "as a result",
-    "meaning": "結果として"
-  },
-  {
-    "word": "in any case [event]",
-    "meaning": "いずれにしても"
-  },
-  {
-    "word": "in short",
-    "meaning": "要約すると，手短にいうと"
-  }
+  { word: "change", meaning: "変える", ipa: "ʧeɪnʤ" },
+  { word: "learn", meaning: "学ぶ", ipa: "lərn" },
+  { word: "help", meaning: "手伝う，助ける", ipa: "hɛlp" },
+  { word: "need", meaning: "必要とする", ipa: "nid" },
+  { word: "live", meaning: "住んでいる", ipa: "lɪv" },
+  { word: "ask", meaning: "頼む", ipa: "æsk" },
+  { word: "enjoy", meaning: "楽しむ", ipa: "ˌɛnˈʤɔɪ" },
+  { word: "wait", meaning: "待つ", ipa: "weɪt" },
+  { word: "cook", meaning: "調理する", ipa: "kʊk" },
+  { word: "talk", meaning: "話す (t-)", ipa: "tɔk" },
+  { word: "speak", meaning: "話す (s-)", ipa: "spik" },
+  { word: "meet", meaning: "会う", ipa: "mit" },
+  { word: "mean", meaning: "意味する", ipa: "min" },
+  { word: "buy", meaning: "買う", ipa: "baɪ" },
+  { word: "travel", meaning: "旅行する", ipa: "ˈtrævəl" },
+  { word: "build", meaning: "建てる", ipa: "bɪld" },
+  { word: "close", meaning: "閉じる", ipa: "kloʊz" },
+  { word: "stay", meaning: "滞在する", ipa: "steɪ" },
+  { word: "move", meaning: "動かす", ipa: "muv" },
+  { word: "plan", meaning: "計画する", ipa: "plæn" },
+  { word: "write", meaning: "書く", ipa: "raɪt" },
+  { word: "listen", meaning: "聞く (l-)", ipa: "ˈlɪsən" },
+  { word: "happen", meaning: "起こる，生じる", ipa: "ˈhæpən" },
+  { word: "lose", meaning: "失う，なくす", ipa: "luz" },
+  { word: "stand", meaning: "立つ，立っている", ipa: "stænd" },
+  { word: "grow", meaning: "育つ", ipa: "groʊ" },
+  { word: "sound", meaning: "〜のように聞こえる", ipa: "saʊnd" },
+  { word: "rain", meaning: "雨が降る", ipa: "reɪn" },
+  { word: "worry", meaning: "心配する", ipa: "ˈwəri" },
+  { word: "teach", meaning: "教える", ipa: "tiʧ" },
+  { word: "hope", meaning: "望む", ipa: "hoʊp" },
+  { word: "hold", meaning: "持つ，抱える", ipa: "hoʊld" },
+  { word: "life", meaning: "一生，生涯", ipa: "laɪf" },
+  { word: "thing", meaning: "事", ipa: "θɪŋ" },
+  { word: "country", meaning: "国", ipa: "ˈkəntri" },
+  { word: "example", meaning: "例", ipa: "ɪgˈzæmpəl" },
+  { word: "place", meaning: "場所", ipa: "pleɪs" },
+  { word: "part", meaning: "部分", ipa: "pɑrt" },
+  { word: "trip", meaning: "旅行", ipa: "trɪp" },
+  { word: "problem", meaning: "問題", ipa: "ˈprɑbləm" },
+  { word: "question", meaning: "質問", ipa: "kˈwɛʃən" },
+  { word: "color", meaning: "色", ipa: "ˈkələr" },
+  { word: "point", meaning: "要点", ipa: "pɔɪnt" },
+  { word: "language", meaning: "言語", ipa: "ˈlæŋgwɪʤ" },
+  { word: "word", meaning: "単語，語", ipa: "wərd" },
+  { word: "health", meaning: "健康", ipa: "hɛlθ" },
+  { word: "report", meaning: "報告書", ipa: "rɪˈpɔrt" },
+  { word: "minute", meaning: "分", ipa: "ˈmɪnət" },
+  { word: "reason", meaning: "理由", ipa: "ˈrizən" },
+  { word: "line", meaning: "路線", ipa: "laɪn" },
+  { word: "month", meaning: "（暦の）月", ipa: "mənθ" },
+  { word: "week", meaning: "週", ipa: "wik" },
+  { word: "date", meaning: "日にち", ipa: "deɪt" },
+  { word: "event", meaning: "行事", ipa: "ɪˈvɛnt" },
+  { word: "future", meaning: "未来，将来", ipa: "fˈjuʧər" },
+  { word: "design", meaning: "デザイン", ipa: "dɪˈzaɪn" },
+  { word: "end", meaning: "終わり", ipa: "ɛnd" },
+  { word: "computer", meaning: "コンピューター", ipa: "kəmˈpjutər" },
+  { word: "plant", meaning: "植物", ipa: "plænt" },
+  { word: "art", meaning: "美術", ipa: "ɑrt" },
+  { word: "chance", meaning: "機会，好機", ipa: "ʧæns" },
+  { word: "history", meaning: "歴史", ipa: "ˈhɪstəri" },
+  { word: "festival", meaning: "祭り", ipa: "ˈfɛstɪvəl" },
+  { word: "season", meaning: "季節", ipa: "ˈsizən" },
+  { word: "fun", meaning: "楽しみ", ipa: "fən" },
+  { word: "host", meaning: "主人", ipa: "hoʊst" },
+  { word: "message", meaning: "伝言", ipa: "ˈmɛsɪʤ" },
+  { word: "step", meaning: "段階", ipa: "stɛp" },
+  { word: "popular", meaning: "人気のある", ipa: "ˈpɑpjələr" },
+  { word: "most", meaning: "大部分の", ipa: "moʊst" },
+  { word: "different", meaning: "違う", ipa: "ˈdɪfərənt" },
+  { word: "such", meaning: "そのような", ipa: "səʧ" },
+  { word: "last", meaning: "この前の", ipa: "læst" },
+  { word: "same", meaning: "同じ", ipa: "seɪm" },
+  { word: "great", meaning: "すばらしい (g-)", ipa: "greɪt" },
+  { word: "open", meaning: "開いている", ipa: "ˈoʊpən" },
+  { word: "own", meaning: "自分自身の", ipa: "oʊn" },
+  { word: "kind", meaning: "親切な", ipa: "kaɪnd" },
+  { word: "difficult", meaning: "難しい", ipa: "ˈdɪfəkəlt" },
+  { word: "enough", meaning: "十分な", ipa: "ɪˈnəf" },
+  { word: "special", meaning: "特別な", ipa: "ˈspɛʃəl" },
+  { word: "famous", meaning: "有名な", ipa: "ˈfeɪməs" },
+  { word: "bad", meaning: "悪い", ipa: "bæd" },
+  { word: "short", meaning: "短い", ipa: "ʃɔrt" },
+  { word: "useful", meaning: "役に立つ", ipa: "ˈjusfəl" },
+  { word: "afraid", meaning: "恐れて", ipa: "əˈfreɪd" },
+  { word: "favorite", meaning: "お気に入りの", ipa: "ˈfeɪvərɪt" },
+  { word: "expensive", meaning: "高価な", ipa: "ɪkˈspɛnsɪv" },
+  { word: "carry", meaning: "運ぶ", ipa: "ˈkɛri" },
+  { word: "break", meaning: "壊れる，割れる", ipa: "breɪk" },
+  { word: "arrive", meaning: "到着する", ipa: "əraɪv" },
+  { word: "fall", meaning: "落ちる", ipa: "fɔl" },
+  { word: "miss", meaning: "がいなくてさみしく思う", ipa: "mɪs" },
+  { word: "cover", meaning: "覆う", ipa: "ˈkəvər" },
+  { word: "catch", meaning: "捕まえる", ipa: "kæʧ" },
+  { word: "save", meaning: "救う", ipa: "seɪv" },
+  { word: "check", meaning: "点検する", ipa: "ʧɛk" },
+  { word: "introduce", meaning: "紹介する", ipa: "ˌɪntrəˈdus" },
+  { word: "join", meaning: "加わる", ipa: "ʤɔɪn" },
+  { word: "clean", meaning: "きれいにする", ipa: "klin" },
+  { word: "answer", meaning: "答える", ipa: "ˈænsər" },
+  { word: "throw", meaning: "投げる", ipa: "θroʊ" },
+  { word: "invite", meaning: "招待する", ipa: "ˌɪnˈvaɪt" },
+  { word: "pick", meaning: "摘み取る", ipa: "pɪk" },
+  { word: "die", meaning: "死ぬ", ipa: "daɪ" },
+  { word: "return", meaning: "戻る", ipa: "rɪˈtərn" },
+  { word: "fly", meaning: "飛ぶ", ipa: "flaɪ" },
+  { word: "cut", meaning: "切る", ipa: "kət" },
+  { word: "hit", meaning: "襲う，打つ", ipa: "hɪt" },
+  { word: "excuse", meaning: "許す", ipa: "ɪkˈskjuz" },
+  { word: "wash", meaning: "洗う", ipa: "wɑʃ" },
+  { word: "cry", meaning: "叫ぶ", ipa: "kraɪ" },
+  { word: "borrow", meaning: "借りる", ipa: "ˈbɑˌroʊ" },
+  { word: "kill", meaning: "殺す", ipa: "kɪl" },
+  { word: "push", meaning: "押す", ipa: "pʊʃ" },
+  { word: "climb", meaning: "登る", ipa: "klaɪm" },
+  { word: "laugh", meaning: "笑う", ipa: "læf" },
+  { word: "smile", meaning: "ほほえむ", ipa: "smaɪl" },
+  { word: "hurry", meaning: "急ぐ", ipa: "ˈhəri" },
+  { word: "cheer", meaning: "元気づける", ipa: "ʧɪr" },
+  { word: "volunteer", meaning: "ボランティア", ipa: "ˌvɑlənˈtɪr" },
+  { word: "side", meaning: "側", ipa: "saɪd" },
+  { word: "front", meaning: "前，正面", ipa: "frənt" },
+  { word: "concert", meaning: "コンサート", ipa: "ˈkɑnsərt" },
+  { word: "fire", meaning: "火事", ipa: "faɪər" },
+  { word: "village", meaning: "村", ipa: "ˈvɪlɪʤ" },
+  { word: "lesson", meaning: "レッスン", ipa: "ˈlɛsən" },
+  { word: "light", meaning: "明かり", ipa: "laɪt" },
+  { word: "Internet", meaning: "インターネット", ipa: "ˈɪntərˌnɛt" },
+  { word: "weather", meaning: "天気", ipa: "ˈwɛðər" },
+  { word: "voice", meaning: "声", ipa: "vɔɪs" },
+  { word: "piece", meaning: "１つ，１枚", ipa: "pis" },
+  { word: "goal", meaning: "目標", ipa: "goʊl" },
+  { word: "speech", meaning: "スピーチ", ipa: "spiʧ" },
+  { word: "fan", meaning: "ファン", ipa: "fæn" },
+  { word: "dream", meaning: "夢", ipa: "drim" },
+  { word: "mistake", meaning: "間違い", ipa: "mɪˈsteɪk" },
+  { word: "meter", meaning: "メートル", ipa: "ˈmitər" },
+  { word: "land", meaning: "土地", ipa: "lænd" },
+  { word: "hundred", meaning: "百", ipa: "ˈhənərd" },
+  { word: "thousand", meaning: "千", ipa: "ˈθaʊzənd" },
+  { word: "million", meaning: "百万", ipa: "ˈmɪljən" },
+  { word: "medicine", meaning: "薬", ipa: "ˈmɛdəsən" },
+  { word: "uniform", meaning: "制服", ipa: "ˈjunəˌfɔrm" },
+  { word: "heat", meaning: "暑さ", ipa: "hit" },
+  { word: "evening", meaning: "夕方", ipa: "ˈivnɪŋ" },
+  { word: "noon", meaning: "正午", ipa: "nun" },
+  { word: "holiday", meaning: "休日，祝日", ipa: "ˈhɑlɪˌdeɪ" },
+  { word: "course", meaning: "講座", ipa: "kɔrs" },
+  { word: "rule", meaning: "ルール", ipa: "rul" },
+  { word: "forest", meaning: "森林", ipa: "ˈfɔrɪst" },
+  { word: "farm", meaning: "農場", ipa: "fɑrm" },
+  { word: "treasure", meaning: "大切な物", ipa: "ˈtrɛʒər" },
+  { word: "hole", meaning: "穴", ipa: "hoʊl" },
+  { word: "cloud", meaning: "雲", ipa: "klaʊd" },
+  { word: "phone", meaning: "電話", ipa: "foʊn" },
+  { word: "sorry", meaning: "すまなく思って", ipa: "ˈsɑri" },
+  { word: "careful", meaning: "注意深い", ipa: "ˈkɛrfəl" },
+  { word: "wonderful", meaning: "すばらしい (w-)", ipa: "ˈwəndərfəl" },
+  { word: "heavy", meaning: "重い", ipa: "ˈhɛvi" },
+  { word: "sick", meaning: "病気の", ipa: "sɪk" },
+  { word: "dear", meaning: "親愛なる", ipa: "dɪr" },
+  { word: "glad", meaning: "うれしい", ipa: "glæd" },
+  { word: "dark", meaning: "暗い", ipa: "dɑrk" },
+  { word: "sad", meaning: "悲しい", ipa: "sæd" },
+  { word: "cute", meaning: "かわいい", ipa: "kjut" },
+  { word: "free", meaning: "暇な", ipa: "fri" },
+  { word: "foreign", meaning: "外国の", ipa: "ˈfɔrən" },
+  { word: "low", meaning: "低い", ipa: "loʊ" },
+  { word: "safe", meaning: "安全な", ipa: "seɪf" },
+  { word: "angry", meaning: "怒った", ipa: "ˈæŋgri" },
+  { word: "lucky", meaning: "幸運な", ipa: "ˈləki" },
+  { word: "bright", meaning: "輝いて", ipa: "braɪt" },
+  { word: "soft", meaning: "柔らかい", ipa: "sɔft" },
+  { word: "loud", meaning: "（音が）大きい", ipa: "laʊd" },
+  { word: "even", meaning: "〜でさえ", ipa: "ˈivɪn" },
+  { word: "back", meaning: "戻って", ipa: "bæk" },
+  { word: "still", meaning: "まだ，なお", ipa: "stɪl" },
+  { word: "early", meaning: "早く", ipa: "ˈərli" },
+  { word: "soon", meaning: "すぐに，まもなく", ipa: "sun" },
+  { word: "away", meaning: "離れて", ipa: "əˈweɪ" },
+  { word: "almost", meaning: "ほとんど，ほぼ", ipa: "ˈɔlˌmoʊst" },
+  { word: "together", meaning: "一緒に", ipa: "təˈgɛðər" },
+  { word: "maybe", meaning: "もしかすると", ipa: "ˈmeɪbi" },
+  { word: "once", meaning: "１度", ipa: "wəns" },
+  { word: "else", meaning: "ほかに", ipa: "ɛls" },
+  { word: "ago", meaning: "〜前に", ipa: "əˈgoʊ" },
+  { word: "straight", meaning: "まっすぐに", ipa: "streɪt" },
+  { word: "slowly", meaning: "ゆっくりと", ipa: "sˈloʊli" },
+  { word: "suddenly", meaning: "突然，急に", ipa: "ˈsədənli" },
+  { word: "until", meaning: "…するまで", ipa: "ənˈtɪl" },
+  { word: "since", meaning: "…したときから", ipa: "sɪns" },
+  { word: "around", meaning: "〜のあちこちを", ipa: "əraʊnd" },
+  { word: "over", meaning: "〜を超えて", ipa: "ˈoʊvər" },
+  { word: "without", meaning: "〜なしに", ipa: "wɪˈθaʊt" },
+  { word: "through", meaning: "〜の間じゅう", ipa: "θru" },
+  { word: "between", meaning: "〜の間に (b-)", ipa: "bɪtˈwin" },
+  { word: "during", meaning: "〜の間に (d-)", ipa: "ˈdʊrɪŋ" },
+  { word: "behind", meaning: "〜の後ろに", ipa: "bɪˈhaɪnd" },
+  { word: "along", meaning: "〜に沿って", ipa: "əˈlɔŋ" },
+  { word: "come from", meaning: "〜から来ている", ipa: "kəm frəm" },
+  { word: "come true", meaning: "実現する", ipa: "kəm tru" },
+  { word: "cut off", meaning: "〜を切り取る", ipa: "kət ɔf" },
+  { word: "do one’s best", meaning: "全力を尽くす", ipa: "du one’s* bɛst" },
+  { word: "get off", meaning: "〜を降りる", ipa: "gɪt ɔf" },
+  { word: "get on", meaning: "〜に乗る", ipa: "gɪt ɔn" },
+  { word: "get to", meaning: "〜に到着する", ipa: "gɪt tɪ" },
+  { word: "go through", meaning: "〜を経験する", ipa: "goʊ θru" },
+  { word: "grow up", meaning: "成長する，大人になる", ipa: "groʊ əp" },
+  { word: "hear of", meaning: "〜のことを聞く", ipa: "hir əv" },
+  { word: "help oneself to", meaning: "〜を自由にとって食べる［飲む］", ipa: "hɛlp ˌwənˈsɛlf tɪ" },
+  { word: "look for", meaning: "〜を探す", ipa: "lʊk fər" },
+  { word: "look forward to", meaning: "〜を楽しみに待つ", ipa: "lʊk ˈfɔrwərd tɪ" },
+  { word: "look like", meaning: "〜に似ている", ipa: "lʊk laɪk" },
+  { word: "pick up", meaning: "〜を拾い上げる", ipa: "pɪk əp" },
+  { word: "speak to / speak with", meaning: "〜と話す", ipa: "spik tɪ  spik wɪθ" },
+  { word: "take care of", meaning: "〜の世話をする", ipa: "teɪk kɛr əv" },
+  { word: "take off", meaning: "〜を脱ぐ", ipa: "teɪk ɔf" },
+  { word: "take part in", meaning: "〜に参加する", ipa: "teɪk pɑrt ɪn" },
+  { word: "think of", meaning: "〜を思いつく", ipa: "θɪŋk əv" },
+  { word: "after school", meaning: "放課後に", ipa: "ˈæftər skul" },
+  { word: "all over", meaning: "〜の至る所に", ipa: "ɔl ˈoʊvər" },
+  { word: "all the time", meaning: "いつも", ipa: "ɔl ðə taɪm" },
+  { word: "at first", meaning: "最初は，初めのうちは", ipa: "æt fərst" },
+  { word: "at home", meaning: "在宅して", ipa: "æt hoʊm" },
+  { word: "at last", meaning: "ついに，やっと", ipa: "æt læst" },
+  { word: "at that time", meaning: "その時に，当時", ipa: "æt ðət taɪm" },
+  { word: "at the same time", meaning: "同時に", ipa: "æt ðə seɪm taɪm" },
+  { word: "for a long time", meaning: "長い間", ipa: "fər ə lɔŋ taɪm" },
+  { word: "for the first time", meaning: "初めて", ipa: "fər ðə fərst taɪm" },
+  { word: "in the end", meaning: "結局", ipa: "ɪn ðə ɛnd" },
+  { word: "in the future", meaning: "将来", ipa: "ɪn ðə fˈjuʧər" },
+  { word: "in this way", meaning: "このようにして", ipa: "ɪn ðɪs weɪ" },
+  { word: "more than", meaning: "〜より多い", ipa: "mɔr ðən" },
+  { word: "of course", meaning: "もちろん", ipa: "əv kɔrs" },
+  { word: "on one’s way to", meaning: "〜に行く途中で", ipa: "ɔn one’s* weɪ tɪ" },
+  { word: "over there", meaning: "あそこに，あそこで", ipa: "ˈoʊvər ðɛr" },
+  { word: "these days", meaning: "近ごろ", ipa: "ðiz deɪz" },
+  { word: "a kind of", meaning: "一種の", ipa: "ə kaɪnd əv" },
+  { word: "a lot of / lots of", meaning: "たくさんの", ipa: "ə lɔt əv  lɑts əv" },
+  { word: "A such as B", meaning: "BのようなA", ipa: "ə səʧ ɛz bi" },
+  { word: "and so on", meaning: "など", ipa: "ənd soʊ ɔn" },
+  { word: "here is [are]", meaning: "これが〜です", ipa: "hir ɪz [ər]" },
+  { word: "How about ~ ?", meaning: "〜（して）はいかがですか？", ipa: "haʊ əˈbaʊt  " },
+  { word: "no longer", meaning: "もはや〜ない", ipa: "noʊ ˈlɔŋgər" },
+  { word: "not only A but (also) B", meaning: "AだけでなくBも", ipa: "nɑt ˈoʊnli ə bət (ˈɔlsoʊ) bi" },
+  { word: "so ~ that …", meaning: "とても〜なので…", ipa: "soʊ  ðət …*" },
+  { word: "too ~ to", meaning: "あまりに〜なので…できない", ipa: "tu  tɪ" },
+  { word: "used to", meaning: "以前はよく…した", ipa: "juzd tɪ" },
+  { word: "would like to", meaning: "…したいと思う", ipa: "wʊd laɪk tɪ" },
+  { word: "create", meaning: "創造する", ipa: "kriˈeɪt" },
+  { word: "base", meaning: "基礎を置く", ipa: "beɪs" },
+  { word: "repair", meaning: "修理する，修復する", ipa: "rɪˈpɛr" },
+  { word: "fail", meaning: "失敗する", ipa: "feɪl" },
+  { word: "accept", meaning: "受け入れる", ipa: "əkˈsɛpt" },
+  { word: "belong", meaning: "属する", ipa: "bɪˈlɔŋ" },
+  { word: "exchange", meaning: "交換する", ipa: "ɪksˈʧeɪnʤ" },
+  { word: "complete", meaning: "完成させる", ipa: "kəmˈplit" },
+  { word: "treat", meaning: "扱う", ipa: "trit" },
+  { word: "cross", meaning: "横切る", ipa: "krɔs" },
+  { word: "hide", meaning: "隠す", ipa: "haɪd" },
+  { word: "shake", meaning: "振る", ipa: "ʃeɪk" },
+  { word: "challenge", meaning: "挑戦する", ipa: "ˈʧælənʤ" },
+  { word: "connect", meaning: "つなぐ", ipa: "kəˈnɛkt" },
+  { word: "reply", meaning: "返事をする", ipa: "rɪˈplaɪ" },
+  { word: "beat", meaning: "打ち負かす", ipa: "bit" },
+  { word: "share", meaning: "分かち合う", ipa: "ʃɛr" },
+  { word: "observe", meaning: "観察する", ipa: "əbˈzərv" },
+  { word: "mark", meaning: "しるしをつける", ipa: "mɑrk" },
+  { word: "burn", meaning: "焦がす，焦げる", ipa: "bərn" },
+  { word: "locate", meaning: "位置している", ipa: "ˈloʊˌkeɪt" },
+  { word: "fix", meaning: "修理する，固定する", ipa: "fɪks" },
+  { word: "suit", meaning: "に最適である", ipa: "sut" },
+  { word: "destroy", meaning: "破壊する", ipa: "dɪˈstrɔɪ" },
+  { word: "control", meaning: "抑制する，制御する", ipa: "kənˈtroʊl" },
+  { word: "respond", meaning: "返答する", ipa: "rɪˈspɑnd" },
+  { word: "depend", meaning: "当てにする", ipa: "dɪˈpɛnd" },
+  { word: "forgive", meaning: "許す", ipa: "fərˈgɪv" },
+  { word: "attack", meaning: "襲う", ipa: "əˈtæk" },
+  { word: "sink", meaning: "沈む", ipa: "sɪŋk" },
+  { word: "appreciate", meaning: "感謝する", ipa: "əˈpriʃiˌeɪt" },
+  { word: "feed", meaning: "に食べ物を与える", ipa: "fid" },
+  { word: "success", meaning: "成功", ipa: "səkˈsɛs" },
+  { word: "mystery", meaning: "謎，未知のこと", ipa: "ˈmɪstəri" },
+  { word: "ceremony", meaning: "式典，儀式", ipa: "ˈsɛrəˌmoʊni" },
+  { word: "schedule", meaning: "予定，予定表", ipa: "ˈskɛʤʊl" },
+  { word: "damage", meaning: "損害，悪影響", ipa: "ˈdæmɪʤ" },
+  { word: "model", meaning: "型，模型", ipa: "ˈmɑdəl" },
+  { word: "search", meaning: "捜索", ipa: "sərʧ" },
+  { word: "project", meaning: "計画，事業", ipa: "ˈprɑʤɛkt" },
+  { word: "form", meaning: "形態", ipa: "fɔrm" },
+  { word: "scene", meaning: "場面", ipa: "sin" },
+  { word: "accident", meaning: "事故", ipa: "ˈæksədənt" },
+  { word: "contact", meaning: "連絡", ipa: "ˈkɑnˌtækt" },
+  { word: "image", meaning: "イメージ", ipa: "ˈɪmɪʤ" },
+  { word: "trust", meaning: "信頼，信用", ipa: "trəst" },
+  { word: "quality", meaning: "質，品質", ipa: "kˈwɑləti" },
+  { word: "action", meaning: "行動", ipa: "ˈækʃən" },
+  { word: "lack", meaning: "不足，ないこと", ipa: "læk" },
+  { word: "spot", meaning: "場所", ipa: "spɑt" },
+  { word: "truth", meaning: "真実，本当のこと", ipa: "truθ" },
+  { word: "effort", meaning: "努力", ipa: "ˈɛfərt" },
+  { word: "type", meaning: "型，タイプ", ipa: "taɪp" },
+  { word: "site", meaning: "敷地，土地", ipa: "saɪt" },
+  { word: "tool", meaning: "手段，道具", ipa: "tul" },
+  { word: "couple", meaning: "２つ，２人", ipa: "ˈkəpəl" },
+  { word: "hero", meaning: "ヒーロー，英雄", ipa: "ˈhɪroʊ" },
+  { word: "courage", meaning: "勇気", ipa: "kərɪʤ" },
+  { word: "board", meaning: "板，掲示板", ipa: "bɔrd" },
+  { word: "purpose", meaning: "目的，意図", ipa: "ˈpərpəs" },
+  { word: "waste", meaning: "無駄，浪費", ipa: "weɪst" },
+  { word: "shape", meaning: "形", ipa: "ʃeɪp" },
+  { word: "technique", meaning: "技能，技術", ipa: "tɛkˈnik" },
+  { word: "middle", meaning: "真ん中，中央", ipa: "ˈmɪdəl" },
+  { word: "spirit", meaning: "精神，心", ipa: "ˈspɪrɪt" },
+  { word: "partner", meaning: "パートナー", ipa: "ˈpɑrtnər" },
+  { word: "population", meaning: "人口", ipa: "ˌpɑpjəˈleɪʃən" },
+  { word: "fever", meaning: "熱，発熱", ipa: "ˈfivər" },
+  { word: "method", meaning: "方法", ipa: "ˈmɛθəd" },
+  { word: "structure", meaning: "構造", ipa: "ˈstrəkʧər" },
+  { word: "background", meaning: "経歴，生い立ち", ipa: "ˈbækˌgraʊnd" },
+  { word: "combination", meaning: "組み合わせ", ipa: "ˌkɑmbəˈneɪʃən" },
+  { word: "official", meaning: "公式の", ipa: "əˈfɪʃəl" },
+  { word: "flat", meaning: "平らな", ipa: "flæt" },
+  { word: "serious", meaning: "深刻な", ipa: "ˈsɪriəs" },
+  { word: "ordinary", meaning: "普通の", ipa: "ˈɔrdəˌnɛri" },
+  { word: "private", meaning: "私的な，個人的な", ipa: "ˈpraɪvət" },
+  { word: "major", meaning: "重大な", ipa: "ˈmeɪʤər" },
+  { word: "classical", meaning: "クラシックの", ipa: "ˈklæsɪkəl" },
+  { word: "honest", meaning: "正直な", ipa: "ˈɑnəst" },
+  { word: "excellent", meaning: "とても優れた", ipa: "ˈɛksələnt" },
+  { word: "whole", meaning: "全体の", ipa: "hoʊl" },
+  { word: "central", meaning: "中心の", ipa: "ˈsɛntrəl" },
+  { word: "ancient", meaning: "古代の", ipa: "ˈeɪnʧənt" },
+  { word: "fantastic", meaning: "とてもすばらしい", ipa: "fænˈtæstɪk" },
+  { word: "regular", meaning: "定期的な", ipa: "ˈrɛgjələr" },
+  { word: "basic", meaning: "基本的な，初歩的な", ipa: "ˈbeɪsɪk" },
+  { word: "huge", meaning: "巨大な", ipa: "juʤ" },
+  { word: "empty", meaning: "空の，空いている", ipa: "ˈɛmti" },
+  { word: "smart", meaning: "頭のよい，賢い", ipa: "smɑrt" },
+  { word: "general", meaning: "大まかな，一般的な", ipa: "ˈʤɛnərəl" },
+  { word: "single", meaning: "たった１つの", ipa: "ˈsɪŋgəl" },
+  { word: "responsible", meaning: "責任のある", ipa: "riˈspɑnsəbəl" },
+  { word: "fresh", meaning: "新鮮な", ipa: "frɛʃ" },
+  { word: "familiar", meaning: "熟知している", ipa: "fəˈmɪljər" },
+  { word: "native", meaning: "出生地の，母国の", ipa: "ˈneɪtɪv" },
+  { word: "instant", meaning: "即席の", ipa: "ˈɪnstənt" },
+  { word: "lovely", meaning: "すてきな", ipa: "ˈləvli" },
+  { word: "clear", meaning: "明白な", ipa: "klɪr" },
+  { word: "convenient", meaning: "都合のよい，便利な", ipa: "kənˈvinjənt" },
+  { word: "crazy", meaning: "夢中で，頭の狂った", ipa: "ˈkreɪzi" },
+  { word: "funny", meaning: "おかしい", ipa: "ˈfəni" },
+  { word: "secret", meaning: "秘密の", ipa: "ˈsikrɪt" },
+  { word: "remote", meaning: "（遠く）離れた", ipa: "rɪˈmoʊt" },
+  { word: "wake", meaning: "目を覚ます", ipa: "weɪk" },
+  { word: "release", meaning: "解放する", ipa: "riˈlis" },
+  { word: "establish", meaning: "設立する", ipa: "ɪˈstæblɪʃ" },
+  { word: "examine", meaning: "調べる", ipa: "ɪgˈzæmɪn" },
+  { word: "celebrate", meaning: "祝う", ipa: "ˈsɛləˌbreɪt" },
+  { word: "float", meaning: "漂う，浮く", ipa: "floʊt" },
+  { word: "recommend", meaning: "推薦する", ipa: "ˌrɛkəˈmɛnd" },
+  { word: "supply", meaning: "供給する", ipa: "səˈplaɪ" },
+  { word: "disappear", meaning: "見えなくなる", ipa: "ˌdɪsəˈpɪr" },
+  { word: "apologize", meaning: "謝る", ipa: "əˈpɑləˌʤaɪz" },
+  { word: "paint", meaning: "塗る", ipa: "peɪnt" },
+  { word: "pull", meaning: "引く，引っ張る", ipa: "pʊl" },
+  { word: "print", meaning: "印刷する", ipa: "prɪnt" },
+  { word: "lift", meaning: "持ち上げる", ipa: "lɪft" },
+  { word: "separate", meaning: "分ける", ipa: "ˈsɛpərˌeɪt" },
+  { word: "melt", meaning: "溶かす，溶ける", ipa: "mɛlt" },
+  { word: "strike", meaning: "強く打つ", ipa: "straɪk" },
+  { word: "blow", meaning: "吹き飛ばす", ipa: "bloʊ" },
+  { word: "let", meaning: "させてやる", ipa: "lɛt" },
+  { word: "roll", meaning: "転がる，転がす", ipa: "roʊl" },
+  { word: "recover", meaning: "回復する", ipa: "rɪˈkəvər" },
+  { word: "surround", meaning: "囲む，取り囲む", ipa: "səraʊnd" },
+  { word: "doubt", meaning: "疑う", ipa: "daʊt" },
+  { word: "display", meaning: "展示する，陳列する", ipa: "dɪˈspleɪ" },
+  { word: "announce", meaning: "発表する", ipa: "əˈnaʊns" },
+  { word: "support", meaning: "支持する", ipa: "səˈpɔrt" },
+  { word: "act", meaning: "行動する", ipa: "ækt" },
+  { word: "repeat", meaning: "繰り返す", ipa: "rɪˈpit" },
+  { word: "count", meaning: "数える", ipa: "kaʊnt" },
+  { word: "compare", meaning: "比べる", ipa: "kəmˈpɛr" },
+  { word: "shine", meaning: "輝く", ipa: "ʃaɪn" },
+  { word: "replace", meaning: "に取って代わる", ipa: "ˌriˈpleɪs" },
+  { word: "reality", meaning: "現実", ipa: "ˌriˈæləˌti" },
+  { word: "strength", meaning: "力，強さ", ipa: "strɛŋθ" },
+  { word: "era", meaning: "時代", ipa: "ˈɪrə" },
+  { word: "area", meaning: "地域，区域", ipa: "ˈɛriə" },
+  { word: "respect", meaning: "尊敬", ipa: "rɪˈspɛkt" },
+  { word: "pressure", meaning: "重圧", ipa: "ˈprɛʃər" },
+  { word: "pleasure", meaning: "喜び，楽しみ", ipa: "ˈplɛʒər" },
+  { word: "favor", meaning: "親切な行為", ipa: "ˈfeɪvər" },
+  { word: "statue", meaning: "像", ipa: "ˈstæˌʧu" },
+  { word: "limit", meaning: "限度，限界", ipa: "ˈlɪmət" },
+  { word: "bottom", meaning: "下部，底", ipa: "ˈbɑtəm" },
+  { word: "position", meaning: "立場", ipa: "pəˈzɪʃən" },
+  { word: "memory", meaning: "記憶，記憶力", ipa: "ˈmɛməri" },
+  { word: "level", meaning: "水準，レベル", ipa: "ˈlɛvəl" },
+  { word: "figure", meaning: "数，数値", ipa: "ˈfɪgjər" },
+  { word: "direction", meaning: "方向", ipa: "dɪˈrɛkʃɪn" },
+  { word: "bit", meaning: "少し，少量", ipa: "bɪt" },
+  { word: "contrast", meaning: "対比，差異", ipa: "ˈkɑntræst" },
+  { word: "religion", meaning: "宗教", ipa: "rɪˈlɪʤən" },
+  { word: "harmony", meaning: "調和，一致", ipa: "ˈhɑrməni" },
+  { word: "pattern", meaning: "模様，図柄", ipa: "ˈpætərn" },
+  { word: "stage", meaning: "段階", ipa: "steɪʤ" },
+  { word: "degree", meaning: "程度", ipa: "dɪˈgri" },
+  { word: "emergency", meaning: "緊急", ipa: "ˈimərʤənsi" },
+  { word: "origin", meaning: "起源", ipa: "ˈɔrəʤən" },
+  { word: "battle", meaning: "戦闘", ipa: "ˈbætəl" },
+  { word: "enemy", meaning: "敵", ipa: "ˈɛnəmi" },
+  { word: "note", meaning: "メモ", ipa: "noʊt" },
+  { word: "countryside", meaning: "田舎", ipa: "ˈkəntriˌsaɪd" },
+  { word: "contest", meaning: "競技会，コンテスト", ipa: "ˈkɑntɛst" },
+  { word: "sort", meaning: "種類", ipa: "sɔrt" },
+  { word: "depth", meaning: "深さ", ipa: "dɛpθ" },
+  { word: "top", meaning: "最高部，頂上", ipa: "tɔp" },
+  { word: "theme", meaning: "テーマ，主題", ipa: "θim" },
+  { word: "sentence", meaning: "文", ipa: "ˈsɛntəns" },
+  { word: "cycle", meaning: "周期", ipa: "ˈsaɪkəl" },
+  { word: "concept", meaning: "概念", ipa: "ˈkɑnsɛpt" },
+  { word: "rhythm", meaning: "リズム", ipa: "ˈrɪðəm" },
+  { word: "tradition", meaning: "伝統", ipa: "trəˈdɪʃən" },
+  { word: "theory", meaning: "理論，説", ipa: "ˈθɪri" },
+  { word: "correct", meaning: "正しい", ipa: "kərˈɛkt" },
+  { word: "blank", meaning: "白紙の，空白の", ipa: "blæŋk" },
+  { word: "quiet", meaning: "静かな", ipa: "kwaɪət" },
+  { word: "smooth", meaning: "滑らかな，すべすべした", ipa: "smuð" },
+  { word: "wet", meaning: "濡れた，湿った", ipa: "wɛt" },
+  { word: "chief", meaning: "最高の，最高位の", ipa: "ʧif" },
+  { word: "raw", meaning: "生の", ipa: "rɑ" },
+  { word: "personal", meaning: "個人の，個人的な", ipa: "ˈpərsɪnəl" },
+  { word: "double", meaning: "２倍の", ipa: "ˈdəbəl" },
+  { word: "dirty", meaning: "汚れた", ipa: "ˈdərti" },
+  { word: "normal", meaning: "普通の", ipa: "ˈnɔrməl" },
+  { word: "full", meaning: "いっぱいの", ipa: "fʊl" },
+  { word: "simple", meaning: "簡単な", ipa: "ˈsɪmpəl" },
+  { word: "equal", meaning: "等しい，同等の", ipa: "ˈikwəl" },
+  { word: "quick", meaning: "短時間の，すばやい", ipa: "kwɪk" },
+  { word: "rapid", meaning: "急速な，急激な", ipa: "ˈræpɪd" },
+  { word: "ideal", meaning: "理想的な", ipa: "aɪˈdil" },
+  { word: "rough", meaning: "大まかな，粗い", ipa: "rəf" },
+  { word: "silent", meaning: "無言の，静かな", ipa: "ˈsaɪlənt" },
+  { word: "violent", meaning: "暴力的な", ipa: "ˈvaɪələnt" },
+  { word: "rich", meaning: "豊富の，金持ちの", ipa: "rɪʧ" },
+  { word: "perfect", meaning: "完全な，完璧な", ipa: "ˈpərˌfɪkt" },
+  { word: "weak", meaning: "弱い，弱った", ipa: "wik" },
+  { word: "upper", meaning: "上の方の，高い方の", ipa: "ˈəpər" },
+  { word: "inner", meaning: "内部の，中心部の", ipa: "ˈɪnər" },
+  { word: "awful", meaning: "ひどい", ipa: "ˈɔfəl" },
+  { word: "FALSE", meaning: "間違った", ipa: "fɔls" },
+  { word: "vivid", meaning: "鮮やかな", ipa: "ˈvɪvɪd" },
+  { word: "pure", meaning: "純粋な", ipa: "pjʊr" },
+  { word: "minor", meaning: "重要でない，小さい方の", ipa: "ˈmaɪnər" },
+  { word: "mild", meaning: "（天候が）穏やかな", ipa: "maɪld" },
+  { word: "admire", meaning: "賞賛する，感嘆する", ipa: "ædˈmaɪr" },
+  { word: "drop", meaning: "落とす", ipa: "drɔp" },
+  { word: "reflect", meaning: "映し出す，反射する", ipa: "rɪˈflɛkt" },
+  { word: "dig", meaning: "掘る", ipa: "dɪg" },
+  { word: "beg", meaning: "懇願する", ipa: "bɛg" },
+  { word: "freeze", meaning: "凍る", ipa: "friz" },
+  { word: "adopt", meaning: "採用する", ipa: "əˈdɑpt" },
+  { word: "measure", meaning: "測る", ipa: "ˈmɛʒər" },
+  { word: "flow", meaning: "流れる", ipa: "floʊ" },
+  { word: "fulfill", meaning: "実現させる", ipa: "fʊlˈfɪl" },
+  { word: "deliver", meaning: "配達する", ipa: "dɪˈlɪvər" },
+  { word: "wrap", meaning: "包む", ipa: "ræp" },
+  { word: "knock", meaning: "ノックする", ipa: "nɑk" },
+  { word: "spell", meaning: "つづる", ipa: "spɛl" },
+  { word: "rush", meaning: "急いで行く", ipa: "rəʃ" },
+  { word: "pray", meaning: "祈る", ipa: "preɪ" },
+  { word: "reject", meaning: "拒絶する", ipa: "ˈriʤɛkt" },
+  { word: "protest", meaning: "抗議する", ipa: "ˈproʊˌtɛst" },
+  { word: "handle", meaning: "扱う，処理する", ipa: "ˈhændəl" },
+  { word: "disturb", meaning: "邪魔する", ipa: "dɪˈstərb" },
+  { word: "gather", meaning: "集める", ipa: "ˈgæðər" },
+  { word: "copy", meaning: "写しをとる", ipa: "ˈkɑpi" },
+  { word: "press", meaning: "押す", ipa: "prɛs" },
+  { word: "consist", meaning: "成り立つ", ipa: "kənˈsɪst" },
+  { word: "assist", meaning: "手助けする", ipa: "əˈsɪst" },
+  { word: "kick", meaning: "蹴る", ipa: "kɪk" },
+  { word: "link", meaning: "結びつける，関連づける", ipa: "lɪŋk" },
+  { word: "adjust", meaning: "順応する，適応する", ipa: "əˈʤəst" },
+  { word: "defend", meaning: "守る", ipa: "dɪˈfɛnd" },
+  { word: "shut", meaning: "閉める，閉じる", ipa: "ʃət" },
+  { word: "bear", meaning: "耐える", ipa: "bɛr" },
+  { word: "task", meaning: "仕事", ipa: "tæsk" },
+  { word: "hug", meaning: "抱擁，ハグ", ipa: "həg" },
+  { word: "clue", meaning: "手がかり", ipa: "klu" },
+  { word: "percent", meaning: "パーセント", ipa: "pərˈsɛnt" },
+  { word: "dozen", meaning: "１ダース", ipa: "ˈdəzən" },
+  { word: "ghost", meaning: "幽霊", ipa: "goʊst" },
+  { word: "error", meaning: "誤り", ipa: "ˈɛrər" },
+  { word: "trend", meaning: "流行，トレンド", ipa: "trɛnd" },
+  { word: "thought", meaning: "考え", ipa: "θɔt" },
+  { word: "alarm", meaning: "警報", ipa: "əˈlɑrm" },
+  { word: "sample", meaning: "見本，試供品", ipa: "ˈsæmpəl" },
+  { word: "shadow", meaning: "影，陰", ipa: "ˈʃæˌdoʊ" },
+  { word: "shade", meaning: "陰，日陰", ipa: "ʃeɪd" },
+  { word: "standard", meaning: "基準，標準", ipa: "ˈstændərd" },
+  { word: "hunger", meaning: "飢え，空腹", ipa: "ˈhəŋgər" },
+  { word: "appeal", meaning: "訴え，要求", ipa: "əˈpil" },
+  { word: "harm", meaning: "害，危害", ipa: "hɑrm" },
+  { word: "pile", meaning: "積み重ね", ipa: "paɪl" },
+  { word: "plenty", meaning: "たくさん", ipa: "ˈplɛnti" },
+  { word: "edge", meaning: "端，縁", ipa: "ɛʤ" },
+  { word: "poison", meaning: "毒", ipa: "ˈpɔɪzən" },
+  { word: "scale", meaning: "規模，目盛り", ipa: "skeɪl" },
+  { word: "section", meaning: "節，区分", ipa: "ˈsɛkʃən" },
+  { word: "attempt", meaning: "試み", ipa: "əˈtɛmpt" },
+  { word: "merit", meaning: "長所，利点", ipa: "ˈmɛrət" },
+  { word: "trick", meaning: "いたずら", ipa: "trɪk" },
+  { word: "second", meaning: "少しの間，秒", ipa: "ˈsɛkənd" },
+  { word: "medium", meaning: "媒体，手段", ipa: "ˈmidiəm" },
+  { word: "unit", meaning: "単位", ipa: "ˈjunɪt" },
+  { word: "ambition", meaning: "願望，野心", ipa: "æmˈbɪʃən" },
+  { word: "midnight", meaning: "夜の１２時", ipa: "ˈmɪdˌnaɪt" },
+  { word: "power", meaning: "力", ipa: "paʊər" },
+  { word: "principle", meaning: "信条", ipa: "ˈprɪnsəpəl" },
+  { word: "vision", meaning: "展望", ipa: "ˈvɪʒən" },
+  { word: "quarter", meaning: "4分の1", ipa: "kˈwɔrtər" },
+  { word: "luck", meaning: "運，幸運", ipa: "lək" },
+  { word: "quantity", meaning: "分量，数量", ipa: "kˈwɑntəti" },
+  { word: "fault", meaning: "責任，罪", ipa: "fɔlt" },
+  { word: "somehow", meaning: "何とかして", ipa: "ˈsəmˌhaʊ" },
+  { word: "forever", meaning: "永遠に", ipa: "fərˈɛvər" },
+  { word: "mostly", meaning: "主に，たいてい", ipa: "ˈmoʊstli" },
+  { word: "forward", meaning: "前へ，先に", ipa: "ˈfɔrwərd" },
+  { word: "nowadays", meaning: "近ごろ，最近では", ipa: "ˈnaʊəˌdeɪz" },
+  { word: "ahead", meaning: "前方に", ipa: "əˈhɛd" },
+  { word: "apart", meaning: "離れて", ipa: "əˈpɑrt" },
+  { word: "altogether", meaning: "まったく，完全に", ipa: "ˌɔltəˈgɛðər" },
+  { word: "throughout", meaning: "〜の間じゅう", ipa: "θruaʊt" },
+  { word: "beyond", meaning: "〜の向こうに", ipa: "bɪɔnd" },
+  { word: "toward", meaning: "〜の方向へ", ipa: "təˈwɔrd" },
+  { word: "within", meaning: "〜以内に", ipa: "wɪˈθɪn" },
+  { word: "above", meaning: "〜の上方に", ipa: "əˈbəv" },
+  { word: "below", meaning: "〜より下に", ipa: "bɪˈloʊ" },
+  { word: "per", meaning: "〜につき", ipa: "pər" },
+  { word: "except", meaning: "〜を除いて", ipa: "ɪkˈsɛpt" },
+  { word: "beside", meaning: "〜のそばに", ipa: "ˌbiˈsaɪd" },
+  { word: "unlike", meaning: "〜と違って", ipa: "ənˈlaɪk" },
+  { word: "outside", meaning: "〜の外に", ipa: "ˈaʊtˈsaɪd" },
+  { word: "inside", meaning: "〜の中に", ipa: "ˌɪnˈsaɪd" },
+  { word: "against", meaning: "〜に反対して", ipa: "əˈgɛnst" },
+  { word: "beneath", meaning: "〜の下に", ipa: "bɪˈniθ" },
+  { word: "plus", meaning: "〜を加えて", ipa: "pləs" },
+  { word: "across", meaning: "〜を横切って", ipa: "əˈkrɔs" },
+  { word: "bring back", meaning: "〜を返す", ipa: "brɪŋ bæk" },
+  { word: "carry out", meaning: "〜を実行する", ipa: "ˈkɛri aʊt" },
+  { word: "date back to", meaning: "〜にさかのぼる", ipa: "deɪt bæk tɪ" },
+  { word: "find out", meaning: "知る", ipa: "faɪnd aʊt" },
+  { word: "get together", meaning: "集まる", ipa: "gɪt təˈgɛðər" },
+  { word: "give off", meaning: "〜を発する", ipa: "gɪv ɔf" },
+  { word: "hand in", meaning: "〜を提出する", ipa: "hænd ɪn" },
+  { word: "hang up", meaning: "電話を切る", ipa: "hæŋ əp" },
+  { word: "hold up", meaning: "〜を支えている", ipa: "hoʊld əp" },
+  { word: "live on", meaning: "〜で暮らしを立てる", ipa: "lɪv ɔn" },
+  { word: "look after", meaning: "〜の世話をする", ipa: "lʊk ˈæftər" },
+  { word: "look out", meaning: "注意する", ipa: "lʊk aʊt" },
+  { word: "look up", meaning: "〜を調べる", ipa: "lʊk əp" },
+  { word: "major in", meaning: "〜を専攻する", ipa: "ˈmeɪʤər ɪn" },
+  { word: "name after", meaning: "〜にちなんで名付ける", ipa: "neɪm ˈæftər" },
+  { word: "put down", meaning: "〜を書き留める", ipa: "pʊt daʊn" },
+  { word: "see off", meaning: "〜を見送る", ipa: "si ɔf" },
+  { word: "take a look", meaning: "ちょっと見る", ipa: "teɪk ə lʊk" },
+  { word: "take away", meaning: "〜を片付ける", ipa: "teɪk əˈweɪ" },
+  { word: "take one’s time", meaning: "…するのに時間をかける", ipa: "teɪk one’s* taɪm" },
+  { word: "think of A as B", meaning: "AをBと見なす", ipa: "θɪŋk əv ə ɛz bi" },
+  { word: "be about to", meaning: "…しようとしている", ipa: "bi əˈbaʊt tɪ" },
+  { word: "be born into", meaning: "〜の家庭に生まれる", ipa: "bi bɔrn ˈɪntu" },
+  { word: "be faced with", meaning: "〜に直面している", ipa: "bi feɪst wɪθ" },
+  { word: "be good at", meaning: "〜が上手だ", ipa: "bi gʊd æt" },
+  { word: "be in need of", meaning: "〜を必要としている", ipa: "bi ɪn nid əv" },
+  { word: "be made of [from]", meaning: "〜でできている", ipa: "bi meɪd əv [frəm]" },
+  { word: "be short of", meaning: "〜が足りない", ipa: "bi ʃɔrt əv" },
+  { word: "be up to", meaning: "〜次第である", ipa: "bi əp tɪ" },
+  { word: "be worried about", meaning: "〜のことを心配している", ipa: "bi ˈwərid əˈbaʊt" },
+  { word: "by oneself", meaning: "ひとりで，独力で", ipa: "baɪ ˌwənˈsɛlf" },
+  { word: "on one’s own", meaning: "たったひとりで", ipa: "ɔn one’s* oʊn" },
+  { word: "above all", meaning: "とりわけ", ipa: "əˈbəv ɔl" },
+  { word: "across from", meaning: "〜の向かい側に", ipa: "əˈkrɔs frəm" },
+  { word: "after all", meaning: "結局は，やはり", ipa: "ˈæftər ɔl" },
+  { word: "at a time", meaning: "１度に", ipa: "æt ə taɪm" },
+  { word: "by accident", meaning: "偶然", ipa: "baɪ ˈæksədənt" },
+  { word: "by mistake", meaning: "間違って", ipa: "baɪ mɪˈsteɪk" },
+  { word: "day after day", meaning: "来る日も来る日も", ipa: "deɪ ˈæftər deɪ" },
+  { word: "for free", meaning: "無料で", ipa: "fər fri" },
+  { word: "from on", meaning: "〜以降", ipa: "frəm ɔn" },
+  { word: "from time to time", meaning: "時々", ipa: "frəm taɪm tɪ taɪm" },
+  { word: "in a hurry", meaning: "急いで", ipa: "ɪn ə ˈhəri" },
+  { word: "in favor of", meaning: "〜に賛成して", ipa: "ɪn ˈfeɪvər əv" },
+  { word: "in order to", meaning: "…するために", ipa: "ɪn ˈɔrdər tɪ" },
+  { word: "in the past", meaning: "昔は，過去に", ipa: "ɪn ðə pæst" },
+  { word: "in those days", meaning: "その当時は", ipa: "ɪn ðoʊz deɪz" },
+  { word: "on purpose", meaning: "故意に，わざと", ipa: "ɔn ˈpərpəs" },
+  { word: "over and over", meaning: "何度も", ipa: "ˈoʊvər ənd ˈoʊvər" },
+  { word: "upside down", meaning: "逆さまに", ipa: "ˈəpˈsaɪd daʊn" },
+  { word: "a large number of", meaning: "たくさんの", ipa: "ə lɑrʤ ˈnəmbər əv" },
+  { word: "a series of", meaning: "一連の，一続きの", ipa: "ə ˈsɪriz əv" },
+  { word: "as long as", meaning: "…である限り", ipa: "ɛz lɔŋ ɛz" },
+  { word: "as soon as", meaning: "…するとすぐに", ipa: "ɛz sun ɛz" },
+  { word: "had better", meaning: "…するべきだ", ipa: "hæd ˈbɛtər" },
+  { word: "more and more", meaning: "ますます多くの", ipa: "mɔr ənd mɔr" },
+  { word: "not at all", meaning: "まったく〜ではない", ipa: "nɑt æt ɔl" },
+  { word: "not A but B", meaning: "AではなくてB", ipa: "nɑt ə bət bi" },
+  { word: "the first time", meaning: "初めて…したとき", ipa: "ðə fərst taɪm" },
+  { word: "when it comes to", meaning: "〜のこととなると", ipa: "wɪn ɪt kəmz tɪ" },
+  { word: "parent", meaning: "親", ipa: "ˈpɛrənt" },
+  { word: "husband", meaning: "夫", ipa: "ˈhəzbənd" },
+  { word: "wife", meaning: "妻", ipa: "waɪf" },
+  { word: "kid", meaning: "子供", ipa: "kɪd" },
+  { word: "twin", meaning: "双子（の１人）", ipa: "twɪn" },
+  { word: "relative", meaning: "親戚", ipa: "ˈrɛlətɪv" },
+  { word: "cousin", meaning: "いとこ", ipa: "ˈkəzən" },
+  { word: "ancestor", meaning: "先祖", ipa: "ˈænˌsɛstər" },
+  { word: "job", meaning: "仕事", ipa: "ʤɑb" },
+  { word: "work", meaning: "仕事", ipa: "wərk" },
+  { word: "occupation", meaning: "職業", ipa: "ˌɑkjəˈpeɪʃən" },
+  { word: "career", meaning: "職業", ipa: "kərɪr" },
+  { word: "businesss", meaning: "仕事，商売", ipa: "businesss*" },
+  { word: "interview", meaning: "面接", ipa: "ˈɪntərvˌju" },
+  { word: "hire", meaning: "雇う", ipa: "haɪər" },
+  { word: "retire", meaning: "退職する，引退する", ipa: "ˌriˈtaɪər" },
+  { word: "clerk", meaning: "店員", ipa: "klərk" },
+  { word: "officer", meaning: "警官", ipa: "ˈɔfɪsər" },
+  { word: "engineer", meaning: "技師，技術者", ipa: "ˈɛnʤəˈnɪr" },
+  { word: "artist", meaning: "芸術家", ipa: "ˈɑrtɪst" },
+  { word: "director", meaning: "監督", ipa: "dɪˈrɛktər" },
+  { word: "actor", meaning: "俳優", ipa: "ˈæktər" },
+  { word: "nurse", meaning: "看護師", ipa: "nərs" },
+  { word: "secretary", meaning: "秘書", ipa: "ˈsɛkrəˌtɛri" },
+  { word: "agent", meaning: "代行業者", ipa: "ˈeɪʤənt" },
+  { word: "civil", meaning: "民間の", ipa: "ˈsɪvəl" },
+  { word: "mayor", meaning: "市長", ipa: "meɪər" },
+  { word: "chairperson", meaning: "議長，委員長", ipa: "ˈʧɛrˌpərsən" },
+  { word: "professor", meaning: "教授", ipa: "prəˈfɛsər" },
+  { word: "principal", meaning: "校長", ipa: "ˈprɪnsəpəl" },
+  { word: "expert", meaning: "専門家", ipa: "ˈɛkspərt" },
+  { word: "leader", meaning: "指導者，リーダー", ipa: "ˈlidər" },
+  { word: "queen", meaning: "女王", ipa: "kwin" },
+  { word: "prince", meaning: "王子", ipa: "prɪns" },
+  { word: "royal", meaning: "国王の", ipa: "rɔɪəl" },
+  { word: "slave", meaning: "奴隷", ipa: "sleɪv" },
+  { word: "hall", meaning: "会館，ホール", ipa: "hɔl" },
+  { word: "office", meaning: "事務所，会社", ipa: "ˈɔfəs" },
+  { word: "bank", meaning: "銀行", ipa: "bæŋk" },
+  { word: "apartment", meaning: "アパート", ipa: "əˈpɑrtmənt" },
+  { word: "library", meaning: "図書館", ipa: "ˈlaɪbrɛˌri" },
+  { word: "gym", meaning: "体育館，ジム", ipa: "ʤɪm" },
+  { word: "museum", meaning: "博物館，美術館", ipa: "mˈjuziəm" },
+  { word: "theater", meaning: "劇場", ipa: "ˈθieɪtər" },
+  { word: "studio", meaning: "スタジオ，（映画）撮影所", ipa: "ˈstudiˌoʊ" },
+  { word: "stadium", meaning: "競技場，スタジアム", ipa: "ˈsteɪdiəm" },
+  { word: "temple", meaning: "寺院", ipa: "ˈtɛmpəl" },
+  { word: "shrine", meaning: "聖堂，神社", ipa: "ʃraɪn" },
+  { word: "castle", meaning: "城", ipa: "ˈkæsəl" },
+  { word: "tower", meaning: "塔", ipa: "taʊər" },
+  { word: "entrance", meaning: "入口，玄関", ipa: "ˈɛntrəns" },
+  { word: "exit", meaning: "出口", ipa: "ˈɛksət" },
+  { word: "architecture", meaning: "建築", ipa: "ˈɑrkəˌtɛkʧər" },
+  { word: "avenue", meaning: "大通り，〜街", ipa: "ˈævəˌnu" },
+  { word: "block", meaning: "１区画，ブロック", ipa: "blɑk" },
+  { word: "corner", meaning: "曲がり角", ipa: "ˈkɔrnər" },
+  { word: "intersection", meaning: "交差点", ipa: "ˌɪntərˈsɛkʃən" },
+  { word: "zone", meaning: "地帯，区域", ipa: "zoʊn" },
+  { word: "square", meaning: "広場，正方形", ipa: "skwɛr" },
+  { word: "market", meaning: "市場", ipa: "ˈmɑrkɪt" },
+  { word: "path", meaning: "小道", ipa: "pæθ" },
+  { word: "slope", meaning: "坂", ipa: "sloʊp" },
+  { word: "traffic", meaning: "交通，交通量", ipa: "ˈtræfɪk" },
+  { word: "drive", meaning: "（車を）運転する", ipa: "draɪv" },
+  { word: "ride", meaning: "乗る", ipa: "raɪd" },
+  { word: "railroad", meaning: "鉄道", ipa: "ˈreɪˌlroʊd" },
+  { word: "subway", meaning: "地下鉄", ipa: "ˈsəbˌweɪ" },
+  { word: "automobile", meaning: "自動車", ipa: "ˌɔtəmoʊˈbil" },
+  { word: "engine", meaning: "エンジン", ipa: "ˈɪnʤən" },
+  { word: "wheel", meaning: "ハンドル", ipa: "wil" },
+  { word: "license", meaning: "免許，免許証", ipa: "ˈlaɪsəns" },
+  { word: "airport", meaning: "空港", ipa: "ˈɛrˌpɔrt" },
+  { word: "flight", meaning: "定期航空便，フライト", ipa: "flaɪt" },
+  { word: "port", meaning: "港", ipa: "pɔrt" },
+  { word: "canal", meaning: "運河", ipa: "kəˈnæl" },
+  { word: "key", meaning: "鍵", ipa: "ki" },
+  { word: "stair", meaning: "階段", ipa: "stɛr" },
+  { word: "upstairs", meaning: "上の階に［で］", ipa: "əpˈstɛrz" },
+  { word: "floor", meaning: "床", ipa: "flɔr" },
+  { word: "shelf", meaning: "棚", ipa: "ʃɛlf" },
+  { word: "roof", meaning: "屋根", ipa: "rʊf" },
+  { word: "ladder", meaning: "はしご", ipa: "ˈlædər" },
+  { word: "yard", meaning: "庭", ipa: "jɑrd" },
+  { word: "closet", meaning: "クローゼット", ipa: "ˈklɑzət" },
+  { word: "refrigerator", meaning: "冷蔵庫", ipa: "rɪˈfrɪʤərˌeɪtər" },
+  { word: "shower", meaning: "シャワー", ipa: "ʃaʊər" },
+  { word: "housework", meaning: "家事", ipa: "ˈhaʊsˌwərk" },
+  { word: "plastic", meaning: "プラスチックの", ipa: "ˈplæstɪk" },
+  { word: "plate", meaning: "皿", ipa: "pleɪt" },
+  { word: "glass", meaning: "グラス", ipa: "glæs" },
+  { word: "garbage", meaning: "生ゴミ，ごみ", ipa: "ˈgɑrbɪʤ" },
+  { word: "trash", meaning: "ごみ，紙くず", ipa: "træʃ" },
+  { word: "dust", meaning: "ほこり", ipa: "dəst" },
+  { word: "trap", meaning: "わな", ipa: "træp" },
+  { word: "brush", meaning: "ブラシ，はけ", ipa: "brəʃ" },
+  { word: "comb", meaning: "くし", ipa: "koʊm" },
+  { word: "blanket", meaning: "毛布", ipa: "ˈblæŋkɪt" },
+  { word: "sheet", meaning: "紙，紙の１枚", ipa: "ʃit" },
+  { word: "label", meaning: "ラベル", ipa: "ˈleɪbəl" },
+  { word: "envelope", meaning: "封筒", ipa: "ˈɛnvəˌloʊp" },
+  { word: "fashion", meaning: "ファッション", ipa: "ˈfæʃən" },
+  { word: "style", meaning: "スタイル", ipa: "staɪl" },
+  { word: "formal", meaning: "正式の", ipa: "ˈfɔrməl" },
+  { word: "tight", meaning: "きつい", ipa: "taɪt" },
+  { word: "loose", meaning: "ゆったりした", ipa: "lus" },
+  { word: "wear", meaning: "着ている，身につけている", ipa: "wɛr" },
+  { word: "clothes", meaning: "衣服，衣類", ipa: "kloʊðz" },
+  { word: "dress", meaning: "衣服を着せる", ipa: "drɛs" },
+  { word: "costume", meaning: "衣装，仮装", ipa: "ˈkɑstum" },
+  { word: "tie", meaning: "結ぶ", ipa: "taɪ" },
+  { word: "sew", meaning: "縫う，縫い付ける", ipa: "soʊ" },
+  { word: "frame", meaning: "フレーム", ipa: "freɪm" },
+  { word: "button", meaning: "ボタン", ipa: "ˈbətən" },
+  { word: "ring", meaning: "指輪", ipa: "rɪŋ" },
+  { word: "jewel", meaning: "宝石", ipa: "ʤuəl" },
+  { word: "wallet", meaning: "財布", ipa: "ˈwɔlət" },
+  { word: "mobile", meaning: "携帯電話", ipa: "ˈmoʊbəl" },
+  { word: "portable", meaning: "持ち運びできる", ipa: "ˈpɔrtəbəl" },
+  { word: "umbrella", meaning: "傘", ipa: "ˈəmˌbrɛlə" },
+  { word: "silk", meaning: "絹，絹糸", ipa: "sɪlk" },
+  { word: "cotton", meaning: "綿", ipa: "ˈkɔtən" },
+  { word: "leather", meaning: "革", ipa: "ˈlɛðər" },
+  { word: "feather", meaning: "羽，羽毛", ipa: "ˈfɛðər" },
+  { word: "meal", meaning: "食事", ipa: "mil" },
+  { word: "supper", meaning: "夕食", ipa: "ˈsəpər" },
+  { word: "snack", meaning: "軽食", ipa: "snæk" },
+  { word: "dessert", meaning: "デザート", ipa: "dɪˈzərt" },
+  { word: "diet", meaning: "ダイエット", ipa: "daɪət" },
+  { word: "chopstick", meaning: "箸", ipa: "ˈʧɑpˌstɪk" },
+  { word: "bite", meaning: "噛む", ipa: "baɪt" },
+  { word: "flavor", meaning: "風味，味", ipa: "ˈfleɪvər" },
+  { word: "delicious", meaning: "とてもおいしい", ipa: "dɪˈlɪʃəs" },
+  { word: "bitter", meaning: "苦い", ipa: "ˈbɪtər" },
+  { word: "sour", meaning: "酸っぱい", ipa: "saʊər" },
+  { word: "recipe", meaning: "調理法，レシピ", ipa: "ˈrɛsəpi" },
+  { word: "mix", meaning: "混ぜる", ipa: "mɪks" },
+  { word: "pour", meaning: "注ぐ，かける", ipa: "pɔr" },
+  { word: "fry", meaning: "炒める，揚げる", ipa: "fraɪ" },
+  { word: "boil", meaning: "ゆでる，煮る", ipa: "bɔɪl" },
+  { word: "steam", meaning: "蒸す", ipa: "stim" },
+  { word: "bake", meaning: "（パンなどを）焼く", ipa: "beɪk" },
+  { word: "harvest", meaning: "収穫，収穫物", ipa: "ˈhɑrvəst" },
+  { word: "vegetable", meaning: "野菜", ipa: "ˈvɛʤtəbəl" },
+  { word: "meat", meaning: "肉", ipa: "mit" },
+  { word: "wheat", meaning: "小麦", ipa: "wit" },
+  { word: "flour", meaning: "小麦粉", ipa: "flaʊər" },
+  { word: "honey", meaning: "ハチミツ", ipa: "ˈhəni" },
+  { word: "salt", meaning: "塩", ipa: "sɔlt" },
+  { word: "menu", meaning: "メニュー", ipa: "ˈmɛnju" },
+  { word: "choice", meaning: "選択", ipa: "ʧɔɪs" },
+  { word: "service", meaning: "サービス，応対", ipa: "ˈsərvɪs" },
+  { word: "tip", meaning: "チップ", ipa: "tɪp" },
+  { word: "cancel", meaning: "取り消す，中止する", ipa: "ˈkænsəl" },
+  { word: "culture", meaning: "文化", ipa: "ˈkəlʧər" },
+  { word: "hobby", meaning: "趣味", ipa: "ˈhɑbi" },
+  { word: "amusement", meaning: "楽しみ", ipa: "əmˈjuzmənt" },
+  { word: "entertainment", meaning: "娯楽", ipa: "ˌɛnərˈteɪnmənt" },
+  { word: "collect", meaning: "集める，収集する", ipa: "kəˈlɛkt" },
+  { word: "exhibit", meaning: "展示する", ipa: "ɪgˈzɪbɪt" },
+  { word: "instrument", meaning: "楽器", ipa: "ˈɪnstrəmənt" },
+  { word: "tune", meaning: "（音楽の）調子", ipa: "tun" },
+  { word: "film", meaning: "映画", ipa: "fɪlm" },
+  { word: "cartoon", meaning: "（子供向けの）アニメ", ipa: "kɑrˈtun" },
+  { word: "comic", meaning: "漫画", ipa: "ˈkɑmɪk" },
+  { word: "photograph", meaning: "写真", ipa: "ˈfoʊtəˌgræf" },
+  { word: "portrait", meaning: "肖像画", ipa: "ˈpɔrtrət" },
+  { word: "magic", meaning: "手品", ipa: "ˈmæʤɪk" },
+  { word: "tour", meaning: "旅行，ツアー", ipa: "tʊr" },
+  { word: "journey", meaning: "旅行", ipa: "ˈʤərni" },
+  { word: "sightseeing", meaning: "観光", ipa: "ˈsaɪtˈsiɪŋ" },
+  { word: "adventure", meaning: "冒険", ipa: "ədˈvɛnʧər" },
+  { word: "explore", meaning: "探検する", ipa: "ɪkˈsplɔr" },
+  { word: "wander", meaning: "歩き回る，ぶらつく", ipa: "ˈwɑndər" },
+  { word: "camp", meaning: "キャンプ", ipa: "kæmp" },
+  { word: "tourist", meaning: "観光客", ipa: "ˈtʊrɪst" },
+  { word: "passenger", meaning: "乗客", ipa: "ˈpæsənʤər" },
+  { word: "guide", meaning: "ガイド，案内人", ipa: "gaɪd" },
+  { word: "vacation", meaning: "休暇", ipa: "veɪˈkeɪʃən" },
+  { word: "souvenir", meaning: "お土産", ipa: "ˌsuvəˈnɪr" },
+  { word: "pack", meaning: "荷物を詰める", ipa: "pæk" },
+  { word: "win", meaning: "勝つ", ipa: "wɪn" },
+  { word: "victory", meaning: "勝利", ipa: "ˈvɪktəri" },
+  { word: "record", meaning: "記録", ipa: "ˈrɛkərd" },
+  { word: "score", meaning: "得点，スコア", ipa: "skɔr" },
+  { word: "prize", meaning: "賞", ipa: "praɪz" },
+  { word: "award", meaning: "賞，賞金", ipa: "əˈwɔrd" },
+  { word: "race", meaning: "競争，人種", ipa: "reɪs" },
+  { word: "match", meaning: "試合", ipa: "mæʧ" },
+  { word: "tournament", meaning: "トーナメント", ipa: "ˈtʊrnəmənt" },
+  { word: "professional", meaning: "プロの", ipa: "prəˈfɛʃənəl" },
+  { word: "athlete", meaning: "運動選手", ipa: "ˈæθˌlit" },
+  { word: "coach", meaning: "コーチ，指導員", ipa: "koʊʧ" },
+  { word: "rival", meaning: "ライバル，競争相手", ipa: "ˈraɪvəl" },
+  { word: "train", meaning: "訓練する，トレーニングする", ipa: "treɪn" },
+  { word: "exercise", meaning: "運動する", ipa: "ˈɛksərˌsaɪz" },
+  { word: "practice", meaning: "練習する", ipa: "ˈpræktɪs" },
+  { word: "indoor", meaning: "屋内の，室内の", ipa: "ˈɪnˌdɔr" },
+  { word: "flag", meaning: "旗，国旗", ipa: "flæg" },
+  { word: "nature", meaning: "自然", ipa: "ˈneɪʧər" },
+  { word: "climate", meaning: "気候", ipa: "ˈklaɪmɪt" },
+  { word: "forecast", meaning: "予報，予測", ipa: "ˈfɔrˌkæst" },
+  { word: "temperature", meaning: "温度，気温", ipa: "ˈtɛmpərəʧər" },
+  { word: "wind", meaning: "風", ipa: "wɪnd" },
+  { word: "breeze", meaning: "そよ風", ipa: "briz" },
+  { word: "storm", meaning: "嵐", ipa: "stɔrm" },
+  { word: "thunder", meaning: "雷，雷鳴", ipa: "ˈθəndər" },
+  { word: "wave", meaning: "波", ipa: "weɪv" },
+  { word: "ray", meaning: "光線", ipa: "reɪ" },
+  { word: "sunlight", meaning: "日光", ipa: "ˈsənˌlaɪt" },
+  { word: "sunshine", meaning: "日差し，日なた", ipa: "ˈsənˌʃaɪn" },
+  { word: "sunset", meaning: "日没，夕焼け", ipa: "ˈsənˌsɛt" },
+  { word: "landscape", meaning: "風景，景色", ipa: "ˈlænˌskeɪp" },
+  { word: "continent", meaning: "大陸", ipa: "ˈkɑntənənt" },
+  { word: "ocean", meaning: "海，大洋", ipa: "ˈoʊʃən" },
+  { word: "island", meaning: "島", ipa: "ˈaɪlənd" },
+  { word: "ground", meaning: "地面", ipa: "graʊnd" },
+  { word: "cave", meaning: "洞窟", ipa: "keɪv" },
+  { word: "bay", meaning: "湾，入り江", ipa: "beɪ" },
+  { word: "coast", meaning: "海岸，沿岸", ipa: "koʊst" },
+  { word: "shore", meaning: "岸", ipa: "ʃɔr" },
+  { word: "horizon", meaning: "地平線，水平線", ipa: "hərˈaɪzən" },
+  { word: "valley", meaning: "谷，盆地", ipa: "ˈvæli" },
+  { word: "desert", meaning: "砂漠", ipa: "ˈdɛzərt" },
+  { word: "sand", meaning: "砂", ipa: "sænd" },
+  { word: "mud", meaning: "泥", ipa: "məd" },
+  { word: "rock", meaning: "岩，岩石", ipa: "rɑk" },
+  { word: "environment", meaning: "環境", ipa: "ɪnˈvaɪrənmənt" },
+  { word: "recycle", meaning: "再処理する，リサイクルする", ipa: "riˈsaɪkəl" },
+  { word: "pollution", meaning: "汚染，公害", ipa: "pəˈluʃən" },
+  { word: "disaster", meaning: "災害", ipa: "dɪˈzæstər" },
+  { word: "earthquake", meaning: "地震", ipa: "ˈərθkˌweɪk" },
+  { word: "flood", meaning: "洪水", ipa: "fləd" },
+  { word: "rescue", meaning: "救助する", ipa: "ˈrɛskju" },
+  { word: "creature", meaning: "生き物，動物", ipa: "ˈkriʧər" },
+  { word: "species", meaning: "種", ipa: "ˈspiʃiz" },
+  { word: "wild", meaning: "野生の", ipa: "waɪld" },
+  { word: "wildlife", meaning: "野生動物", ipa: "ˈwaɪlˌdlaɪf" },
+  { word: "insect", meaning: "昆虫", ipa: "ˈɪnˌsɛkt" },
+  { word: "dinosaur", meaning: "恐竜", ipa: "ˈdaɪnəˌsɔr" },
+  { word: "hunt", meaning: "狩りをする", ipa: "hənt" },
+  { word: "bark", meaning: "吠える", ipa: "bɑrk" },
+  { word: "nest", meaning: "巣", ipa: "nɛst" },
+  { word: "wood", meaning: "森", ipa: "wʊd" },
+  { word: "bush", meaning: "茂み", ipa: "bʊʃ" },
+  { word: "branch", meaning: "枝", ipa: "brænʧ" },
+  { word: "root", meaning: "根", ipa: "rut" },
+  { word: "grass", meaning: "芝生，草", ipa: "græs" },
+  { word: "leaf", meaning: "葉", ipa: "lif" },
+  { word: "bloom", meaning: "開花", ipa: "blum" },
+  { word: "seed", meaning: "種", ipa: "sid" },
+  { word: "human", meaning: "人間の", ipa: "ˈjumən" },
+  { word: "person", meaning: "人，人間", ipa: "ˈpərsən" },
+  { word: "people", meaning: "人々", ipa: "ˈpipəl" },
+  { word: "crowd", meaning: "群衆，人混み", ipa: "kraʊd" },
+  { word: "generation", meaning: "世代", ipa: "ˌʤɛnərˈeɪʃən" },
+  { word: "male", meaning: "男性の，雄の", ipa: "meɪl" },
+  { word: "female", meaning: "女性の，雌の", ipa: "ˈfiˌmeɪl" },
+  { word: "gender", meaning: "ジェンダー，性", ipa: "ˈʤɛndər" },
+  { word: "neighbor", meaning: "隣人", ipa: "ˈneɪbər" },
+  { word: "stranger", meaning: "（その土地に）不案内な人", ipa: "ˈstreɪnʤər" },
+  { word: "birth", meaning: "誕生", ipa: "bərθ" },
+  { word: "childhood", meaning: "子供時代", ipa: "ˈʧaɪlˌdhʊd" },
+  { word: "youth", meaning: "青年時代", ipa: "juθ" },
+  { word: "teenager", meaning: "13歳から19歳までの若者", ipa: "ˈtiˌneɪʤər" },
+  { word: "adult", meaning: "大人，成人", ipa: "ˈædəlt" },
+  { word: "junior", meaning: "年少者", ipa: "ˈʤunjər" },
+  { word: "senior", meaning: "年長者，高齢者", ipa: "ˈsinjər" },
+  { word: "elderly", meaning: "年配の", ipa: "ˈɛldərli" },
+  { word: "dead", meaning: "死んでいる", ipa: "dɛd" },
+  { word: "age", meaning: "年齢", ipa: "eɪʤ" },
+  { word: "physical", meaning: "身体の，肉体の", ipa: "ˈfɪzɪkəl" },
+  { word: "condition", meaning: "状態，体調", ipa: "kənˈdɪʃən" },
+  { word: "function", meaning: "機能，働き", ipa: "ˈfəŋkʃən" },
+  { word: "sight", meaning: "視力", ipa: "saɪt" },
+  { word: "weight", meaning: "体重", ipa: "weɪt" },
+  { word: "fat", meaning: "太った", ipa: "fæt" },
+  { word: "thin", meaning: "やせた", ipa: "θɪn" },
+  { word: "slim", meaning: "ほっそりした，スリムな", ipa: "slɪm" },
+  { word: "ugly", meaning: "醜い，不格好な", ipa: "ˈəgli" },
+  { word: "thirsty", meaning: "喉の渇いた", ipa: "ˈθərsti" },
+  { word: "tear", meaning: "涙", ipa: "tɪr" },
+  { word: "sweat", meaning: "汗", ipa: "swɛt" },
+  { word: "hospital", meaning: "病院", ipa: "ˈhɑˌspɪtəl" },
+  { word: "ambulance", meaning: "救急車", ipa: "ˈæmbjələns" },
+  { word: "wheelchair", meaning: "車椅子", ipa: "ˈwiˌlʧɛr" },
+  { word: "patient", meaning: "患者", ipa: "ˈpeɪʃənt" },
+  { word: "disease", meaning: "病気", ipa: "dɪˈziz" },
+  { word: "illness", meaning: "病気", ipa: "ˈɪlnəs" },
+  { word: "ill", meaning: "病気で，気分が悪い", ipa: "ɪl" },
+  { word: "pain", meaning: "痛み", ipa: "peɪn" },
+  { word: "injure", meaning: "傷つける，痛める", ipa: "ˈɪnʤər" },
+  { word: "headache", meaning: "頭痛", ipa: "ˈhɛˌdeɪk" },
+  { word: "cancer", meaning: "癌", ipa: "ˈkænsər" },
+  { word: "breathe", meaning: "呼吸する", ipa: "brið" },
+  { word: "touch", meaning: "触れる", ipa: "təʧ" },
+  { word: "pat", meaning: "（手のひらで）軽くたたく", ipa: "pæt" },
+  { word: "shout", meaning: "叫ぶ，大声で話す", ipa: "ʃaʊt" },
+  { word: "scream", meaning: "金切り声を出す", ipa: "skrim" },
+  { word: "whisper", meaning: "ささやく", ipa: "ˈwɪspər" },
+  { word: "bow", meaning: "おじぎをする", ipa: "boʊ" },
+  { word: "bend", meaning: "かがむ", ipa: "bɛnd" },
+  { word: "forehead", meaning: "額", ipa: "ˈfɔrhɛd" },
+  { word: "cheek", meaning: "頬", ipa: "ʧik" },
+  { word: "lip", meaning: "唇", ipa: "lɪp" },
+  { word: "tooth", meaning: "歯", ipa: "tuθ" },
+  { word: "throat", meaning: "喉", ipa: "θroʊt" },
+  { word: "shoulder", meaning: "肩", ipa: "ˈʃoʊldər" },
+  { word: "chest", meaning: "胸", ipa: "ʧɛst" },
+  { word: "elbow", meaning: "肘", ipa: "ˈɛlˌboʊ" },
+  { word: "finger", meaning: "（手の）指", ipa: "ˈfɪŋgər" },
+  { word: "thumb", meaning: "（手の）親指", ipa: "θəm" },
+  { word: "nail", meaning: "爪", ipa: "neɪl" },
+  { word: "toe", meaning: "（足の）指，つま先", ipa: "toʊ" },
+  { word: "ankle", meaning: "足首", ipa: "ˈæŋkəl" },
+  { word: "skin", meaning: "皮膚，肌", ipa: "skɪn" },
+  { word: "brain", meaning: "脳", ipa: "breɪn" },
+  { word: "heart", meaning: "心臓", ipa: "hɑrt" },
+  { word: "stomach", meaning: "胃", ipa: "ˈstəmək" },
+  { word: "blood", meaning: "血液", ipa: "bləd" },
+  { word: "bone", meaning: "骨", ipa: "boʊn" },
+  { word: "muscle", meaning: "筋肉", ipa: "ˈməsəl" },
+  { word: "emotion", meaning: "感情", ipa: "ˈiˌmoʊʃən" },
+  { word: "mind", meaning: "心，精神", ipa: "maɪnd" },
+  { word: "mental", meaning: "心の，精神の", ipa: "ˈmɛntəl" },
+  { word: "pleasant", meaning: "楽しい", ipa: "ˈplɛzənt" },
+  { word: "suffer", meaning: "苦しむ", ipa: "ˈsəfər" },
+  { word: "upset", meaning: "取り乱して，動転して", ipa: "ˈəpˌsɛt" },
+  { word: "nervous", meaning: "心配して，緊張して", ipa: "ˈnərvəs" },
+  { word: "lonely", meaning: "孤独な，ひとりぼっちの", ipa: "ˈloʊnli" },
+  { word: "shocked", meaning: "ショックを受けた", ipa: "ʃɑkt" },
+  { word: "stress", meaning: "ストレス", ipa: "strɛs" },
+  { word: "mad", meaning: "怒って", ipa: "mæd" },
+  { word: "anger", meaning: "怒り", ipa: "ˈæŋgər" },
+  { word: "joy", meaning: "喜び", ipa: "ʤɔɪ" },
+  { word: "relaxed", meaning: "くつろいだ", ipa: "rɪˈlækst" },
+  { word: "fear", meaning: "恐怖", ipa: "fɪr" },
+  { word: "panic", meaning: "パニック", ipa: "ˈpænɪk" },
+  { word: "character", meaning: "性格", ipa: "ˈkɛrɪktər" },
+  { word: "humor", meaning: "ユーモア", ipa: "ˈhjumər" },
+  { word: "frank", meaning: "率直な", ipa: "fræŋk" },
+  { word: "cheerful", meaning: "元気な，陽気な", ipa: "ˈʧɪrfəl" },
+  { word: "friendly", meaning: "親切な，好意的な", ipa: "ˈfrɛndli" },
+  { word: "gentle", meaning: "優しい", ipa: "ˈʤɛnəl" },
+  { word: "calm", meaning: "落ち着いた", ipa: "kɑm" },
+  { word: "lively", meaning: "元気な，活発な", ipa: "ˈlaɪvli" },
+  { word: "shy", meaning: "恥ずかしがりの", ipa: "ʃaɪ" },
+  { word: "strict", meaning: "厳しい，厳格な", ipa: "strɪkt" },
+  { word: "positive", meaning: "前向きの，積極的な", ipa: "ˈpɑzətɪv" },
+  { word: "negative", meaning: "後ろ向きの，消極的な", ipa: "ˈnɛgətɪv" },
+  { word: "active", meaning: "活動的な，活発な", ipa: "ˈæktɪv" },
+  { word: "lazy", meaning: "怠惰な", ipa: "ˈleɪzi" },
+  { word: "communication", meaning: "コミュニケーション，意思伝達", ipa: "kəmˌjunəˈkeɪʃən" },
+  { word: "greet", meaning: "挨拶する", ipa: "grit" },
+  { word: "conversation", meaning: "会話", ipa: "ˌkɑnvərˈseɪʃən" },
+  { word: "chat", meaning: "おしゃべりする", ipa: "ʧæt" },
+  { word: "text", meaning: "メッセージを送る", ipa: "tɛkst" },
+  { word: "e-mail", meaning: "Eメール", ipa: "ˈiˌmeɪl" },
+  { word: "address", meaning: "住所，アドレス", ipa: "ˈæˌdrɛs" },
+  { word: "translate", meaning: "翻訳する", ipa: "trænzˈleɪt" },
+  { word: "argue", meaning: "口論する，言い争う", ipa: "ˈɑrgju" },
+  { word: "claim", meaning: "主張する", ipa: "kleɪm" },
+  { word: "insist", meaning: "強く主張する", ipa: "ˌɪnˈsɪst" },
+  { word: "praise", meaning: "ほめる，賞賛する", ipa: "preɪz" },
+  { word: "debate", meaning: "討論，ディベート", ipa: "dəˈbeɪt" },
+  { word: "blame", meaning: "非難する", ipa: "bleɪm" },
+  { word: "joke", meaning: "冗談", ipa: "ʤoʊk" },
+  { word: "pronounce", meaning: "発音する", ipa: "prəˈnaʊns" },
+  { word: "express", meaning: "言い表す", ipa: "ɪkˈsprɛs" },
+  { word: "state", meaning: "はっきりと述べる", ipa: "steɪt" },
+  { word: "define", meaning: "定義する", ipa: "dɪˈfaɪn" },
+  { word: "describe", meaning: "特徴を述べる", ipa: "dɪˈskraɪb" },
+  { word: "refer", meaning: "言及する", ipa: "rɪˈfər" },
+  { word: "predict", meaning: "予測する，予言する", ipa: "prɪˈdɪkt" },
+  { word: "comment", meaning: "論評，コメント", ipa: "ˈkɑmɛnt" },
+  { word: "term", meaning: "用語，専門用語", ipa: "tərm" },
+  { word: "publish", meaning: "出版する", ipa: "ˈpəblɪʃ" },
+  { word: "novel", meaning: "小説", ipa: "ˈnɑvəl" },
+  { word: "fiction", meaning: "フィクション，作り話", ipa: "ˈfɪkʃən" },
+  { word: "essay", meaning: "小論文，エッセイ", ipa: "ˈɛˌseɪ" },
+  { word: "newspaper", meaning: "新聞", ipa: "ˈnuzˌpeɪpər" },
+  { word: "magazine", meaning: "雑誌", ipa: "ˈmægəˌzin" },
+  { word: "journal", meaning: "専門誌", ipa: "ˈʤərnəl" },
+  { word: "article", meaning: "記事", ipa: "ˈɑrtɪkəl" },
+  { word: "title", meaning: "題名，タイトル", ipa: "ˈtaɪtəl" },
+  { word: "poem", meaning: "詩", ipa: "poʊəm" },
+  { word: "tale", meaning: "話，物語", ipa: "teɪl" },
+  { word: "chapter", meaning: "章", ipa: "ˈʧæptər" },
+  { word: "education", meaning: "教育", ipa: "ˌɛʤəˈkeɪʃən" },
+  { word: "knowledge", meaning: "知識", ipa: "ˈnɑlɪʤ" },
+  { word: "intelligent", meaning: "知能の高い", ipa: "ˌɪnˈtɛləʤənt" },
+  { word: "logic", meaning: "論理", ipa: "ˈlɑʤɪk" },
+  { word: "talent", meaning: "才能", ipa: "ˈtælənt" },
+  { word: "master", meaning: "習得する", ipa: "ˈmæstər" },
+  { word: "solve", meaning: "解く，解決する", ipa: "sɑlv" },
+  { word: "review", meaning: "復習する，論評する", ipa: "ˌrivˈju" },
+  { word: "textbook", meaning: "教科書", ipa: "ˈtɛkstˌbʊk" },
+  { word: "dictionary", meaning: "辞書", ipa: "ˈdɪkʃəˌnɛri" },
+  { word: "lecture", meaning: "講義", ipa: "ˈlɛkʧər" },
+  { word: "subject", meaning: "科目", ipa: "ˈsəbʤɪkt" },
+  { word: "mathematics", meaning: "数学", ipa: "ˌmæθəˈmætɪks" },
+  { word: "biology", meaning: "生物学", ipa: "baɪˈɑləʤi" },
+  { word: "elementary", meaning: "初等の", ipa: "ˌɛləˈmɛnʧri" },
+  { word: "college", meaning: "大学", ipa: "ˈkɑlɪʤ" },
+  { word: "university", meaning: "総合大学", ipa: "ˌjunəˈvərsəti" },
+  { word: "scholar", meaning: "学者", ipa: "ˈskɑlər" },
+  { word: "enter", meaning: "入学する，入る", ipa: "ˈɛnər" },
+  { word: "attend", meaning: "出席する", ipa: "əˈtɛnd" },
+  { word: "absent", meaning: "欠席の", ipa: "ˈæbsənt" },
+  { word: "graduate", meaning: "卒業する", ipa: "ˈgræʤəˌweɪt" },
+  { word: "grade", meaning: "成績，評点", ipa: "greɪd" },
+  { word: "quiz", meaning: "小テスト", ipa: "kwɪz" },
+  { word: "homework", meaning: "宿題", ipa: "ˈhoʊmˌwərk" },
+  { word: "science", meaning: "科学", ipa: "saɪəns" },
+  { word: "chemical", meaning: "化学の", ipa: "ˈkɛmɪkəl" },
+  { word: "experiment", meaning: "実験", ipa: "ɪkˈspɛrəmənt" },
+  { word: "element", meaning: "元素", ipa: "ˈɛləmənt" },
+  { word: "oxygen", meaning: "酸素", ipa: "ˈɑksɪʤən" },
+  { word: "technology", meaning: "科学技術", ipa: "tɛkˈnɑləʤi" },
+  { word: "advance", meaning: "進歩", ipa: "ədˈvæns" },
+  { word: "machine", meaning: "機械", ipa: "məˈʃin" },
+  { word: "automatic", meaning: "自動の", ipa: "ˌɔtəˈmætɪk" },
+  { word: "invent", meaning: "発明する", ipa: "ˌɪnˈvɛnt" },
+  { word: "operate", meaning: "操作する", ipa: "ˈɔpərˌeɪt" },
+  { word: "artificial", meaning: "人工の", ipa: "ˌɑrtəˈfɪʃəl" },
+  { word: "web", meaning: "ウェブ", ipa: "wɛb" },
+  { word: "material", meaning: "材料，原料", ipa: "məˈtɪriəl" },
+  { word: "resource", meaning: "資源", ipa: "ˈrisɔrs" },
+  { word: "energy", meaning: "エネルギー", ipa: "ˈɛnərʤi" },
+  { word: "electricity", meaning: "電気，電力", ipa: "ɪˌlɛkˈtrɪsəti" },
+  { word: "battery", meaning: "バッテリー，電池", ipa: "ˈbætəri" },
+  { word: "oil", meaning: "石油", ipa: "ɔɪl" },
+  { word: "gas", meaning: "ガス", ipa: "gæs" },
+  { word: "coal", meaning: "石炭", ipa: "koʊl" },
+  { word: "metal", meaning: "金属", ipa: "ˈmɛtəl" },
+  { word: "steel", meaning: "鋼鉄", ipa: "stil" },
+  { word: "nuclear", meaning: "核の，原子力の", ipa: "ˈnukliər" },
+  { word: "universe", meaning: "宇宙", ipa: "ˈjunəˌvərs" },
+  { word: "planet", meaning: "惑星", ipa: "ˈplænət" },
+  { word: "astronaut", meaning: "宇宙飛行士", ipa: "ˈæstrəˌnɑt" },
+  { word: "earth", meaning: "地球，地面", ipa: "ərθ" },
+  { word: "cash", meaning: "現金", ipa: "kæʃ" },
+  { word: "earn", meaning: "（お金を）得る", ipa: "ərn" },
+  { word: "reward", meaning: "報酬", ipa: "rɪˈwɔrd" },
+  { word: "income", meaning: "収入", ipa: "ˈɪnˌkəm" },
+  { word: "budget", meaning: "予算", ipa: "ˈbəʤɪt" },
+  { word: "tax", meaning: "税金", ipa: "tæks" },
+  { word: "consume", meaning: "消費する", ipa: "kənˈsum" },
+  { word: "benefit", meaning: "利益，恩恵", ipa: "ˈbɛnəfɪt" },
+  { word: "wealth", meaning: "富，財産", ipa: "wɛlθ" },
+  { word: "price", meaning: "価格", ipa: "praɪs" },
+  { word: "cheap", meaning: "安い", ipa: "ʧip" },
+  { word: "reasonable", meaning: "（値段が）手頃な", ipa: "ˈrizənəbəl" },
+  { word: "sale", meaning: "特売", ipa: "seɪl" },
+  { word: "charge", meaning: "（サービスへの）料金", ipa: "ʧɑrʤ" },
+  { word: "advertisement", meaning: "広告", ipa: "ˌædvərˈtaɪzmənt" },
+  { word: "commercial", meaning: "営利的な，商業的な", ipa: "kəˈmərʃəl" },
+  { word: "trade", meaning: "貿易，取引", ipa: "treɪd" },
+  { word: "import", meaning: "輸入する", ipa: "ˌɪmˈpɔrt" },
+  { word: "export", meaning: "輸出する", ipa: "ˈɛkspɔrt" },
+  { word: "factory", meaning: "工場", ipa: "ˈfæktəri" },
+  { word: "agriculture", meaning: "農業", ipa: "ˈægrɪˌkəlʧər" },
+  { word: "society", meaning: "社会", ipa: "soʊˈsaɪɪti" },
+  { word: "community", meaning: "地域社会", ipa: "kəmˈjunɪti" },
+  { word: "organization", meaning: "組織，団体", ipa: "ˌɔrgənəˈzeɪʃən" },
+  { word: "committee", meaning: "委員会", ipa: "kəˈmɪti" },
+  { word: "charity", meaning: "慈善事業", ipa: "ˈʧɛrɪti" },
+  { word: "citizen", meaning: "国民，市民", ipa: "ˈsɪtɪzən" },
+  { word: "duty", meaning: "義務", ipa: "ˈduti" },
+  { word: "law", meaning: "法律", ipa: "lɔ" },
+  { word: "judge", meaning: "裁判官", ipa: "ʤəʤ" },
+  { word: "court", meaning: "法廷，裁判所", ipa: "kɔrt" },
+  { word: "guard", meaning: "警戒，見張り", ipa: "gɑrd" },
+  { word: "arrest", meaning: "逮捕する", ipa: "ərˈɛst" },
+  { word: "punish", meaning: "罰する", ipa: "ˈpənɪʃ" },
+  { word: "crime", meaning: "犯罪", ipa: "kraɪm" },
+  { word: "murder", meaning: "殺人，殺人事件", ipa: "ˈmərdər" },
+  { word: "shoot", meaning: "（銃で）撃つ", ipa: "ʃut" },
+  { word: "steal", meaning: "盗む", ipa: "stil" },
+  { word: "rob", meaning: "奪う", ipa: "rɑb" },
+  { word: "thief", meaning: "泥棒", ipa: "θif" },
+  { word: "victim", meaning: "犠牲者", ipa: "ˈvɪktɪm" },
+  { word: "drug", meaning: "薬物", ipa: "drəg" },
+  { word: "poverty", meaning: "貧困", ipa: "ˈpɑvərti" },
+  { word: "government", meaning: "政府", ipa: "ˈgəvərnmənt" },
+  { word: "policy", meaning: "政策，方針", ipa: "ˈpɑləsi" },
+  { word: "nation", meaning: "国家", ipa: "ˈneɪʃən" },
+  { word: "capital", meaning: "首都", ipa: "ˈkæpɪtəl" },
+  { word: "international", meaning: "国際的な，国家間の", ipa: "ˌɪnərˈnæʃənɑl" },
+  { word: "global", meaning: "全世界の，地球全体の", ipa: "ˈgloʊbəl" },
+  { word: "election", meaning: "選挙", ipa: "ɪˈlɛkʃən" },
+  { word: "vote", meaning: "投票をする", ipa: "voʊt" },
+  { word: "president", meaning: "大統領", ipa: "ˈprɛzɪdənt" },
+  { word: "liberty", meaning: "自由", ipa: "ˈlɪbərˌti" },
+  { word: "fight", meaning: "戦う", ipa: "faɪt" },
+  { word: "war", meaning: "戦争，戦争状態", ipa: "wɔr" },
+  { word: "military", meaning: "軍の，軍隊の", ipa: "ˈmɪlɪˌtɛri" },
+  { word: "army", meaning: "軍隊，陸軍", ipa: "ˈɑrmi" },
+  { word: "soldier", meaning: "兵士", ipa: "ˈsoʊlʤər" },
+  { word: "weapon", meaning: "武器，兵器", ipa: "ˈwɛpən" },
+  { word: "bomb", meaning: "爆弾", ipa: "bɔm" },
+  { word: "break out", meaning: "突然起こる，勃発する", ipa: "breɪk aʊt" },
+  { word: "come across", meaning: "〜に偶然会う，〜をふと見つける", ipa: "kəm əˈkrɔs" },
+  { word: "come out", meaning: "発売される", ipa: "kəm aʊt" },
+  { word: "come up with", meaning: "〜を思いつく", ipa: "kəm əp wɪθ" },
+  { word: "count on [upon]", meaning: "〜に頼る，〜を当てにする", ipa: "kaʊnt ɔn [əˈpɑn]" },
+  { word: "cut down [back] on", meaning: "〜を減らす", ipa: "kət daʊn [bæk] ɔn" },
+  { word: "die out", meaning: "（消えて）なくなる，絶滅する", ipa: "daɪ aʊt" },
+  { word: "drop in [on]", meaning: "ちょっと訪れる", ipa: "drɔp ɪn [ɔn]" },
+  { word: "feel free to", meaning: "自由に…する", ipa: "fil fri tɪ" },
+  { word: "get along (with)", meaning: "仲よくやっている", ipa: "gɪt əˈlɔŋ (wɪθ)" },
+  { word: "get out of", meaning: "〜から逃れる", ipa: "gɪt aʊt əv" },
+  { word: "get over", meaning: "〜から回復する，立ち直る", ipa: "gɪt ˈoʊvər" },
+  { word: "get through", meaning: "〜を切り抜ける", ipa: "gɪt θru" },
+  { word: "give way (to)", meaning: "譲歩する，屈する", ipa: "gɪv weɪ (tɪ)" },
+  { word: "go along with", meaning: "〜に賛成する，を支持する", ipa: "goʊ əˈlɔŋ wɪθ" },
+  { word: "head for", meaning: "〜に向かう", ipa: "hɛd fər" },
+  { word: "keep [bear] in mind", meaning: "〜を心に留めておく", ipa: "kip [bɛr] ɪn maɪnd" },
+  { word: "keep [stay] in touch (with)", meaning: "連絡を取り続ける", ipa: "kip [steɪ] ɪn təʧ (wɪθ)" },
+  { word: "learn (how) to", meaning: "…できるようになる", ipa: "lərn (haʊ) tɪ" },
+  { word: "look back (on)", meaning: "回想する，振り返る", ipa: "lʊk bæk (ɔn)" },
+  { word: "look into", meaning: "〜を調査する", ipa: "lʊk ˈɪntu" },
+  { word: "look over", meaning: "〜をざっと調べる，〜に目を通す", ipa: "lʊk ˈoʊvər" },
+  { word: "look up to", meaning: "〜を尊敬する", ipa: "lʊk əp tɪ" },
+  { word: "make a difference (to)", meaning: "影響がある，重要である", ipa: "meɪk ə ˈdɪfərəns (tɪ)" },
+  { word: "make [earn] a living", meaning: "生計を立てる", ipa: "meɪk [ərn] ə ˈlɪvɪŋ" },
+  { word: "make up", meaning: "〜を構成する", ipa: "meɪk əp" },
+  { word: "pass away", meaning: "亡くなる", ipa: "pæs əˈweɪ" },
+  { word: "point out", meaning: "〜を指摘する", ipa: "pɔɪnt aʊt" },
+  { word: "put off", meaning: "〜を延期する", ipa: "pʊt ɔf" },
+  { word: "put together", meaning: "〜を組み立てる，まとめ上げる", ipa: "pʊt təˈgɛðər" },
+  { word: "put up with", meaning: "〜を我慢する", ipa: "pʊt əp wɪθ" },
+  { word: "run after", meaning: "〜を追いかける", ipa: "rən ˈæftər" },
+  { word: "run away (from)", meaning: "逃げる", ipa: "rən əˈweɪ (frəm)" },
+  { word: "run out of", meaning: "〜を使い果たす", ipa: "rən aʊt əv" },
+  { word: "stand for", meaning: "〜を意味する，〜の略称である", ipa: "stænd fər" },
+  { word: "stand out", meaning: "ずば抜けている", ipa: "stænd aʊt" },
+  { word: "take A for B", meaning: "AをBだと思う", ipa: "teɪk ə fər bi" },
+  { word: "take place", meaning: "起こる，行われる", ipa: "teɪk pleɪs" },
+  { word: "take up", meaning: "〜を始める", ipa: "teɪk əp" },
+  { word: "work on", meaning: "〜に取り組む", ipa: "wərk ɔn" },
+  { word: "all at once", meaning: "（予期せず）突然", ipa: "ɔl æt wəns" },
+  { word: "all the way", meaning: "はるばる，ずっと", ipa: "ɔl ðə weɪ" },
+  { word: "along with", meaning: "〜と一緒に，〜に加えて", ipa: "əˈlɔŋ wɪθ" },
+  { word: "at least", meaning: "少なくとも", ipa: "æt list" },
+  { word: "at (the) most", meaning: "せいぜい，多くても", ipa: "æt (ðə) moʊst" },
+  { word: "by way of", meaning: "〜を通って", ipa: "baɪ weɪ əv" },
+  { word: "for some time", meaning: "かなり長い間", ipa: "fər səm taɪm" },
+  { word: "face to face (with)", meaning: "面と向かって", ipa: "feɪs tɪ feɪs (wɪθ)" },
+  { word: "first of all", meaning: "まず第一に", ipa: "fərst əv ɔl" },
+  { word: "in advance", meaning: "あらかじめ，〜前に", ipa: "ɪn ədˈvæns" },
+  { word: "in all", meaning: "全部で", ipa: "ɪn ɔl" },
+  { word: "in place of", meaning: "〜の代わりに", ipa: "ɪn pleɪs əv" },
+  { word: "in return (for)", meaning: "お返しに", ipa: "ɪn rɪˈtərn (fər)" },
+  { word: "in the long run", meaning: "長い目で見れば", ipa: "ɪn ðə lɔŋ rən" },
+  { word: "in time (for)", meaning: "間に合うように，遅れずに", ipa: "ɪn taɪm (fər)" },
+  { word: "on sale", meaning: "販売されて", ipa: "ɔn seɪl" },
+  { word: "on time", meaning: "時間通りに，定刻に", ipa: "ɔn taɪm" },
+  { word: "one by one", meaning: "１つずつ，１人ずつ", ipa: "wən baɪ wən" },
+  { word: "out of the question", meaning: "論外で，不可能で", ipa: "aʊt əv ðə kˈwɛʃən" },
+  { word: "side by side (with)", meaning: "（横に）並んで", ipa: "saɪd baɪ saɪd (wɪθ)" },
+  { word: "become", meaning: "になる", ipa: "bɪˈkəm" },
+  { word: "turn", meaning: "になる，変わる", ipa: "tərn" },
+  { word: "remain", meaning: "のままである", ipa: "rɪˈmeɪn" },
+  { word: "smell", meaning: "のにおいがする", ipa: "smɛl" },
+  { word: "taste", meaning: "の味がする", ipa: "teɪst" },
+  { word: "take", meaning: "連れて行く，持って行く", ipa: "teɪk" },
+  { word: "put", meaning: "置く，入れる", ipa: "pʊt" },
+  { word: "set", meaning: "置く，配置する", ipa: "sɛt" },
+  { word: "spread", meaning: "広げる", ipa: "sprɛd" },
+  { word: "fold", meaning: "折る，折りたたむ", ipa: "foʊld" },
+  { word: "show", meaning: "見せる，示す", ipa: "ʃoʊ" },
+  { word: "give", meaning: "与える，あげる", ipa: "gɪv" },
+  { word: "choose", meaning: "選ぶ", ipa: "ʧuz" },
+  { word: "pay", meaning: "支払う", ipa: "peɪ" },
+  { word: "leave", meaning: "残しておく", ipa: "liv" },
+  { word: "offer", meaning: "申し出る", ipa: "ˈɔfər" },
+  { word: "bring", meaning: "持ってくる，連れてくる", ipa: "brɪŋ" },
+  { word: "send", meaning: "送る", ipa: "sɛnd" },
+  { word: "pass", meaning: "手渡す", ipa: "pæs" },
+  { word: "sell", meaning: "売る", ipa: "sɛl" },
+  { word: "draw", meaning: "描く，引く", ipa: "drɔ" },
+  { word: "owe", meaning: "にお金を借りている", ipa: "oʊ" },
+  { word: "lend", meaning: "貸す", ipa: "lɛnd" },
+  { word: "envy", meaning: "うらやむ", ipa: "ˈɛnvi" },
+  { word: "make", meaning: "（ある状態）にする", ipa: "meɪk" },
+  { word: "find", meaning: "見つける、気づく", ipa: "faɪnd" },
+  { word: "keep", meaning: "保つ", ipa: "kip" },
+  { word: "call", meaning: "と呼ぶ", ipa: "kɔl" },
+  { word: "know", meaning: "知っている", ipa: "noʊ" },
+  { word: "understand", meaning: "理解する，わかる", ipa: "ˌəndərˈstænd" },
+  { word: "believe", meaning: "信じる，信用する", ipa: "bɪˈliv" },
+  { word: "notice", meaning: "気づく", ipa: "ˈnoʊtɪs" },
+  { word: "exist", meaning: "存在する", ipa: "ɪgˈzɪst" },
+  { word: "discuss", meaning: "について議論する", ipa: "dɪˈskəs" },
+  { word: "agree", meaning: "意見が一致する", ipa: "əˈgri" },
+  { word: "disagree", meaning: "意見が異なる", ipa: "dɪsəˈgri" },
+  { word: "raise", meaning: "上げる", ipa: "reɪz" },
+  { word: "rise", meaning: "上がる", ipa: "raɪz" },
+  { word: "approach", meaning: "近づく，接近する", ipa: "əˈproʊʧ" },
+  { word: "complain", meaning: "不平［苦情］を言う", ipa: "kəmˈpleɪn" },
+  { word: "lie", meaning: "横たわる，ある", ipa: "laɪ" },
+  { word: "lay", meaning: "横たえる，置く", ipa: "leɪ" },
+  { word: "marry", meaning: "と結婚する", ipa: "ˈmɛri" },
+  { word: "order", meaning: "命じる", ipa: "ˈɔrdər" },
+  { word: "demand", meaning: "要求する", ipa: "dɪˈmænd" },
+  { word: "request", meaning: "頼む，要請する", ipa: "rɪkˈwɛst" },
+  { word: "seem", meaning: "のように思える", ipa: "sim" },
+  { word: "appear", meaning: "のように見える［思える］", ipa: "əˈpɪr" },
+  { word: "prove", meaning: "と判明する", ipa: "pruv" },
+  { word: "tell", meaning: "伝える，言う", ipa: "tɛl" },
+  { word: "expect", meaning: "予期［予想］する", ipa: "ɪkˈspɛkt" },
+  { word: "warn", meaning: "に警告［注意］する", ipa: "wɔrn" },
+  { word: "forbid", meaning: "禁ずる", ipa: "fərˈbɪd" },
+  { word: "feel", meaning: "感じる", ipa: "fil" },
+  { word: "hear", meaning: "が聞こえる", ipa: "hir" },
+  { word: "watch", meaning: "（じっと）見る", ipa: "wɔʧ" },
+  { word: "decide", meaning: "決める", ipa: "ˌdɪˈsaɪd" },
+  { word: "manage", meaning: "何とかやり遂げる", ipa: "ˈmænɪʤ" },
+  { word: "promise", meaning: "約束する", ipa: "ˈprɑməs" },
+  { word: "afford", meaning: "の余裕がある", ipa: "əˈfɔrd" },
+  { word: "pretend", meaning: "ふりをする", ipa: "priˈtɛnd" },
+  { word: "refuse", meaning: "断る，拒否する", ipa: "ˈrɛfˌjuz" },
+  { word: "consider", meaning: "よく考える", ipa: "kənˈsɪdər" },
+  { word: "stop", meaning: "やめる", ipa: "stɑp" },
+  { word: "finish", meaning: "終える", ipa: "ˈfɪnɪʃ" },
+  { word: "avoid", meaning: "避ける", ipa: "əˈvɔɪd" },
+  { word: "imagine", meaning: "想像する", ipa: "ˌɪˈmæʤən" },
+  { word: "escape", meaning: "逃れる，免れる", ipa: "ɪˈskeɪp" },
+  { word: "quit", meaning: "やめる", ipa: "kwɪt" },
+  { word: "dislike", meaning: "嫌う", ipa: "dɪsˈlaɪk" },
+  { word: "start", meaning: "始める，出発する", ipa: "stɑrt" },
+  { word: "begin", meaning: "始める", ipa: "bɪˈgɪn" },
+  { word: "continue", meaning: "続ける", ipa: "kənˈtɪnju" },
+  { word: "prefer", meaning: "の方を好む", ipa: "prɪˈfər" },
+  { word: "hate", meaning: "ひどく嫌う，憎む", ipa: "heɪt" },
+  { word: "try", meaning: "試みる", ipa: "traɪ" },
+  { word: "remember", meaning: "覚えている，思い出す", ipa: "rɪˈmɛmbər" },
+  { word: "forget", meaning: "忘れる", ipa: "fərˈgɛt" },
+  { word: "regret", meaning: "後悔する", ipa: "rɪˈgrɛt" },
+  { word: "air", meaning: "空気，大気", ipa: "ɛr" },
+  { word: "cloth", meaning: "布，布地", ipa: "klɔθ" },
+  { word: "paper", meaning: "紙", ipa: "ˈpeɪpər" },
+  { word: "iron", meaning: "鉄，鉄分", ipa: "aɪərn" },
+  { word: "audience", meaning: "聴衆，観客", ipa: "ˈɔdiəns" },
+  { word: "police", meaning: "警察官", ipa: "pəˈlis" },
+  { word: "staff", meaning: "スタッフ，職員", ipa: "stæf" },
+  { word: "furniture", meaning: "家具", ipa: "ˈfərnɪʧər" },
+  { word: "stuff", meaning: "（漠然と）物，こと", ipa: "stəf" },
+  { word: "baggage", meaning: "手荷物", ipa: "ˈbægɪʤ" },
+  { word: "information", meaning: "情報", ipa: "ˌɪnˌfɔrˈmeɪʃən" },
+  { word: "ability", meaning: "能力", ipa: "əˈbɪləˌti" },
+  { word: "advice", meaning: "助言，忠告", ipa: "ədˈvaɪs" },
+  { word: "beauty", meaning: "美，美しさ", ipa: "ˈbjuti" },
+  { word: "death", meaning: "死", ipa: "dɛθ" },
+  { word: "freedom", meaning: "自由", ipa: "ˈfridəm" },
+  { word: "peace", meaning: "平和", ipa: "pis" },
+  { word: "customer", meaning: "（店の）客，顧客", ipa: "ˈkəstəmər" },
+  { word: "guest", meaning: "（招待）客，ゲスト", ipa: "gɛst" },
+  { word: "habit", meaning: "（個人の）習慣，癖", ipa: "ˈhæbət" },
+  { word: "custom", meaning: "（社会的）慣習，風習", ipa: "ˈkəstəm" },
+  { word: "fee", meaning: "（入場・加入などの）料金，会費", ipa: "fi" },
+  { word: "fare", meaning: "（交通機関の）運賃，料金", ipa: "fɛr" },
+  { word: "appointment", meaning: "（面会の）約束，（医者などの）予約", ipa: "əˈpɔɪntmənt" },
+  { word: "idea", meaning: "考え，アイデア", ipa: "aɪˈdiə" },
+  { word: "fact", meaning: "事実，現実", ipa: "fækt" },
+  { word: "feeling", meaning: "気持ち，感情", ipa: "ˈfilɪŋ" },
+  { word: "evidence", meaning: "証拠", ipa: "ˈɛvədəns" },
+  { word: "other", meaning: "もう一方", ipa: "ˈəðər" },
+  { word: "another", meaning: "別の物［人］", ipa: "əˈnəðər" },
+  { word: "each", meaning: "それぞれ", ipa: "iʧ" },
+  { word: "both", meaning: "両方", ipa: "boʊθ" },
+  { word: "either", meaning: "（二者のうち）どちらか，どちらでも", ipa: "ˈiðər" },
+  { word: "neither", meaning: "（二者のうち）どちらも…ない", ipa: "ˈniðər" },
+  { word: "none", meaning: "どれ［誰］も…ない", ipa: "nən" },
+  { word: "something", meaning: "何か", ipa: "ˈsəmθɪŋ" },
+  { word: "anything", meaning: "何も（〜ない），何か，何でも", ipa: "ˈɛniˌθɪŋ" },
+  { word: "nothing", meaning: "何も〜ない", ipa: "ˈnəθɪŋ" },
+  { word: "everything", meaning: "すべての物［こと］", ipa: "ˈɛvriˌθɪŋ" },
+  { word: "everyone", meaning: "みんな，誰でも", ipa: "ˈɛvriˌwən" },
+  { word: "someone", meaning: "誰か，ある人", ipa: "ˈsəmˌwən" },
+  { word: "anyone", meaning: "誰か，誰も（〜ない），誰でも", ipa: "ˈɛniˌwən" },
+  { word: "nobody", meaning: "誰も〜ない", ipa: "ˈnoʊˌbɑˌdi" },
+  { word: "main", meaning: "主な，主要な", ipa: "meɪn" },
+  { word: "daily", meaning: "毎日の，日々の", ipa: "ˈdeɪli" },
+  { word: "alone", meaning: "ただ１人で", ipa: "əˈloʊn" },
+  { word: "aware", meaning: "気づいて", ipa: "əˈwɛr" },
+  { word: "awake", meaning: "目が覚めて", ipa: "əˈweɪk" },
+  { word: "asleep", meaning: "眠って", ipa: "əsˈlip" },
+  { word: "alive", meaning: "生きて（いる）", ipa: "əˈlaɪv" },
+  { word: "alike", meaning: "似ている，同様な", ipa: "əˈlaɪk" },
+  { word: "right", meaning: "右の，正しい", ipa: "raɪt" },
+  { word: "present", meaning: "現在の，出席して", ipa: "ˈprɛzənt" },
+  { word: "certain", meaning: "ある〜，確信して", ipa: "ˈsərtən" },
+  { word: "interested", meaning: "興味を持って", ipa: "ˈɪntəˌrɛstɪd" },
+  { word: "surprised", meaning: "驚いて", ipa: "səˈpraɪzd" },
+  { word: "tired", meaning: "飽きて，うんざりして", ipa: "taɪərd" },
+  { word: "pleased", meaning: "喜んで", ipa: "plizd" },
+  { word: "satisfied", meaning: "満足して", ipa: "ˈsætɪsˌfaɪd" },
+  { word: "bored", meaning: "退屈して，うんざりして", ipa: "bɔrd" },
+  { word: "excited", meaning: "興奮して，わくわくして", ipa: "ɪkˈsaɪtɪd" },
+  { word: "confused", meaning: "困惑［混乱］して", ipa: "kənfˈjuzd" },
+  { word: "scared", meaning: "怖がって", ipa: "skɛrd" },
+  { word: "able", meaning: "できる", ipa: "ˈeɪbəl" },
+  { word: "likely", meaning: "ありそうな", ipa: "ˈlaɪkli" },
+  { word: "sure", meaning: "確信して", ipa: "ʃʊr" },
+  { word: "ready", meaning: "準備［用意］のできた", ipa: "ˈrɛdi" },
+  { word: "eager", meaning: "熱望して", ipa: "ˈigər" },
+  { word: "polite", meaning: "礼儀正しい，丁寧な", ipa: "pəˈlaɪt" },
+  { word: "clever", meaning: "利口な", ipa: "ˈklɛvər" },
+  { word: "brave", meaning: "勇敢な", ipa: "breɪv" },
+  { word: "wise", meaning: "賢明な，賢い", ipa: "waɪz" },
+  { word: "rude", meaning: "失礼な", ipa: "rud" },
+  { word: "silly", meaning: "愚かな，ばかげた", ipa: "ˈsɪli" },
+  { word: "foolish", meaning: "愚かな，ばかげた", ipa: "ˈfulɪʃ" },
+  { word: "stupid", meaning: "愚かな，ばかげた", ipa: "ˈstupɪd" },
+  { word: "careless", meaning: "不注意な", ipa: "ˈkɛrlɛs" },
+  { word: "important", meaning: "重要な", ipa: "ˌɪmˈpɔrtənt" },
+  { word: "necessary", meaning: "必要な", ipa: "ˈnɛsəˌsɛri" },
+  { word: "proper", meaning: "正当な，当然な", ipa: "ˈprɑpər" },
+  { word: "strange", meaning: "奇妙な，不思議な", ipa: "streɪnʤ" },
+  { word: "wrong", meaning: "間違った", ipa: "rɔŋ" },
+  { word: "few", meaning: "（可算名詞の前で）ほとんどない", ipa: "fju" },
+  { word: "little", meaning: "（不可算名詞の前で）ほとんどない", ipa: "ˈlɪtəl" },
+  { word: "late", meaning: "遅れた／遅く，遅れて", ipa: "leɪt" },
+  { word: "far", meaning: "遠い方の／遠くに［へ］", ipa: "fɑr" },
+  { word: "hard", meaning: "難しい，困難な／懸命に，熱心に", ipa: "hɑrd" },
+  { word: "fast", meaning: "速い，素早い／速く", ipa: "fæst" },
+  { word: "deep", meaning: "深い／深く", ipa: "dip" },
+  { word: "direct", meaning: "直接の／直接に，まっすぐ", ipa: "dɪˈrɛkt" },
+  { word: "well", meaning: "健康で／十分に，よく", ipa: "wɛl" },
+  { word: "wide", meaning: "広い／大きく，すっかり", ipa: "waɪd" },
+  { word: "pretty", meaning: "かわいい／かなり", ipa: "ˈprɪti" },
+  { word: "sharp", meaning: "鋭い，とがった／ちょうど，きっかり", ipa: "ʃɑrp" },
+  { word: "just", meaning: "たった今，ちょうど（〜したばかり）", ipa: "ʤɪst" },
+  { word: "already", meaning: "もう，すでに", ipa: "ɔˈrɛdi" },
+  { word: "recently", meaning: "（ここ）最近", ipa: "ˈrisəntli" },
+  { word: "lately", meaning: "（ここ）最近", ipa: "ˈleɪtli" },
+  { word: "yet", meaning: "まだ（〜ない）", ipa: "jɛt" },
+  { word: "ever", meaning: "これまでに，かつて", ipa: "ˈɛvər" },
+  { word: "twice", meaning: "２度，２回", ipa: "twaɪs" },
+  { word: "only", meaning: "だけ，しか（〜ない）", ipa: "ˈoʊnli" },
+  { word: "always", meaning: "いつも，必ず", ipa: "ˈɔlˌweɪz" },
+  { word: "sometimes", meaning: "時々", ipa: "ˈsəmˌtaɪmz" },
+  { word: "usually", meaning: "たいてい，ふつうは", ipa: "ˈjuʒəwəli" },
+  { word: "nearly", meaning: "ほとんど，ほぼ", ipa: "ˈnɪrli" },
+  { word: "hardly", meaning: "（程度が）ほとんど〜ない", ipa: "ˈhɑrdli" },
+  { word: "while", meaning: "…している間", ipa: "waɪl" },
+  { word: "unless", meaning: "…でない限り，もし…でなければ", ipa: "ənˈlɛs" },
+  { word: "nor", meaning: "もまた（…ない）", ipa: "nɔr" },
+  { word: "whatever", meaning: "何が［を］…しようとも", ipa: "ˌwəˈtɛvər" },
+  { word: "whichever", meaning: "どちらが［を］…しようとも", ipa: "wɪˈʧɛvər" },
+  { word: "whenever", meaning: "…するときはいつでも，…するたびに", ipa: "wɛˈnɛvər" },
+  { word: "wherever", meaning: "…する所ならどこでも", ipa: "wɛˈrɛvər" },
+  { word: "cause", meaning: "を引き起こす", ipa: "kɔz" },
+  { word: "allow", meaning: "を可能にする", ipa: "əˈlaʊ" },
+  { word: "enable", meaning: "を可能にする", ipa: "ɪˈneɪbəl" },
+  { word: "prevent", meaning: "を妨げる，中止させる", ipa: "prɪˈvɛnt" },
+  { word: "force", meaning: "を強いる", ipa: "fɔrs" },
+  { word: "cost", meaning: "（金額・費用が）かかる", ipa: "kɔst" },
+  { word: "remind", meaning: "に思い出させる", ipa: "riˈmaɪnd" },
+  { word: "believe in", meaning: "〜の存在を信じる", ipa: "bɪˈliv ɪn" },
+  { word: "bring out", meaning: "〜を引き出す", ipa: "brɪŋ aʊt" },
+  { word: "bring up", meaning: "〜を育てる", ipa: "brɪŋ əp" },
+  { word: "call for", meaning: "〜を必要とする", ipa: "kɔl fər" },
+  { word: "call off", meaning: "〜を中心する，取り消す", ipa: "kɔl ɔf" },
+  { word: "decide on [upon]", meaning: "〜に決める", ipa: "ˌdɪˈsaɪd ɔn [əˈpɑn]" },
+  { word: "feel like (-ing)", meaning: "…したい気がする", ipa: "fil laɪk (-ɪŋ)" },
+  { word: "give up (-ing)", meaning: "…することをやめる，諦める", ipa: "gɪv əp (-ɪŋ)" },
+  { word: "go on (-ing)", meaning: "…し続ける", ipa: "goʊ ɔn (-ɪŋ)" },
+  { word: "have [be] nothing to do with", meaning: "〜と何も関係がない", ipa: "hæv [bi] ˈnəθɪŋ tɪ du wɪθ" },
+  { word: "lie in [with]", meaning: "（責任・問題などが）〜にある", ipa: "laɪ ɪn [wɪθ]" },
+  { word: "make it", meaning: "うまくいく，成功する", ipa: "meɪk ɪt" },
+  { word: "make oneself understood", meaning: "自分の考えが（相手に）通じる", ipa: "meɪk ˌwənˈsɛlf ˌəndərˈstʊd" },
+  { word: "pass on", meaning: "伝える，渡す", ipa: "pæs ɔn" },
+  { word: "put away", meaning: "〜を片付ける", ipa: "pʊt əˈweɪ" },
+  { word: "put on", meaning: "〜を身につける，着る", ipa: "pʊt ɔn" },
+  { word: "show up", meaning: "（人が）現れる，やって来る", ipa: "ʃoʊ əp" },
+  { word: "take [have] a walk", meaning: "散歩する", ipa: "teɪk [hæv] ə wɔk" },
+  { word: "take time (to do)", meaning: "（…するのに）時間がかかる", ipa: "teɪk taɪm (tɪ du)" },
+  { word: "tell A from B", meaning: "AとBを区別する", ipa: "tɛl ə frəm bi" },
+  { word: "throw away", meaning: "〜を捨てる", ipa: "θroʊ əˈweɪ" },
+  { word: "try on", meaning: "〜を試着する", ipa: "traɪ ɔn" },
+  { word: "turn A into B", meaning: "AをBに変える", ipa: "tərn ə ˈɪntu bi" },
+  { word: "turn off", meaning: "〜を切る，消す", ipa: "tərn ɔf" },
+  { word: "turn on", meaning: "〜をつける", ipa: "tərn ɔn" },
+  { word: "turn out to be", meaning: "〜であることがわかる", ipa: "tərn aʊt tɪ bi" },
+  { word: "turn over", meaning: "〜をひっくり返す", ipa: "tərn ˈoʊvər" },
+  { word: "be known for", meaning: "〜のことで有名だ", ipa: "bi noʊn fər" },
+  { word: "be unable to", meaning: "…することができない", ipa: "bi əˈneɪbəl tɪ" },
+  { word: "be used to (-ing)", meaning: "…することに慣れている", ipa: "bi juzd tɪ (-ɪŋ)" },
+  { word: "be willing to", meaning: "…してもかまわない，…する気がある", ipa: "bi ˈwɪlɪŋ tɪ" },
+  { word: "as ~ as ever", meaning: "相変わらず〜で", ipa: "ɛz  ɛz ˈɛvər" },
+  { word: "as usual", meaning: "いつものように", ipa: "ɛz ˈjuʒəwəl" },
+  { word: "as well", meaning: "〜もまた，同じように", ipa: "ɛz wɛl" },
+  { word: "at a loss", meaning: "途方に暮れて，困って", ipa: "æt ə lɔs" },
+  { word: "at present", meaning: "現在，目下", ipa: "æt ˈprɛzənt" },
+  { word: "at the age of", meaning: "〜歳で", ipa: "æt ðə eɪʤ əv" },
+  { word: "before long", meaning: "間もなく，ほどなく", ipa: "ˌbiˈfɔr lɔŋ" },
+  { word: "for a while", meaning: "しばらくの間", ipa: "fər ə waɪl" },
+  { word: "for sure [certain]", meaning: "確かに", ipa: "fər ʃʊr [ˈsərtən]" },
+  { word: "for the sake of", meaning: "〜のために", ipa: "fər ðə seɪk əv" },
+  { word: "in a [one] way", meaning: "ある意味で", ipa: "ɪn ə [wən] weɪ" },
+  { word: "in danger of", meaning: "〜の恐れがあって", ipa: "ɪn ˈdeɪnʤər əv" },
+  { word: "in (actual) fact", meaning: "実際には", ipa: "ɪn (ˈækʧəwəl) fækt" },
+  { word: "in turn", meaning: "順番に，交替で", ipa: "ɪn tərn" },
+  { word: "little by little", meaning: "少しずつ", ipa: "ˈlɪtəl baɪ ˈlɪtəl" },
+  { word: "no doubt", meaning: "きっと", ipa: "noʊ daʊt" },
+  { word: "one after another [the other]", meaning: "次々と", ipa: "wən ˈæftər əˈnəðər [ðə ˈəðər]" },
+  { word: "right away [off]", meaning: "直ちに，すぐに", ipa: "raɪt əˈweɪ [ɔf]" },
+  { word: "so far", meaning: "これまでのところ", ipa: "soʊ fɑr" },
+  { word: "the other day", meaning: "先日", ipa: "ðə ˈəðər deɪ" },
+  { word: "to one’s surprise", meaning: "〜が驚いたことに", ipa: "tɪ one’s* səˈpraɪz" },
+  { word: "as [so] far as", meaning: "…する限りは", ipa: "ɛz [soʊ] fɑr ɛz" },
+  { word: "as many [much] as", meaning: "〜も多くの", ipa: "ɛz ˈmɛni [məʧ] ɛz" },
+  { word: "both A and B", meaning: "AもBも", ipa: "boʊθ ə ənd bi" },
+  { word: "either A or B", meaning: "AかBのどちらか", ipa: "ˈiðər ə ər bi" },
+  { word: "each other", meaning: "お互い", ipa: "iʧ ˈəðər" },
+  { word: "every other", meaning: "〜ごとに，〜おきに", ipa: "ˈɛvəri ˈəðər" },
+  { word: "something is wrong with", meaning: "〜はどこか調子が悪い", ipa: "ˈsəmθɪŋ ɪz rɔŋ wɪθ" },
+  { word: "What is ~ like?", meaning: "〜はどのようなもの［人］ですか", ipa: "wət ɪz  laɪk?" },
+  { word: "spend", meaning: "費やす，使う", ipa: "spɛnd" },
+  { word: "increase", meaning: "増える", ipa: "ˌɪnˈkris" },
+  { word: "decrease", meaning: "減る", ipa: "ˈdiˌkris" },
+  { word: "improve", meaning: "改善する，向上させる", ipa: "ˌɪmˈpruv" },
+  { word: "provide", meaning: "提供［供給］する", ipa: "prəˈvaɪd" },
+  { word: "include", meaning: "含む", ipa: "ˌɪnˈklud" },
+  { word: "develop", meaning: "発達［発展］させる", ipa: "dɪˈvɛləp" },
+  { word: "receive", meaning: "受け取る，受ける", ipa: "rɪˈsiv" },
+  { word: "explain", meaning: "説明する", ipa: "ɪkˈspleɪn" },
+  { word: "lead", meaning: "至る，導く", ipa: "lɛd" },
+  { word: "perform", meaning: "うまくいく，機能する", ipa: "pərˈfɔrm" },
+  { word: "realize", meaning: "気づく，認識する", ipa: "ˈriəˌlaɪz" },
+  { word: "produce", meaning: "引き起こす，もたらす", ipa: "ˈproʊdus" },
+  { word: "participate", meaning: "参加する", ipa: "pɑrˈtɪsəˌpeɪt" },
+  { word: "suggest", meaning: "示す，暗示する", ipa: "səˈʤɛst" },
+  { word: "encourage", meaning: "促進する，奨励する", ipa: "ɪnˈkərəʤ" },
+  { word: "apply", meaning: "当てはまる", ipa: "əˈplaɪ" },
+  { word: "affect", meaning: "影響する", ipa: "əˈfɛkt" },
+  { word: "recognize", meaning: "わかる，識別する", ipa: "ˈrɛkəgˌnaɪz" },
+  { word: "require", meaning: "要求する", ipa: "ˌrikˈwaɪər" },
+  { word: "maintain", meaning: "維持する", ipa: "meɪnˈteɪn" },
+  { word: "tend", meaning: "…する傾向がある，…しがちである", ipa: "tɛnd" },
+  { word: "contain", meaning: "含む", ipa: "kənˈteɪn" },
+  { word: "represent", meaning: "表す，象徴する", ipa: "ˌrɛprɪˈzɛnt" },
+  { word: "reach", meaning: "に届く，達する", ipa: "riʧ" },
+  { word: "mention", meaning: "話に出す，言及する", ipa: "ˈmɛnʃən" },
+  { word: "focus", meaning: "集中する，焦点を合わせる", ipa: "ˈfoʊkɪs" },
+  { word: "rent", meaning: "（有料で）借りる", ipa: "rɛnt" },
+  { word: "guess", meaning: "推測する", ipa: "gɛs" },
+  { word: "add", meaning: "加える", ipa: "æd" },
+  { word: "delay", meaning: "遅らせる", ipa: "dɪˈleɪ" },
+  { word: "select", meaning: "選び出す", ipa: "səˈlɛkt" },
+  { word: "system", meaning: "（体系的）方法，方式", ipa: "ˈsɪstəm" },
+  { word: "experience", meaning: "経験，体験", ipa: "ɪkˈspɪriəns" },
+  { word: "activity", meaning: "活動", ipa: "ækˈtɪvɪti" },
+  { word: "program", meaning: "計画，プログラム", ipa: "ˈproʊˌgræm" },
+  { word: "care", meaning: "注意", ipa: "kɛr" },
+  { word: "situation", meaning: "状況，事態", ipa: "ˌsɪʧuˈeɪʃən" },
+  { word: "research", meaning: "研究，調査", ipa: "ˈrisərʧ" },
+  { word: "passage", meaning: "（本・音楽などの）一節", ipa: "ˈpæsɪʤ" },
+  { word: "factor", meaning: "要因，要素", ipa: "ˈfæktər" },
+  { word: "value", meaning: "価値", ipa: "ˈvælju" },
+  { word: "influence", meaning: "影響，影響力", ipa: "ˈɪnfluəns" },
+  { word: "author", meaning: "著者，作者", ipa: "ˈɔθər" },
+  { word: "role", meaning: "役割", ipa: "roʊl" },
+  { word: "average", meaning: "平均", ipa: "ˈævərɪʤ" },
+  { word: "friendship", meaning: "交友関係", ipa: "ˈfrɛndʃɪp" },
+  { word: "view", meaning: "意見，考え", ipa: "vju" },
+  { word: "result", meaning: "結果", ipa: "rɪˈzəlt" },
+  { word: "surface", meaning: "外見，うわべ", ipa: "ˈsərfəs" },
+  { word: "rate", meaning: "割合，比率", ipa: "reɪt" },
+  { word: "process", meaning: "過程", ipa: "ˈprɔˌsɛs" },
+  { word: "topic", meaning: "話題，トピック", ipa: "ˈtɑpɪk" },
+  { word: "variety", meaning: "種類", ipa: "vərˈaɪəti" },
+  { word: "risk", meaning: "危険，リスク", ipa: "rɪsk" },
+  { word: "amount", meaning: "量，合計", ipa: "əˈmaʊnt" },
+  { word: "skill", meaning: "技能，技術", ipa: "skɪl" },
+  { word: "period", meaning: "期間", ipa: "ˈpɪriəd" },
+  { word: "center", meaning: "中心", ipa: "ˈsɛnər" },
+  { word: "sense", meaning: "感覚", ipa: "sɛns" },
+  { word: "opportunity", meaning: "機会", ipa: "ˌɑpərˈtunəti" },
+  { word: "effect", meaning: "影響，効果", ipa: "ˈifɛkt" },
+  { word: "public", meaning: "大衆，一般の人々", ipa: "ˈpəblɪk" },
+  { word: "transportation", meaning: "交通機関", ipa: "ˌtrænspərˈteɪʃən" },
+  { word: "atmosphere", meaning: "雰囲気", ipa: "ˈætməsˌfɪr" },
+  { word: "attention", meaning: "注意，注意力", ipa: "əˈtɛnʃən" },
+  { word: "space", meaning: "場所，空間", ipa: "speɪs" },
+  { word: "behavior", meaning: "振る舞い，行儀", ipa: "bɪˈheɪvjər" },
+  { word: "object", meaning: "物，物体", ipa: "ˈɑbʤɛkt" },
+  { word: "company", meaning: "会社", ipa: "ˈkəmpəˌni" },
+  { word: "field", meaning: "分野，領域", ipa: "fild" },
+  { word: "following", meaning: "次の，以下の", ipa: "ˈfɑloʊɪŋ" },
+  { word: "various", meaning: "さまざまな，多様な", ipa: "ˈvɛriəs" },
+  { word: "several", meaning: "いくつかの", ipa: "ˈsɛvərəl" },
+  { word: "local", meaning: "地元の，現地の", ipa: "ˈloʊkəl" },
+  { word: "related", meaning: "関連して", ipa: "rɪˈleɪtɪd" },
+  { word: "possible", meaning: "可能な", ipa: "ˈpɑsəbəl" },
+  { word: "similar", meaning: "似ている，同様の", ipa: "ˈsɪmələr" },
+  { word: "concerned", meaning: "心配して", ipa: "kənˈsərnd" },
+  { word: "available", meaning: "利用できる，手に入る", ipa: "əˈveɪləbəl" },
+  { word: "dry", meaning: "雨の少ない，乾燥した", ipa: "draɪ" },
+  { word: "past", meaning: "過ぎたばかりの，この前の", ipa: "pæst" },
+  { word: "modern", meaning: "近代的な，最新の", ipa: "ˈmɑdərn" },
+  { word: "unique", meaning: "特有の", ipa: "juˈnik" },
+  { word: "common", meaning: "よくある，普通の", ipa: "ˈkɑmən" },
+  { word: "prepare", meaning: "準備［用意］する", ipa: "priˈpɛr" },
+  { word: "regard", meaning: "（〜と）思う，考える", ipa: "rɪˈgɑrd" },
+  { word: "occur", meaning: "（予期せず）起こる", ipa: "əˈkər" },
+  { word: "suppose", meaning: "だと思う，考える", ipa: "səˈpoʊz" },
+  { word: "serve", meaning: "（食事を）出す", ipa: "sərv" },
+  { word: "wonder", meaning: "だろうかと思う", ipa: "ˈwəndər" },
+  { word: "reduce", meaning: "減らす", ipa: "rɪˈdus" },
+  { word: "promote", meaning: "促進する", ipa: "prəˈmoʊt" },
+  { word: "survive", meaning: "生き延びる，切り抜ける", ipa: "sərˈvaɪv" },
+  { word: "gain", meaning: "得る", ipa: "geɪn" },
+  { word: "devide", meaning: "分ける，分かれる", ipa: "devide*" },
+  { word: "attract", meaning: "引き寄せる", ipa: "əˈtrækt" },
+  { word: "achieve", meaning: "達成する", ipa: "əˈʧiv" },
+  { word: "fit", meaning: "適する，合致する", ipa: "fɪt" },
+  { word: "reveal", meaning: "明らかにする", ipa: "rɪˈvil" },
+  { word: "wish", meaning: "願う", ipa: "wɪʃ" },
+  { word: "fill", meaning: "満たす", ipa: "fɪl" },
+  { word: "hurt", meaning: "傷つける，害する", ipa: "hərt" },
+  { word: "discover", meaning: "知る，わかる", ipa: "dɪˈskəvər" },
+  { word: "indicate", meaning: "示す", ipa: "ˈɪndəˌkeɪt" },
+  { word: "overcome", meaning: "克服する，打ち勝つ", ipa: "ˈoʊvərˌkəm" },
+  { word: "protect", meaning: "守る，保護する", ipa: "prəˈtɛkt" },
+  { word: "remove", meaning: "取り去る，移動させる", ipa: "riˈmuv" },
+  { word: "rely", meaning: "当てにする，頼る", ipa: "rɪˈlaɪ" },
+  { word: "bother", meaning: "わざわざ…する，悩ませる", ipa: "ˈbɑðər" },
+  { word: "seek", meaning: "追い求める", ipa: "sik" },
+  { word: "matter", meaning: "重要［問題］だ", ipa: "ˈmætər" },
+  { word: "concentrate", meaning: "集中する，専念する", ipa: "ˈkɑnsənˌtreɪt" },
+  { word: "react", meaning: "反応［対応］する", ipa: "riækt" },
+  { word: "struggle", meaning: "奮闘する", ipa: "ˈstrəgəl" },
+  { word: "admit", meaning: "（しぶしぶ）認める", ipa: "ədˈmɪt" },
+  { word: "lock", meaning: "しまい込む，閉じ込める", ipa: "lɑk" },
+  { word: "issue", meaning: "問題，問題点", ipa: "ˈɪʃu" },
+  { word: "relationship", meaning: "関係", ipa: "riˈleɪʃənˌʃɪp" },
+  { word: "list", meaning: "リスト，一覧", ipa: "lɪst" },
+  { word: "item", meaning: "１品，１点", ipa: "ˈaɪtəm" },
+  { word: "distance", meaning: "距離", ipa: "ˈdɪstəns" },
+  { word: "case", meaning: "場合", ipa: "keɪs" },
+  { word: "opinion", meaning: "意見，見解", ipa: "əˈpɪnjən" },
+  { word: "century", meaning: "世紀", ipa: "ˈsɛnʧəri" },
+  { word: "trouble", meaning: "困難，困ったこと", ipa: "ˈtrəbəl" },
+  { word: "total", meaning: "合計", ipa: "ˈtoʊtəl" },
+  { word: "advantage", meaning: "有利な点，強み", ipa: "ædˈvæntɪʤ" },
+  { word: "detail", meaning: "細部", ipa: "ˈditeɪl" },
+  { word: "moment", meaning: "時点", ipa: "ˈmoʊmənt" },
+  { word: "bill", meaning: "請求書", ipa: "bɪl" },
+  { word: "rest", meaning: "残り，休み", ipa: "rɛst" },
+  { word: "deal", meaning: "量，取引", ipa: "dil" },
+  { word: "feature", meaning: "特徴", ipa: "ˈfiʧər" },
+  { word: "survey", meaning: "調査", ipa: "ˈsərˌveɪ" },
+  { word: "destination", meaning: "目的地，行き先", ipa: "ˌdɛstɪˈneɪʃən" },
+  { word: "conclusion", meaning: "結論", ipa: "kənˈkluʒən" },
+  { word: "attitude", meaning: "態度，考え方", ipa: "ˈætəˌtud" },
+  { word: "impact", meaning: "影響，衝撃", ipa: "ˌɪmˈpækt" },
+  { word: "source", meaning: "源", ipa: "sɔrs" },
+  { word: "row", meaning: "列，並び", ipa: "roʊ" },
+  { word: "assistant", meaning: "助手，補佐", ipa: "əˈsɪstənt" },
+  { word: "impression", meaning: "印象", ipa: "ˌɪmˈprɛʃən" },
+  { word: "noise", meaning: "騒音", ipa: "nɔɪz" },
+  { word: "sign", meaning: "兆し，表れ", ipa: "saɪn" },
+  { word: "aim", meaning: "目的，目標", ipa: "eɪm" },
+  { word: "occasion", meaning: "（特定の）時，機会", ipa: "əˈkeɪʒən" },
+  { word: "relation", meaning: "関係，関連", ipa: "riˈleɪʃən" },
+  { word: "signal", meaning: "合図", ipa: "ˈsɪgnəl" },
+  { word: "balance", meaning: "バランス，均衡", ipa: "ˈbæləns" },
+  { word: "track", meaning: "小道", ipa: "træk" },
+  { word: "symbol", meaning: "象徴，シンボル", ipa: "ˈsɪmbəl" },
+  { word: "circle", meaning: "円，仲間", ipa: "ˈsərkəl" },
+  { word: "leisure", meaning: "余暇，自由な時間", ipa: "ˈlɛʒər" },
+  { word: "angle", meaning: "角度，観点", ipa: "ˈæŋgəl" },
+  { word: "comfortable", meaning: "快適な", ipa: "ˈkəmfərtəbəl" },
+  { word: "recent", meaning: "最近の", ipa: "ˈrisənt" },
+  { word: "real", meaning: "現実の，実在する", ipa: "ril" },
+  { word: "dangerous", meaning: "危険な", ipa: "ˈdeɪnʤərəs" },
+  { word: "current", meaning: "現在の，今の", ipa: "ˈkɑrənt" },
+  { word: "final", meaning: "最後の", ipa: "ˈfaɪnəl" },
+  { word: "obvious", meaning: "明らかな", ipa: "ˈɑbviəs" },
+  { word: "fair", meaning: "妥当な，適正な", ipa: "fɛr" },
+  { word: "proud", meaning: "誇りに思って", ipa: "praʊd" },
+  { word: "anxious", meaning: "切望して，心配して", ipa: "ˈæŋʃəs" },
+  { word: "impossible", meaning: "不可能な", ipa: "ˌɪmˈpɑsəbəl" },
+  { word: "opposite", meaning: "反対側の，向かい側の", ipa: "ˈɑpəzɪt" },
+  { word: "terrible", meaning: "ひどい，恐ろしい", ipa: "ˈtɛrəbəl" },
+  { word: "thick", meaning: "厚い", ipa: "θɪk" },
+  { word: "narrow", meaning: "狭い，細い", ipa: "ˈnɛroʊ" },
+  { word: "actually", meaning: "実際に，実は", ipa: "ˈæˌkʧuəli" },
+  { word: "especially", meaning: "特に，とりわけ", ipa: "əˈspɛʃəli" },
+  { word: "perhaps", meaning: "もしかしたら", ipa: "pərˈhæps" },
+  { word: "fortunately", meaning: "幸運にも", ipa: "ˈfɔrʧənətli" },
+  { word: "less", meaning: "より少なく", ipa: "lɛs" },
+  { word: "least", meaning: "最も〜でない", ipa: "list" },
+  { word: "abroad", meaning: "外国に［で］", ipa: "əˈbrɔd" },
+  { word: "overseas", meaning: "海外へ［に，で］", ipa: "ˈoʊvərˈsiz" },
+  { word: "rather", meaning: "むしろ", ipa: "ˈrəðər" },
+  { word: "probably", meaning: "たぶん", ipa: "ˈprɑbəˌbli" },
+  { word: "easily", meaning: "たやすく，簡単に", ipa: "ˈizəli" },
+  { word: "quite", meaning: "かなり", ipa: "kwaɪt" },
+  { word: "exactly", meaning: "正確に，まさに", ipa: "ɪgˈzæktli" },
+  { word: "instead", meaning: "その代わりに", ipa: "ˌɪnˈstɛd" },
+  { word: "immediately", meaning: "直ちに", ipa: "ˌɪˈmiˌdiətli" },
+  { word: "somewhere", meaning: "どこかに［へ，で］", ipa: "ˈsəmˌwɛr" },
+  { word: "gradually", meaning: "徐々に，だんだんと", ipa: "ˈgræʤuəli" },
+  { word: "simply", meaning: "単に", ipa: "ˈsɪmpli" },
+  { word: "indeed", meaning: "確かに，本当に", ipa: "ˌɪnˈdid" },
+  { word: "whether", meaning: "…かどうか", ipa: "ˈwɛðər" },
+  { word: "also", meaning: "その上", ipa: "ˈɔlsoʊ" },
+  { word: "moreover", meaning: "その上，さらに", ipa: "mɔˈroʊvər" },
+  { word: "besides", meaning: "その上", ipa: "ˌbiˈsaɪdz" },
+  { word: "though", meaning: "でも，だけど", ipa: "ðoʊ" },
+  { word: "however", meaning: "しかしながら", ipa: "ˌhaʊˈɛvər" },
+  { word: "although", meaning: "…だけれども，…にもかかわらず", ipa: "ˌɔlˈðoʊ" },
+  { word: "TRUE", meaning: "本当の，真実の", ipa: "tru" },
+  { word: "because", meaning: "なぜなら，…なので", ipa: "bɪˈkəz" },
+  { word: "therefore", meaning: "したがって，それゆえ", ipa: "ˈðɛrˌfɔr" },
+  { word: "anyway", meaning: "いずれにせよ", ipa: "ˈɛniˌweɪ" },
+  { word: "bring about", meaning: "〜を引き起こす，もたらす", ipa: "brɪŋ əˈbaʊt" },
+  { word: "catch up (with)", meaning: "追いつく", ipa: "kæʧ əp (wɪθ)" },
+  { word: "check out", meaning: "〜を調べる", ipa: "ʧɛk aʊt" },
+  { word: "deal with", meaning: "〜に対処する，処理する", ipa: "dil wɪθ" },
+  { word: "end up (-ing)", meaning: "最終的には…することになる", ipa: "ɛnd əp (-ɪŋ)" },
+  { word: "figure out", meaning: "〜を理解する，解決する", ipa: "ˈfɪgjər aʊt" },
+  { word: "fill in", meaning: "〜に記入する", ipa: "fɪl ɪn" },
+  { word: "get rid of", meaning: "〜を処分する，取り除く", ipa: "gɪt rɪd əv" },
+  { word: "have A in common (with B)", meaning: "（Bと）共通のAを持つ", ipa: "hæv ə ɪn ˈkɑmən (wɪθ bi)" },
+  { word: "keep up with", meaning: "〜に（遅れずに）ついて行く", ipa: "kip əp wɪθ" },
+  { word: "look to A (for B)", meaning: "Aに（Bを）期待する，当てにする", ipa: "lʊk tɪ ə (fər bi)" },
+  { word: "make sense", meaning: "意味をなす，理解しやすい", ipa: "meɪk sɛns" },
+  { word: "make sure", meaning: "…を確かめる", ipa: "meɪk ʃʊr" },
+  { word: "make up for", meaning: "〜の埋め合わせをする，〜を償う", ipa: "meɪk əp fər" },
+  { word: "make up one’s mind", meaning: "決心する", ipa: "meɪk əp one’s* maɪnd" },
+  { word: "never fail to", meaning: "必ず…する", ipa: "ˈnɛvər feɪl tɪ" },
+  { word: "result in", meaning: "〜という結果になる", ipa: "rɪˈzəlt ɪn" },
+  { word: "set off (for)", meaning: "出発する", ipa: "sɛt ɔf (fər)" },
+  { word: "set out to", meaning: "…し始める，…しようと試みる", ipa: "sɛt aʊt tɪ" },
+  { word: "set up", meaning: "〜を始める，設立する", ipa: "sɛt əp" },
+  { word: "stay up", meaning: "（寝ないで）起きている", ipa: "steɪ əp" },
+  { word: "take advantage of", meaning: "〜を利用する", ipa: "teɪk ædˈvæntɪʤ əv" },
+  { word: "take in", meaning: "〜をだます", ipa: "teɪk ɪn" },
+  { word: "take over", meaning: "〜を引き継ぐ", ipa: "teɪk ˈoʊvər" },
+  { word: "turn down", meaning: "〜を拒む，断る", ipa: "tərn daʊn" },
+  { word: "according to", meaning: "〜によれば", ipa: "əˈkɔrdɪŋ tɪ" },
+  { word: "at [from] a distance", meaning: "離れた所に［から］", ipa: "æt [frəm] ə ˈdɪstəns" },
+  { word: "by means of", meaning: "〜によって，〜を用いて", ipa: "baɪ minz əv" },
+  { word: "for a moment", meaning: "少しの間", ipa: "fər ə ˈmoʊmənt" },
+  { word: "in a [one] sense", meaning: "ある意味では", ipa: "ɪn ə [wən] sɛns" },
+  { word: "in case of", meaning: "〜の場合は", ipa: "ɪn keɪs əv" },
+  { word: "in contrast to [with]", meaning: "〜とは対照的に", ipa: "ɪn ˈkɑntræst tɪ [wɪθ]" },
+  { word: "in one’s opinion [view]", meaning: "〜の考え［意見］では", ipa: "ɪn one’s* əˈpɪnjən [vju]" },
+  { word: "in terms of", meaning: "〜の観点から", ipa: "ɪn tərmz əv" },
+  { word: "instead of", meaning: "〜の代わりに，〜ではなくて", ipa: "ˌɪnˈstɛd əv" },
+  { word: "next to", meaning: "〜の隣に", ipa: "nɛkst tɪ" },
+  { word: "no more than", meaning: "わずか〜，たった〜", ipa: "noʊ mɔr ðən" },
+  { word: "nothing but", meaning: "ただ〜だけ", ipa: "ˈnəθɪŋ bət" },
+  { word: "out of order", meaning: "故障して，調子が悪い", ipa: "aʊt əv ˈɔrdər" },
+  { word: "regardless of", meaning: "〜に関係なく，かまわず", ipa: "rəˈgɑrdləs əv" },
+  { word: "to make matters worse", meaning: "さらに悪いことに", ipa: "tɪ meɪk ˈmætərz wərs" },
+  { word: "with ease", meaning: "容易に", ipa: "wɪθ iz" },
+  { word: "a variety of", meaning: "いろいろな", ipa: "ə vərˈaɪəti əv" },
+  { word: "as ~ as possible [one can]", meaning: "できるだけ", ipa: "ɛz  ɛz ˈpɑsəbəl [wən kən]" },
+  { word: "as if [though]", meaning: "…であるかのように", ipa: "ɛz ɪf [ðoʊ]" },
+  { word: "by the time", meaning: "…するまでに", ipa: "baɪ ðə taɪm" },
+  { word: "even if", meaning: "たとえ…だとしても", ipa: "ˈivɪn ɪf" },
+  { word: "now (that)", meaning: "今や…だから", ipa: "naʊ (ðət)" },
+  { word: "the moment [minute]", meaning: "…するとすぐに", ipa: "ðə ˈmoʊmənt [ˈmɪnət]" },
+  { word: "by the way", meaning: "ところで，それはそうと", ipa: "baɪ ðə weɪ" },
+  { word: "as for", meaning: "〜については，〜はどうかと言えば", ipa: "ɛz fər" },
+  { word: "in general", meaning: "一般に，概して", ipa: "ɪn ˈʤɛnərəl" },
+  { word: "on the whole", meaning: "全体的に見て", ipa: "ɔn ðə hoʊl" },
+  { word: "for example [instance]", meaning: "例えば", ipa: "fər ɪgˈzæmpəl [ˈɪnstəns]" },
+  { word: "in particular", meaning: "特に，とりわけ", ipa: "ɪn ˌpɑˈtɪkjələr" },
+  { word: "that is (to say)", meaning: "すなわち，より正確に言えば", ipa: "ðət ɪz (tɪ seɪ)" },
+  { word: "in other words", meaning: "言い換えると，つまり", ipa: "ɪn ˈəðər wərdz" },
+  { word: "to begin [start] with", meaning: "まず第一に", ipa: "tɪ bɪˈgɪn [stɑrt] wɪθ" },
+  { word: "in the first place", meaning: "まず第一に", ipa: "ɪn ðə fərst pleɪs" },
+  { word: "in addition", meaning: "その上，さらに", ipa: "ɪn əˈdɪʃən" },
+  { word: "A as well as B", meaning: "BだけでなくAも", ipa: "ə ɛz wɛl ɛz bi" },
+  { word: "on the other hand", meaning: "他方では", ipa: "ɔn ðə ˈəðər hænd" },
+  { word: "in spite of", meaning: "〜にもかかわらず", ipa: "ɪn spaɪt əv" },
+  { word: "because of", meaning: "〜のために，〜が原因で", ipa: "bɪˈkəz əv" },
+  { word: "on account of", meaning: "〜のために，〜が原因で", ipa: "ɔn əˈkaʊnt əv" },
+  { word: "due to", meaning: "〜のために，〜が原因で", ipa: "du tɪ" },
+  { word: "thanks to", meaning: "〜のおかげで", ipa: "θæŋks tɪ" },
+  { word: "as a result", meaning: "結果として", ipa: "ɛz ə rɪˈzəlt" },
+  { word: "in any case [event]", meaning: "いずれにしても", ipa: "ɪn ˈɛni keɪs [ɪˈvɛnt]" },
+  { word: "in short", meaning: "要約すると，手短にいうと", ipa: "ɪn ʃɔrt" },
 ];
+
+//export default words;

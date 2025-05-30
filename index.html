@@ -7,8 +7,15 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>ターゲット1200 チェック</h1>
 
+  <!-- ヘッダー：検索 / タイトル / 設定 -->
+  <header id="topBar">
+    <button id="searchBtn">🔍</button>
+    <h1>ターゲット1200 チェック</h1>
+    <button id="settingBtn">⚙</button>
+  </header>
+
+  <!-- 学習カード -->
   <div id="card">
     <p id="word">単語</p>
 
@@ -21,10 +28,9 @@
         <input type="checkbox" id="rememberChk"> 覚えた
       </label>
       <button id="showBtn">意味を見る</button>
+      <button id="randomBtn">🎲 ランダム</button>
     </div>
   </div>
-
-
 
   <!-- 1語送り -->
   <div id="nav">
@@ -33,20 +39,42 @@
     <button id="nextBtn">次へ →</button>
   </div>
 
-    <!-- 100語ページ送り -->
+  <!-- 100語ページ送り -->
   <div id="pageNav">
-    <button id="prevPageBtn">« 前の100語</button>
-    <span id="pageCounter"></span>
-    <button id="nextPageBtn">次の100語 »</button>
-   <button id="summaryBtn">一覧</button>     <!-- ★追加① -->
+    <button id="prevPageBtn">«</button>
+    <span id="pageCounter"></span>  <!-- 例：3 / 17 -->
+    <button id="nextPageBtn">»</button>
+    <button id="summaryBtn">一覧</button>
   </div>
 
- <!-- ★追加② 100語の一覧（最初は非表示） -->
- <dialog id="summaryDialog">
-   <h2>このページの単語（覚えたら✅）</h2>
-   <div id="summaryList"></div>
-   <button id="closeSummaryBtn">閉じる</button>
- </dialog>
+  <!-- 一覧ダイアログ -->
+  <dialog id="summaryDialog">
+    <h2>このページの単語（覚えたら✅）</h2>
+    <div id="summaryList"></div>
+    <button id="closeSummaryBtn">閉じる</button>
+  </dialog>
+
+  <!-- 検索ダイアログ -->
+  <dialog id="searchDialog">
+    <input id="searchInput" type="text" placeholder="単語を入力">
+    <button id="searchGo">ジャンプ</button>
+    <button id="searchClose">閉じる</button>
+  </dialog>
+
+  <!-- 設定ダイアログ -->
+  <dialog id="settingDialog">
+    <h3>設定</h3>
+    <label><input type="checkbox" id="optUnremembered"> 未記憶のみ</label><br>
+    範囲:
+    <input id="rangeStart" type="number" min="1" max="1700" value="1"> 〜
+    <input id="rangeEnd"   type="number" min="1" max="1700" value="1700"><br>
+    発音記号: <input type="checkbox" id="optIPA"><br>
+    音声読み上げ: <input type="checkbox" id="optVoice"><br><br>
+    <button id="settingSave">保存</button>
+    <button id="settingClose">キャンセル</button>
+  </dialog>
+
+  <!-- スクリプト -->
   <script src="words.js"></script>
   <script src="app.js"></script>
 </body>
