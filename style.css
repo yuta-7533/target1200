@@ -1,12 +1,19 @@
-/* =========================
-   基本レイアウト & 共通色
-   ========================= */
+/* =========================================
+   ターゲット1200　スタイルシート（簡略版）
+   ぜんぶコピーして style.css に貼り付け！
+   ========================================= */
+
+/* --- 0. ブラウザ差をなくすおまじない --- */
+*,*::before,*::after{box-sizing:border-box;}
+
+/* --- 1. 色を変えるときはここだけ --- */
 :root{
   --main-blue:#1976d2;
   --accent-red:#d32f2f;
-  --light-gray:#eee;
+  --light-gray:#ddd;
 }
 
+/* --- 2. 基本レイアウト --- */
 body{
   font-family:-apple-system,BlinkMacSystemFont,"Noto Sans JP",sans-serif;
   margin:1.5rem;
@@ -14,116 +21,105 @@ body{
   color:#222;
 }
 
-/* ------------ 見出し ------------ */
 h1{font-size:clamp(1.4rem,5vw,2rem);margin:.2rem 0}
 
-/* ------------ ヘッダーバー ------------ */
+/* ヘッダーバー（検索🔍と⚙ボタン） */
 #topBar{
   display:flex;justify-content:space-between;align-items:center;
   margin-bottom:.8rem;
 }
-#topBar button{
-  background:none;border:none;font-size:1.6rem;cursor:pointer;
-}
+#topBar button{background:none;border:none;font-size:1.6rem;cursor:pointer;}
 
-/* ------------ 学習カード ------------ */
+/* --- 3. 単語カード --- */
 #card{
   border:1px solid #ccc;border-radius:10px;
   padding:1.5rem;margin-bottom:1rem;
   box-shadow:0 2px 6px rgba(0,0,0,.05);
 }
-#word   {font-size:clamp(1.8rem,8vw,2.5rem);margin:.5rem 0 1rem}
-#meaning{font-size:clamp(1.4rem,6vw,1.8rem);color:var(--main-blue)}
-.hidden {visibility:hidden}           /* 高さは確保 */
+#word   {font-size:clamp(1.8rem,8vw,2.5rem);margin:.5rem 0 1rem;}
+#meaning{font-size:clamp(1.4rem,6vw,1.8rem);color:var(--main-blue);}
+.hidden {visibility:hidden;}   /* 高さはキープして文字だけ消す */
 
-/* -- 下段アクション ------------------ */
+/* カード下の操作行（覚えた・意味を見る・🎲ランダム） */
 #actions{
-  display:flex;justify-content:center;gap:1rem;margin-top:1rem;
+  display:flex;gap:1rem;justify-content:center;margin-top:1rem;
 }
-#rememberLbl{display:flex;align-items:center;gap:.3rem}
+#rememberLbl{display:flex;align-items:center;gap:.3rem;}
 
-/* ------------ ボタン汎用 ------------ */
+/* --- 4. ボタンとチェックの共通設定 --- */
 button,label{
   font-size:1rem;padding:.6rem 1.2rem;margin:.3rem;border-radius:6px;
+  cursor:pointer;
 }
-button{
-  border:1px solid #999;background:#fff;cursor:pointer;
-}
-button:active{background:#f0f0f0}
+button{border:1px solid #999;background:#fff;}
+button:active{background:#f0f0f0;}
+button:focus-visible{outline:2px solid var(--accent-red);} /* キーボード対応 */
 
-/* 青系ボタン */
+/* 青ボタン（ページ送り・ランダムなど） */
 #actions button,
 #pageNav button,
 #randomBtn{
-  background:var(--main-blue);color:#fff;border:none;
+  display:inline-block;
+  background:var(--main-blue);
+  color:#fff;
+  border:none;
 }
-#randomBtn{display:inline-block}
 
-/* ------------ 進捗バー -------------- */
-#progressBarWrap{width:100%;background:var(--light-gray);
-  border-radius:4px;margin:.5rem 0 1rem;height:8px}
+/* --- 5. 進捗バー --- */
+#progressBarWrap{
+  width:100%;height:8px;background:var(--light-gray);border-radius:4px;
+  margin:.5rem 0 1rem;
+}
 #progressBar{
   height:100%;width:0;background:mediumseagreen;border-radius:4px;
   transition:width .3s;
 }
 
-/* ------------ ナビゲーション ---------- */
+/* --- 6. ナビゲーション --- */
 #nav,#pageNav{
-  display:flex;gap:.5rem;justify-content:center;align-items:center;
-  flex-wrap:wrap
+  display:flex;gap:.5rem;justify-content:center;align-items:center;flex-wrap:wrap;
 }
-#pageCounter{min-width:4.5rem;text-align:center}
+#pageCounter{min-width:4.5rem;text-align:center;}
 
-/* ------------ ダイアログ -------------- */
+/* --- 7. 一覧ダイアログ --- */
 dialog{
-  border:none;border-radius:8px;padding:1rem;
-  width:min(90vw,500px)
+  border:none;border-radius:8px;padding:1rem;width:min(90vw,500px);
 }
-/* 一覧内チェックラベル */
+dialog::backdrop{background:rgba(0,0,0,.3);} /* 背景を少し暗く */
+
+#summaryDialog{
+  position:relative;
+  padding:1rem 1rem 4rem;    /* 下に閉じるボタンぶんの余白 */
+}
+
+#summaryList{
+  max-height:60vh;           /* 画面の60%まで */
+  overflow-y:auto;
+  padding:.5rem 0;
+}
 #summaryList label{
-  display:inline-block;width:48%;margin:.2rem 1%;text-align:left
+  display:inline-block;width:48%;margin:.2rem 1%;text-align:left;
+}
+.summaryWord{cursor:pointer;text-decoration:underline;}
+.summaryItem{user-select:none;}
+
+/* 閉じるボタン：ダイアログの最下部に固定＆常に見える */
+#closeSummaryBtn{
+  position:sticky;   /* スクロールしても追従！ */
+  bottom:1rem;left:50%;transform:translateX(-50%);
+  background:var(--main-blue);color:#fff;
+  padding:.6rem 2rem;border:none;border-radius:6px;
+  box-shadow:0 2px 4px rgba(0,0,0,.2);
 }
 
-/* 一覧でクリック可能な単語 */
-.summaryWord{cursor:pointer;text-decoration:underline}
-.summaryItem{user-select:none}
-
-/* =========================
-   モバイル最適化 (≤600px)
-   ========================= */
+/* --- 8. モバイル（幅600px以下） --- */
 @media (max-width:600px){
-  body{margin:1rem}
-  /* ボタンは横幅いっぱい */
-  button{width:90%;max-width:320px}
-  #nav,#pageNav{
-    flex-direction:column;gap:.5rem;align-items:center
-  }
-  #rememberLbl{display:block;margin:.5rem auto}
-  #actions{flex-direction:column;gap:.8rem}
-  #actions button,#rememberLbl{width:100%}
-  #word{font-size:8vw}
-  #meaning{font-size:6.2vw}
-}
-
-/* === summaryDialog 追加スタイル === */
-#summaryDialog {
-  position: relative;
-  padding-top: 3rem;       /* ヘッダ分の余白を確保 */
-}
-
-/* 「✕」ボタンを右上固定 */
-#closeSummaryBtn {
-  position: absolute;
-  top: 0.6rem;
-  right: 0.6rem;
-  font-size: 1.2rem;
-  line-height: 1;
-  padding: 0.4rem 0.6rem;
-}
-
-/* 単語リスト部分だけスクロール可能に */
-#summaryList {
-  max-height: 60vh;        /* ビューポート 60% */
-  overflow-y: auto;
-  padding: 0.5rem 0;
+  body{margin:1rem;}
+  button{width:90%;max-width:320px;}         /* ボタン横幅いっぱい */
+  #nav,#pageNav{flex-direction:column;gap:.5rem;}
+  #rememberLbl{display:block;margin:.5rem auto;}
+  #actions{flex-direction:column;gap:.8rem;}
+  #actions button,#rememberLbl{width:100%;}
+  #word{font-size:8vw;}
+  #meaning{font-size:6.2vw;}
 }
