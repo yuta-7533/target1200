@@ -47,11 +47,13 @@
     <button id="summaryBtn">一覧</button>
   </div>
 
-  <!-- 一覧ダイアログ -->
+  <!-- ★一覧ダイアログ ここだけ差し替え -->
   <dialog id="summaryDialog">
-    <h2>このページの単語（覚えたら✅）</h2>
+    <button id="closeSummaryBtn" aria-label="閉じる">✕</button>
+    <h2>このページの単語（覚えたら ✅）</h2>
+
+    <!-- スクロール領域 -->
     <div id="summaryList"></div>
-    <button id="closeSummaryBtn">閉じる</button>
   </dialog>
 
   <!-- 検索ダイアログ -->

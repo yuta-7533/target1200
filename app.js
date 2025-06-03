@@ -200,6 +200,12 @@ summaryBtn.onclick = ()=>{
 };
 closeSummary.onclick = ()=>summaryDlg.close();
 
+/* ★背景(ダイアログ外)クリックで閉じる */
+summaryDlg.addEventListener('click', e => {
+  if (e.target === summaryDlg) summaryDlg.close();
+});
+
+
 /* 検索ダイアログ */
 searchBtn.onclick = ()=>{ searchInput.value=''; searchDlg.showModal(); };
 searchGo.onclick = ()=>{
