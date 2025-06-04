@@ -132,6 +132,8 @@ function renderCard(){
   const pageNo = pageStart / PAGE_SIZE + 1;
   const totalPages = Math.ceil(filteredIndexes.length / PAGE_SIZE);
   pageCounter.textContent = `${pageNo} / ${totalPages}`;
+
+  if (settings.voiceEnabled) speak(item.word);
 }
 
 /* =================================================================== */
@@ -277,12 +279,21 @@ settingClose.onclick = ()=>settingDlg.close();
 
 /* ---------- 音声 ---------- */
 function speak(text){
-  if(!window.speechSynthesis || !settings.voiceEnabled) return;
-  const uttr = new SpeechSynthesisUtterance(text);
-  uttr.lang = 'en-US';
-  speechSynthesis.cancel();  // 連打対策
-  speechSynthesis.speak(uttr);
+  if (!window.speechSynthesis || !settings.voiceEnabled) return;
+
+  // ── 英語の voice を優先して選ぶ ──
+  const voices = window.speechSynthesis.getVoices();      // 一覧取得
+  let enVoice  = voices.find(v => v.lang.startsWith('en'));  // 例: “en-US”
+  if (!enVoice && voices.length) enVoice = voices[0];     // 保険：最初の声
+
+  const uttr   = new SpeechSynthesisUtterance(text);
+  uttr.lang    = 'en-US';    // 言語コードを英語で固定
+  if (enVoice) uttr.voice = enVoice;
+
+  window.speechSynthesis.cancel();   // 連打対策
+  window.speechSynthesis.speak(uttr);
 }
+
 
 /* ---------- 初期表示 ---------- */
 renderCard();
