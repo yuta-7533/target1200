@@ -159,3 +159,30 @@ button.danger:active{background:#bd2727}
   font-size:1rem;
   padding:.3rem .6rem;
 }
+
+
+@media (max-width:600px){
+  /* ① 見出しを 1 行固定に（折返しさせない） */
+  h1{ white-space:nowrap; }
+
+  /* ② ナビ部は“横並び・小さめボタン” */
+  #nav, #pageNav{
+    flex-direction:row;      /* ← column → row に戻す           */
+    flex-wrap:nowrap;        /* 折り返さない                     */
+    justify-content:center;  /* 余った幅で真ん中寄せ（好みで）   */
+  }
+  #nav button,
+  #pageNav button{
+    width:auto;              /* 共通の「90% 幅」指定を打ち消す  */
+    padding:.4rem .8rem;     /* 少し細身                         */
+    font-size:.95rem;
+    max-width:none;          /* 念のため                         */
+  }
+
+  /* カウンタの左右に少し余白を置くと読みやすい */
+  #counter, #pageCounter{
+    margin:0 .5rem;
+    min-width:4rem;          /* 「1 / 1700」くらいが入る幅       */
+    text-align:center;
+  }
+}
