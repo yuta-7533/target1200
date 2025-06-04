@@ -5,6 +5,7 @@
 const PAGE_SIZE = 100;                         // 100 語ごとに 1 ページ
 const rememberKey = 'remembered1200';
 const settingKey  = 'settings1200';
+const resetRangeBtn = document.getElementById('resetRangeBtn');   // ★追加
 
 /* ---------- 状態 ---------- */
 let remembered = JSON.parse(localStorage.getItem(rememberKey) || '{}'); // {word:true}
@@ -113,7 +114,7 @@ function renderCard(){
   const realIdx = filteredIndexes[indexPtr];
   const item = words[realIdx];
 
-  wordEl.textContent = item.word;
+  wordEl.textContent = `${realIdx + 1}. ${item.word}`;   // ←番号を先頭に
   meaningEl.textContent = item.meaning;
   meaningEl.classList.add('hidden');
   rememberChk.checked = !!remembered[item.word];
@@ -191,9 +192,9 @@ summaryBtn.onclick = ()=>{
     const id='chk_'+w.word;
     const checked=remembered[w.word]?'checked':'';
     summaryList.insertAdjacentHTML('beforeend',
-      `<label class="summaryItem" data-idx="${i}">
+     `<label class="summaryItem" data-idx="${i}">
          <input type="checkbox" id="${id}" ${checked}>
-         <span class="summaryWord">${w.word}</span>
+         <span class="summaryWord">${i + 1}. ${w.word}</span>  <!-- 番号 -->
        </label>`
     );
   });
@@ -294,6 +295,20 @@ function speak(text){
   window.speechSynthesis.speak(uttr);
 }
 
+/* ---------- 範囲の “覚えた” を一括解除 ---------- */
+resetRangeBtn.addEventListener('click', ()=>{
+  const s = settings.rangeStart, e = settings.rangeEnd;
+  if(!confirm(`${s}〜${e} 番の「覚えた」チェックをすべて外します。よろしいですか？`)) return;
+
+  for(let i=s-1; i<e; i++){
+    delete remembered[words[i].word];   // フラグを削除
+  }
+  saveRemembered();
+  filteredIndexes = calcFilteredIndexes();
+  indexPtr = 0;
+  renderCard();
+  alert('リセットしました！');
+});
 
 /* ---------- 初期表示 ---------- */
 renderCard();

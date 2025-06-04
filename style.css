@@ -123,3 +123,11 @@ dialog::backdrop{background:rgba(0,0,0,.3);} /* 背景を少し暗く */
   #word{font-size:8vw;}
   #meaning{font-size:6.2vw;}
 }
+
+/* === 危険操作ボタン === */
+button.danger{
+  background:#d32f2f;   /* 赤 */
+  color:#fff;
+  border:none;
+}
+button.danger:active{background:#bd2727}
