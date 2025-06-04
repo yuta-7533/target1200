@@ -67,10 +67,17 @@
   <dialog id="settingDialog">
     <h3>設定</h3>
     <label><input type="checkbox" id="optUnremembered"> 未記憶のみ</label><br>
+    種類:
+    <label><input type="checkbox" id="optWords"   checked> 単語</label>
+    <label><input type="checkbox" id="optPhrases" checked> 熟語</label><br>
     範囲:
     <input id="rangeStart" type="number" min="1" max="1700" value="1"> 〜
     <input id="rangeEnd"   type="number" min="1" max="1700" value="1700"><br>
     発音記号: <input type="checkbox" id="optIPA"><br>
+    
+    <label><input type="checkbox" id="optWords"   checked> 単語を表示</label><br>
+    <label><input type="checkbox" id="optPhrases" checked> 熟語を表示</label><br>
+
     音声読み上げ: <input type="checkbox" id="optVoice"><br><br>
     <button id="settingSave">保存</button>
     <button id="settingClose">キャンセル</button>

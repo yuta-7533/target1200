@@ -13,7 +13,9 @@ let settings   = Object.assign({
   rangeStart:1,
   rangeEnd:1700,
   showIPA:false,
-  voiceEnabled:false
+  voiceEnabled:false,
+  showWords        : true,   // 単語を表示
+  showPhrases      : true    // 熟語を表示
 }, JSON.parse(localStorage.getItem(settingKey) || '{}'));
 
 let filteredIndexes = calcFilteredIndexes();   // 条件を満たす語番号の配列
@@ -55,6 +57,10 @@ const optVoice     = document.getElementById('optVoice');
 const settingSave  = document.getElementById('settingSave');
 const settingClose = document.getElementById('settingClose');
 
+const optWords    = document.getElementById('optWords');
+const optPhrases  = document.getElementById('optPhrases');
+
+
 /* ---------- 進捗バー ---------- */
 const progressWrap = document.createElement('div');
 progressWrap.id = 'progressBarWrap';
@@ -70,14 +76,29 @@ function saveSettings()  { localStorage.setItem(settingKey , JSON.stringify(sett
 
 /* 抽出集合を計算 */
 function calcFilteredIndexes(){
-  const arr=[];
-  for(let i=0;i<words.length;i++){
-    const no = i+1;
-    if(no < settings.rangeStart || no > settings.rangeEnd) continue;
-    if(settings.unrememberedOnly && remembered[words[i].word]) continue;
-    arr.push(i);
+  const arr = [];
+
+  for (let i = 0; i < words.length; i++) {
+    const w  = words[i];          // ← 単語オブジェクト
+    const no = i + 1;
+
+    /* ① 範囲フィルター */
+    if (no < settings.rangeStart || no > settings.rangeEnd) continue;
+
+    /* ② 未記憶のみ */
+    if (settings.unrememberedOnly && remembered[w.word]) continue;
+
+    /* ③ ★ NEW: 単語 / 熟語 フィルター ---------------- */
+    const phrase = /[ /]/.test(w.word);           // true なら熟語
+    if ( (phrase && !settings.showPhrases)      // 熟語だが表示 OFF
+      || (!phrase && !settings.showWords) )      // 単語だが表示 OFF
+      continue;
+    /* ------------------------------------------------ */
+
+    arr.push(i);            // ここに来たものだけ採用
   }
-  return arr.length ? arr : [0];          // 空になるのを防ぐ
+
+  return arr.length ? arr : [0];    // 空になるのを防ぐ
 }
 
 /* 現在の 100 語ページ開始位置（filtered 内）*/
@@ -232,6 +253,8 @@ settingBtn.onclick = ()=>{
   rangeEndEl.value       = settings.rangeEnd;
   optIPA.checked         = settings.showIPA;
   optVoice.checked       = settings.voiceEnabled;
+  optWords.checked   = settings.showWords;
+  optPhrases.checked = settings.showPhrases;
   settingDlg.showModal();
 };
 
@@ -241,6 +264,8 @@ settingSave.onclick = ()=>{
   settings.rangeEnd   = Number(rangeEndEl.value)||words.length;
   settings.showIPA    = optIPA.checked;
   settings.voiceEnabled = optVoice.checked;
+  settings.showWords        = optWords.checked;
+  settings.showPhrases      = optPhrases.checked;
   saveSettings();
 
   filteredIndexes = calcFilteredIndexes();
