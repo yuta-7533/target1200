@@ -1,37 +1,68 @@
-/* ===== app.js  v2  ================================================= */
-/* 2025-05 仕様: ランダム・検索・設定・フィルタ・音声 =================*/
+/* ===================================================================
+   app.js   2025-05 “multi-list 対応・バグ修正 完全版”
+   =================================================================== */
 
-/* ---------- 定数 ---------- */
-const PAGE_SIZE = 100;                         // 100 語ごとに 1 ページ
-const rememberKey = 'remembered1200';
-const settingKey  = 'settings1200';
-const resetRangeBtn = document.getElementById('resetRangeBtn');   // ★追加
+/* ---------------- 0. リスト情報 ---------------- */
+const LIST_INFO = {
+  "1200": { src: "./words_1200.js", total: 1700 },
+  "1900": { src: "./words_1900.js", total: 1900 }
+};
 
-/* ---------- 状態 ---------- */
-let remembered = JSON.parse(localStorage.getItem(rememberKey) || '{}'); // {word:true}
-let settings   = Object.assign({
-  unrememberedOnly:false,
-  rangeStart:1,
-  rangeEnd:1700,
-  showIPA:false,
-  voiceEnabled:false,
-  showWords        : true,   // 単語を表示
-  showPhrases      : true    // 熟語を表示
-}, JSON.parse(localStorage.getItem(settingKey) || '{}'));
+/* ---------------- 1. 変数 --------------------- */
+let words = [];             // 現在ロードしている語彙配列
+let MAX_NO = 0;             // 現在リストの語数（範囲上限）
+let filteredIndexes = [];   // フィルタ後のインデックス集合
+let indexPtr = 0;           // filteredIndexes 内のカーソル
 
-let filteredIndexes = calcFilteredIndexes();   // 条件を満たす語番号の配列
-let indexPtr = 0;                              // filteredIndexes 内の位置
+/* ---------------- 2. 設定 --------------------- */
+const settingKeyBase  = "settings_";
+const rememberKeyBase = "remembered_";
 
-/* ---------- 要素取得 ---------- */
+let settings = Object.assign(
+  {
+    whichList       : "1200",        // ←初期はターゲット1200
+    unrememberedOnly: false,
+    rangeStart      : 1,
+    rangeEnd        : LIST_INFO["1200"].total,
+    showIPA         : false,
+    voiceEnabled    : false,
+    showWords       : true,
+    showPhrases     : true
+  },
+  JSON.parse(localStorage.getItem(settingKeyBase + "1200") || "{}")
+);
+
+let rememberKey = rememberKeyBase + settings.whichList;
+let remembered  = JSON.parse(localStorage.getItem(rememberKey) || "{}");
+
+/* ---------------- 3. 語彙ファイルの読み込み ---- */
+async function loadWords(listId){
+  const mod   = await import(LIST_INFO[listId].src);
+  words       = mod.default;
+  MAX_NO      = LIST_INFO[listId].total;
+
+  /* 範囲上限を自動補正 */
+  if(settings.rangeEnd > MAX_NO) settings.rangeEnd = MAX_NO;
+
+  /* 覚えたフラグのキーも切替え */
+  rememberKey = rememberKeyBase + listId;
+  remembered  = JSON.parse(localStorage.getItem(rememberKey) || "{}");
+
+  filteredIndexes = calcFilteredIndexes();
+  indexPtr = 0;
+  renderCard();
+}
+
+/* ---------------- 4. 要素取得 ------------------ */
 const wordEl      = document.getElementById('word');
 const meaningEl   = document.getElementById('meaning');
 const showBtn     = document.getElementById('showBtn');
 const randomBtn   = document.getElementById('randomBtn');
 const rememberChk = document.getElementById('rememberChk');
 
-const prevBtn   = document.getElementById('prevBtn');
-const nextBtn   = document.getElementById('nextBtn');
-const counterEl = document.getElementById('counter');
+const prevBtn     = document.getElementById('prevBtn');
+const nextBtn     = document.getElementById('nextBtn');
+const counterEl   = document.getElementById('counter');
 
 const prevPageBtn = document.getElementById('prevPageBtn');
 const nextPageBtn = document.getElementById('nextPageBtn');
@@ -42,11 +73,11 @@ const summaryDlg   = document.getElementById('summaryDialog');
 const summaryList  = document.getElementById('summaryList');
 const closeSummary = document.getElementById('closeSummaryBtn');
 
-const searchBtn   = document.getElementById('searchBtn');
-const searchDlg   = document.getElementById('searchDialog');
-const searchInput = document.getElementById('searchInput');
-const searchGo    = document.getElementById('searchGo');
-const searchClose = document.getElementById('searchClose');
+const searchBtn    = document.getElementById('searchBtn');
+const searchDlg    = document.getElementById('searchDialog');
+const searchInput  = document.getElementById('searchInput');
+const searchGo     = document.getElementById('searchGo');
+const searchClose  = document.getElementById('searchClose');
 
 const settingBtn   = document.getElementById('settingBtn');
 const settingDlg   = document.getElementById('settingDialog');
@@ -55,166 +86,141 @@ const rangeStartEl = document.getElementById('rangeStart');
 const rangeEndEl   = document.getElementById('rangeEnd');
 const optIPA       = document.getElementById('optIPA');
 const optVoice     = document.getElementById('optVoice');
-const settingSave  = document.getElementById('settingSave');
-const settingClose = document.getElementById('settingClose');
 
-const optWords    = document.getElementById('optWords');
-const optPhrases  = document.getElementById('optPhrases');
+const optWords     = document.getElementById('optWords');
+const optPhrases   = document.getElementById('optPhrases');
 
+const resetRangeBtn = document.getElementById('resetRangeBtn');
+/* ★ NEW : リスト切替セレクト */
+const listSel = document.getElementById('whichListSel');
 
-/* ---------- 進捗バー ---------- */
+/* ---------------- 5. 進捗バー ------------------ */
 const progressWrap = document.createElement('div');
-progressWrap.id = 'progressBarWrap';
+progressWrap.id    = 'progressBarWrap';
 progressWrap.innerHTML = '<div id="progressBar"></div>';
 document.body.insertBefore(progressWrap, document.getElementById('card'));
-const progressBar = document.getElementById('progressBar');
+const progressBar  = document.getElementById('progressBar');
 
-/* =================================================================== */
-/*                           ユーティリティ                            */
-/* =================================================================== */
-function saveRemembered(){ localStorage.setItem(rememberKey, JSON.stringify(remembered)); }
-function saveSettings()  { localStorage.setItem(settingKey , JSON.stringify(settings));   }
-
-/* 抽出集合を計算 */
-function calcFilteredIndexes(){
-  const arr = [];
-
-  for (let i = 0; i < words.length; i++) {
-    const w  = words[i];          // ← 単語オブジェクト
-    const no = i + 1;
-
-    /* ① 範囲フィルター */
-    if (no < settings.rangeStart || no > settings.rangeEnd) continue;
-
-    /* ② 未記憶のみ */
-    if (settings.unrememberedOnly && remembered[w.word]) continue;
-
-    /* ③ ★ NEW: 単語 / 熟語 フィルター ---------------- */
-    const phrase = /[ /]/.test(w.word);           // true なら熟語
-    if ( (phrase && !settings.showPhrases)      // 熟語だが表示 OFF
-      || (!phrase && !settings.showWords) )      // 単語だが表示 OFF
-      continue;
-    /* ------------------------------------------------ */
-
-    arr.push(i);            // ここに来たものだけ採用
-  }
-
-  return arr.length ? arr : [0];    // 空になるのを防ぐ
+/* ---------------- 6. 保存ユーティリティ -------- */
+function saveRemembered(){
+  localStorage.setItem(rememberKey, JSON.stringify(remembered));
+}
+function saveSettings(){
+  /* リスト毎に保存 */
+  localStorage.setItem(
+    settingKeyBase + settings.whichList,
+    JSON.stringify(settings)
+  );
 }
 
-/* 現在の 100 語ページ開始位置（filtered 内）*/
+/* ---------------- 7. 各種計算 ------------------ */
+const PAGE_SIZE = 100;
+
+function calcFilteredIndexes(){
+  const arr = [];
+  for(let i=0;i<words.length;i++){
+    const w  = words[i];
+    const no = i + 1;
+
+    /* 範囲・未記憶・単語/熟語 の３フィルタ */
+    if(no < settings.rangeStart || no > settings.rangeEnd)             continue;
+    if(settings.unrememberedOnly && remembered[w.word])                continue;
+    const isPhrase = /[ /]/.test(w.word);
+    if( ( isPhrase && !settings.showPhrases) ||
+        (!isPhrase && !settings.showWords) )                           continue;
+
+    arr.push(i);
+  }
+  return arr.length ? arr : [0];   // 空だと表示できないので保険
+}
 function currentPageStart(){
   return Math.floor(indexPtr / PAGE_SIZE) * PAGE_SIZE;
 }
 
-/* =================================================================== */
-/*                          画面レンダリング                            */
-/* =================================================================== */
+/* ---------------- 8. 画面描画 ------------------ */
 function renderCard(){
   const realIdx = filteredIndexes[indexPtr];
-  const item = words[realIdx];
+  const item    = words[realIdx];
 
-  wordEl.textContent = `${realIdx + 1}. ${item.word}`;   // ←番号を先頭に
+  wordEl.textContent    = `${realIdx + 1}. ${item.word}`;
   meaningEl.textContent = item.meaning;
   meaningEl.classList.add('hidden');
-  rememberChk.checked = !!remembered[item.word];
+  rememberChk.checked   = !!remembered[item.word];
 
-  /* カウンタ */
-  counterEl.textContent = `${indexPtr+1} / ${filteredIndexes.length}`;
+  /* カウンタとページ情報 */
+  counterEl.textContent = `${indexPtr + 1} / ${filteredIndexes.length}`;
 
-  /* 進捗バー */
   const pageStart = currentPageStart();
-  const slice = filteredIndexes.slice(pageStart, pageStart + PAGE_SIZE);
-  const known = slice.filter(i=>remembered[words[i].word]).length;
-  const ratio = Math.round((known / slice.length) * 100);
-  progressBar.style.width = `${ratio}%`;
+  const slice     = filteredIndexes.slice(pageStart, pageStart + PAGE_SIZE);
+  const known     = slice.filter(i=>remembered[words[i].word]).length;
+  progressBar.style.width = `${Math.round(known / slice.length * 100)}%`;
 
-  /* ページナビ表示 */
-  const pageNo = pageStart / PAGE_SIZE + 1;
-  const totalPages = Math.ceil(filteredIndexes.length / PAGE_SIZE);
-  pageCounter.textContent = `${pageNo} / ${totalPages}`;
+  pageCounter.textContent =
+      `${pageStart / PAGE_SIZE + 1} / ${Math.ceil(filteredIndexes.length / PAGE_SIZE)}`;
 
-  if (settings.voiceEnabled) speak(item.word);
+  if(settings.voiceEnabled) speak(item.word);
 }
 
-/* =================================================================== */
-/*                              イベント                               */
-/* =================================================================== */
-/* 意味表示 */
-showBtn.onclick = ()=>meaningEl.classList.toggle('hidden');
-
-/* 前後 1 語 */
-nextBtn.onclick = ()=>{
-  if(indexPtr < filteredIndexes.length-1){ indexPtr++; renderCard(); }
+/* ---------------- 9. イベント ------------------ */
+/* 9-A 単語カード */
+showBtn.onclick   = ()=>meaningEl.classList.toggle('hidden');
+nextBtn.onclick   = ()=>{ if(indexPtr < filteredIndexes.length-1){ indexPtr++; renderCard(); } };
+prevBtn.onclick   = ()=>{ if(indexPtr > 0){ indexPtr--; renderCard(); } };
+nextPageBtn.onclick = ()=>{
+  const p = indexPtr + PAGE_SIZE; if(p < filteredIndexes.length){ indexPtr = p; renderCard(); }
 };
-prevBtn.onclick = ()=>{
-  if(indexPtr > 0){ indexPtr--; renderCard(); }
+prevPageBtn.onclick = ()=>{
+  const p = indexPtr - PAGE_SIZE; if(p >= 0){ indexPtr = p; renderCard(); }
 };
-
-/* 前後ページ(100語単位) */
-nextPageBtn.onclick=()=>{
-  const newPtr = indexPtr + PAGE_SIZE;
-  if(newPtr < filteredIndexes.length){ indexPtr = newPtr; renderCard(); }
-};
-prevPageBtn.onclick=()=>{
-  const newPtr = indexPtr - PAGE_SIZE;
-  if(newPtr >= 0){ indexPtr = newPtr; renderCard(); }
+randomBtn.onclick = ()=>{
+  indexPtr = Math.floor(Math.random()*filteredIndexes.length);
+  renderCard();
 };
 
-/* 覚えたトグル */
+/* 9-B 覚えたチェック */
 rememberChk.onchange = ()=>{
   const realIdx = filteredIndexes[indexPtr];
   remembered[words[realIdx].word] = rememberChk.checked;
   saveRemembered();
-  /* フィルタが未記憶のみの場合、再計算して位置調整 */
+
   if(settings.unrememberedOnly){
-     filteredIndexes = calcFilteredIndexes();
-     indexPtr = Math.min(indexPtr, filteredIndexes.length-1);
+    filteredIndexes = calcFilteredIndexes();
+    indexPtr = Math.min(indexPtr, filteredIndexes.length-1);
   }
   renderCard();
 };
 
-/* 🎲 ランダム */
-randomBtn.onclick = ()=>{
-  indexPtr = Math.floor(Math.random() * filteredIndexes.length);
-  renderCard();
-  if(settings.voiceEnabled) speak(words[filteredIndexes[indexPtr]].word);
-};
-
-/* 一覧ダイアログ */
+/* 9-C 一覧ダイアログ */
 summaryBtn.onclick = ()=>{
   summaryList.innerHTML='';
   const pageStart = currentPageStart();
-  const slice = filteredIndexes.slice(pageStart, pageStart+PAGE_SIZE);
+  const slice     = filteredIndexes.slice(pageStart, pageStart + PAGE_SIZE);
 
   slice.forEach(i=>{
-    const w = words[i];
-    const id='chk_'+w.word;
-    const checked=remembered[w.word]?'checked':'';
+    const w  = words[i];
+    const id = 'chk_'+w.word;
     summaryList.insertAdjacentHTML('beforeend',
-     `<label class="summaryItem" data-idx="${i}">
-         <input type="checkbox" id="${id}" ${checked}>
-         <span class="summaryWord">${i + 1}. ${w.word}</span>  <!-- 番号 -->
+      `<label class="summaryItem" data-idx="${i}">
+         <input type="checkbox" id="${id}" ${remembered[w.word]?'checked':''}>
+         <span class="summaryWord">${i+1}. ${w.word}</span>
        </label>`
     );
   });
 
-  /* チェック listener */
+  /* チェック監視 */
   slice.forEach(i=>{
-    const w=words[i];
-    document.getElementById('chk_'+w.word).onchange=e=>{
-      remembered[w.word]=e.target.checked;
+    document.getElementById('chk_'+words[i].word).onchange = e=>{
+      remembered[words[i].word] = e.target.checked;
       saveRemembered();
       renderCard();
     };
   });
 
-  /* 単語クリック → ジャンプ */
-  document.querySelectorAll('.summaryItem').forEach(el=>{
+  /* 単語クリックでジャンプ */
+  summaryList.querySelectorAll('.summaryItem').forEach(el=>{
     el.onclick = e=>{
-      if(e.target.tagName==='INPUT') return;       // チェック操作は無視
-      const real = Number(el.dataset.idx);
-      indexPtr = filteredIndexes.indexOf(real);
+      if(e.target.tagName==='INPUT') return;
+      indexPtr  = filteredIndexes.indexOf(Number(el.dataset.idx));
       renderCard();
       summaryDlg.close();
     };
@@ -223,50 +229,43 @@ summaryBtn.onclick = ()=>{
   summaryDlg.showModal();
 };
 closeSummary.onclick = ()=>summaryDlg.close();
+/* ダイアログ外クリックで閉じる */
+summaryDlg.addEventListener('click',e=>{ if(e.target===summaryDlg) summaryDlg.close(); });
 
-/* ★背景(ダイアログ外)クリックで閉じる */
-summaryDlg.addEventListener('click', e => {
-  if (e.target === summaryDlg) summaryDlg.close();
-});
-
-
-/* 検索ダイアログ */
+/* 9-D 検索 */
 searchBtn.onclick = ()=>{ searchInput.value=''; searchDlg.showModal(); };
-searchGo.onclick = ()=>{
+searchGo.onclick  = ()=>{
   const q = searchInput.value.trim().toLowerCase();
   if(!q){ searchDlg.close(); return; }
-  const realIdx = words.findIndex(w=>w.word.toLowerCase()===q);
-  if(realIdx !== -1){
-    /* フィルタ対象内か確認 */
-    if(!filteredIndexes.includes(realIdx)){
-      alert('現在の設定範囲には含まれていません');  // 簡易
-    }else{
-      indexPtr = filteredIndexes.indexOf(realIdx);
-      renderCard();
-    }
+  const realIdx = words.findIndex(w=>w.word.toLowerCase() === q);
+  if(realIdx === -1){ alert('見つかりませんでした'); }
+  else if(!filteredIndexes.includes(realIdx)){
+    alert('現在の設定範囲外です');
+  }else{
+    indexPtr = filteredIndexes.indexOf(realIdx);
+    renderCard();
   }
   searchDlg.close();
 };
 searchClose.onclick = ()=>searchDlg.close();
 
-/* 設定ダイアログ（値を表示） */
+/* 9-E 設定ダイアログ */
 settingBtn.onclick = ()=>{
-  optUnrem.checked       = settings.unrememberedOnly;
-  rangeStartEl.value     = settings.rangeStart;
-  rangeEndEl.value       = settings.rangeEnd;
-  optIPA.checked         = settings.showIPA;
-  optVoice.checked       = settings.voiceEnabled;
-  optWords.checked   = settings.showWords;
-  optPhrases.checked = settings.showPhrases;
+  optUnrem.checked     = settings.unrememberedOnly;
+  rangeStartEl.value   = settings.rangeStart;
+  rangeEndEl.value     = settings.rangeEnd;
+  optIPA.checked       = settings.showIPA;
+  optVoice.checked     = settings.voiceEnabled;
+  optWords.checked     = settings.showWords;
+  optPhrases.checked   = settings.showPhrases;
   settingDlg.showModal();
 };
-
 settingSave.onclick = ()=>{
   settings.unrememberedOnly = optUnrem.checked;
-  settings.rangeStart = Number(rangeStartEl.value)||1;
-  settings.rangeEnd   = Number(rangeEndEl.value)||words.length;
-  settings.showIPA    = optIPA.checked;
-  settings.voiceEnabled = optVoice.checked;
+  settings.rangeStart       = Number(rangeStartEl.value)||1;
+  settings.rangeEnd         = Number(rangeEndEl.value)||MAX_NO;
+  settings.showIPA          = optIPA.checked;
+  settings.voiceEnabled     = optVoice.checked;
   settings.showWords        = optWords.checked;
   settings.showPhrases      = optPhrases.checked;
   saveSettings();
@@ -278,37 +277,40 @@ settingSave.onclick = ()=>{
 };
 settingClose.onclick = ()=>settingDlg.close();
 
-/* ---------- 音声 ---------- */
-function speak(text){
-  if (!window.speechSynthesis || !settings.voiceEnabled) return;
-
-  // ── 英語の voice を優先して選ぶ ──
-  const voices = window.speechSynthesis.getVoices();      // 一覧取得
-  let enVoice  = voices.find(v => v.lang.startsWith('en'));  // 例: “en-US”
-  if (!enVoice && voices.length) enVoice = voices[0];     // 保険：最初の声
-
-  const uttr   = new SpeechSynthesisUtterance(text);
-  uttr.lang    = 'en-US';    // 言語コードを英語で固定
-  if (enVoice) uttr.voice = enVoice;
-
-  window.speechSynthesis.cancel();   // 連打対策
-  window.speechSynthesis.speak(uttr);
-}
-
-/* ---------- 範囲の “覚えた” を一括解除 ---------- */
-resetRangeBtn.addEventListener('click', ()=>{
-  const s = settings.rangeStart, e = settings.rangeEnd;
-  if(!confirm(`${s}〜${e} 番の「覚えた」チェックをすべて外します。よろしいですか？`)) return;
-
-  for(let i=s-1; i<e; i++){
-    delete remembered[words[i].word];   // フラグを削除
-  }
+/* 9-F 覚えた一括リセット */
+resetRangeBtn.onclick = ()=>{
+  const {rangeStart: s, rangeEnd: e} = settings;
+  if(!confirm(`${s}〜${e} 番の「覚えた」をすべて外します。よろしいですか？`)) return;
+  for(let i=s-1;i<e;i++){ delete remembered[words[i].word]; }
   saveRemembered();
   filteredIndexes = calcFilteredIndexes();
   indexPtr = 0;
   renderCard();
   alert('リセットしました！');
-});
+};
 
-/* ---------- 初期表示 ---------- */
-renderCard();
+/* 9-G 語彙リスト切替 */
+if(listSel){                     // ← HTML が無いと null になる対策
+  listSel.value = settings.whichList;
+  listSel.onchange = ()=>{
+    settings.whichList = listSel.value;   // "1200" or "1900"
+    saveSettings();
+    loadWords(settings.whichList);        // ★ 語彙ファイルを読み替え
+  };
+}
+
+/* ---------------- 10. 音声 --------------------- */
+function speak(text){
+  if(!window.speechSynthesis || !settings.voiceEnabled) return;
+  const voices = window.speechSynthesis.getVoices();
+  let enVoice  = voices.find(v=>v.lang.startsWith('en'));
+  if(!enVoice && voices.length) enVoice = voices[0];
+  const uttr = new SpeechSynthesisUtterance(text);
+  uttr.lang  = 'en-US';
+  if(enVoice) uttr.voice = enVoice;
+  window.speechSynthesis.cancel();   // 連打対策
+  window.speechSynthesis.speak(uttr);
+}
+
+/* ---------------- 11. 起動 --------------------- */
+loadWords(settings.whichList);  // 最初に 1200 をロードして renderCard() まで実行

@@ -131,3 +131,31 @@ button.danger{
   border:none;
 }
 button.danger:active{background:#bd2727}
+
+/* --- 一覧ダイアログ：閉じるボタンを常に下部に固定 --- */
+#summaryDialog{
+  position:relative;
+  padding:1rem 1rem 4rem;
+}
+#summaryList{
+  max-height:60vh;
+  overflow-y:auto;
+}
+#closeSummaryBtn{
+  position:absolute;
+  left:50%;
+  bottom:1rem;
+  transform:translateX(-50%);
+  padding:.6rem 2rem;
+  background:#1976d2;
+  color:#fff;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+/* --- リスト切替セレクト --- */
+#whichListSel{
+  font-size:1rem;
+  padding:.3rem .6rem;
+}

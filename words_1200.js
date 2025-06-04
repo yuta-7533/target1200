@@ -1701,4 +1701,4 @@ const words = [
   { word: "in short", meaning: "要約すると，手短にいうと", ipa: "ɪn ʃɔrt" },
 ];
 
-//export default words;
+export default words;
