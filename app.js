@@ -5,7 +5,8 @@
 /* ---------------- 0. リスト情報 ---------------- */
 const LIST_INFO = {
   "1200": { src: "./words_1200.js", total: 1700 },
-  "1900": { src: "./words_1900.js", total: 1900 }
+  "1900": { src: "./words_1900.js", total: 1900 },
+  "pre1": { src: "./words_pre1.js", total: 1900 }
 };
 
 /* ---------------- 1. 変数 --------------------- */
@@ -293,7 +294,7 @@ resetRangeBtn.onclick = ()=>{
 if(listSel){                     // ← HTML が無いと null になる対策
   listSel.value = settings.whichList;
   listSel.onchange = ()=>{
-    settings.whichList = listSel.value;   // "1200" or "1900"
+    settings.whichList = listSel.value;   // "1200" or "1900" or "pre1"
     saveSettings();
     loadWords(settings.whichList);        // ★ 語彙ファイルを読み替え
   };
