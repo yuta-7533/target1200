@@ -23,12 +23,67 @@ body{
 
 h1{font-size:clamp(1.4rem,5vw,2rem);margin:.2rem 0}
 
-/* ヘッダーバー（検索🔍と⚙ボタン） */
+/* =========================================================
+   ヘッダー ── ボタン／タイトル／リストを 1 行に収める
+   ========================================================= */
+
+/* PC 共通  ------------------------------------------------*/
 #topBar{
-  display:flex;justify-content:space-between;align-items:center;
+  display:flex;                 /* 横一列 */
+  align-items:center;
+  gap:.6rem;                    /* 各アイテムの間隔 */
+  flex-wrap:nowrap;             /* 折り返さない */
   margin-bottom:.8rem;
 }
-#topBar button{background:none;border:none;font-size:1.6rem;cursor:pointer;}
+#topBar button{
+  flex:0 0 auto;                /* ボタンは伸縮させない */
+  background:none;
+  border:none;
+  font-size:1.6rem;
+  padding:.2rem .4rem;
+  cursor:pointer;
+}
+#topBar h2{
+  flex:1 1 auto;                /* 余った幅を全部タイトルへ */
+  margin:0;
+  font-size:1.25rem;
+  white-space:nowrap;           /* 折り返し禁止 */
+  overflow:hidden;              /* はみ出したら… */
+  text-overflow:ellipsis;       /* 末尾を「…」に */
+}
+#whichListSel{                  /* リスト切替ドロップダウン */
+  flex:0 0 auto;
+  font-size:1rem;
+  padding:.25rem .4rem;
+  max-width:35vw;               /* モバイルで大きくなり過ぎない */
+}
+
+/* モバイル (≤600px)  -------------------------------------*/
+@media (max-width:600px){
+  /* header 全体をカード幅に収める */
+  #topBar{
+    gap:.4rem;
+  }
+  #topBar button{
+    font-size:1.4rem;           /* 絵文字ボタンを少し小さく */
+  }
+  #topBar h2{
+    font-size:1.05rem;          /* タイトルも小さくして横幅節約 */
+  }
+  #whichListSel{
+    font-size:.9rem;
+    max-width:45vw;             /* 画面の半分弱まで拡張可 */
+  }
+
+  /* ナビゲーションのボタンをコンパクトに */
+  #nav button,
+  #pageNav button{
+    padding:.35rem .6rem;
+    font-size:.9rem;
+    width:auto;                 /* 前後へボタンを横並びに */
+  }
+}
+
 
 /* --- 3. 単語カード --- */
 #card{
