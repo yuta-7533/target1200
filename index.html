@@ -10,18 +10,8 @@
   <!--─ タイトル／リスト切替 ─-->
   <header id="topBar">
     <!--<button id="searchBtn">🔍</button>-->
-    <button id="menuBtn">☰</button>      <!-- ← NEW -->
+    <button id="menuBtn" aria-label="メニュー">☰</button>   <!-- ← 左上 -->
     <h1>英単語チェック</h1>
-
-    <!-- ▼ 1200 / 1900 を切り替える -->
-    <select id="whichListSel">
-      <option value="1200">ターゲット1200</option>
-      <option value="1900">ターゲット1900</option>
-      <option value="pre1">パス単 準1級</option>
-    </select>
-
-    <!--<button id="settingBtn">⚙</button> -->
-
   </header>
 
   <!--─ 単語カード ─-->
@@ -70,7 +60,7 @@
     </label>
     <button id="drawerClose" style="margin-top:1rem;">閉じる</button>
   </dialog>
-  
+
   <!--─ 一覧ダイアログ ─-->
   <dialog id="summaryDialog">
     <h2>このページの単語（覚えたら✅）</h2>
