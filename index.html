@@ -9,8 +9,8 @@
 <body>
   <!--─ タイトル／リスト切替 ─-->
   <header id="topBar">
-    <button id="searchBtn">🔍</button>
-
+    <!--<button id="searchBtn">🔍</button>-->
+    <button id="menuBtn">☰</button>      <!-- ← NEW -->
     <h1>英単語チェック</h1>
 
     <!-- ▼ 1200 / 1900 を切り替える -->
@@ -20,7 +20,7 @@
       <option value="pre1">パス単 準1級</option>
     </select>
 
-    <button id="settingBtn">⚙</button> <!-- ←追加 -->
+    <!--<button id="settingBtn">⚙</button> -->
 
   </header>
 
@@ -56,6 +56,21 @@
   <!-- 範囲リセット -->
   <!--<button id="resetRangeBtn">この範囲の「覚えた」をリセット</button> -->
 
+  <!-- ② 追加：ハンバーガーメニュー本体 -->
+  <dialog id="menuDrawer">
+    <button id="drawerSearch">🔍 検索</button>
+    <button id="drawerSetting">⚙ 設定</button>
+    <div style="margin-top:.6rem"></div>
+    <label>リスト：
+      <select id="drawerListSel">
+        <option value="1200">ターゲット1200</option>
+        <option value="1900">ターゲット1900</option>
+        <option value="pre1">パス単 準1級</option>
+      </select>
+    </label>
+    <button id="drawerClose" style="margin-top:1rem;">閉じる</button>
+  </dialog>
+  
   <!--─ 一覧ダイアログ ─-->
   <dialog id="summaryDialog">
     <h2>このページの単語（覚えたら✅）</h2>

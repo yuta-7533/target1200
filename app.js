@@ -1,189 +1,208 @@
 /* ===================================================================
-   app.js   2025-05 “multi-list 対応・バグ修正 完全版”
+   app.js  – 2025-05 “multi-list + ハンバーガーメニュー” 完成版
    =================================================================== */
 
-/* ---------------- 0. リスト情報 ---------------- */
+/* ------------ 0. 収録リスト情報（ここへ追加すれば拡張可） ------------ */
 const LIST_INFO = {
   "1200": { src: "./words_1200.js", total: 1700 },
   "1900": { src: "./words_1900.js", total: 1900 },
   "pre1": { src: "./words_pre1.js", total: 1900 }
 };
 
-/* ---------------- 1. 変数 --------------------- */
-let words = [];             // 現在ロードしている語彙配列
-let MAX_NO = 0;             // 現在リストの語数（範囲上限）
-let filteredIndexes = [];   // フィルタ後のインデックス集合
-let indexPtr = 0;           // filteredIndexes 内のカーソル
+/* ------------ 1. グローバル変数 ------------------------------ */
+let words            = [];      // いま表示している単語配列
+let MAX_NO           = 0;       // 現リストの総語数
+let filteredIndexes  = [];      // フィルタ後インデックス
+let indexPtr         = 0;       // filteredIndexes 内のカーソル
 
-/* ---------------- 2. 設定 --------------------- */
-const settingKeyBase  = "settings_";
-const rememberKeyBase = "remembered_";
+/* ------------ 2. 設定・保存キー ------------------------------ */
+const SETTING_KEY_BASE  = "settings_";
+const REMEMBER_KEY_BASE = "remembered_";
 
-let settings = Object.assign(
-  {
-    whichList       : "1200",        // ←初期はターゲット1200
-    unrememberedOnly: false,
-    rangeStart      : 1,
-    rangeEnd        : LIST_INFO["1200"].total,
-    showIPA         : false,
-    voiceEnabled    : false,
-    showWords       : true,
-    showPhrases     : true
-  },
-  JSON.parse(localStorage.getItem(settingKeyBase + "1200") || "{}")
+/* 既読フラグ ＆ 設定（リスト毎に保存する） */
+let settings = {
+  whichList       : "1200",
+  unrememberedOnly: false,
+  rangeStart      : 1,
+  rangeEnd        : LIST_INFO["1200"].total,
+  showIPA         : false,
+  voiceEnabled    : false,
+  showWords       : true,   // 単語を表示
+  showPhrases     : true    // 熟語を表示
+};
+Object.assign(
+  settings,
+  JSON.parse(localStorage.getItem(SETTING_KEY_BASE + settings.whichList) || "{}")
 );
 
-let rememberKey = rememberKeyBase + settings.whichList;
+let rememberKey = REMEMBER_KEY_BASE + settings.whichList;
 let remembered  = JSON.parse(localStorage.getItem(rememberKey) || "{}");
 
-/* ---------------- 3. 語彙ファイルの読み込み ---- */
+/* ------------ 3. 単語ファイル読み込み ------------------------- */
 async function loadWords(listId){
-  const mod   = await import(LIST_INFO[listId].src);
-  words       = mod.default;
-  MAX_NO      = LIST_INFO[listId].total;
+  const mod  = await import(LIST_INFO[listId].src);
+  words      = mod.default;
+  MAX_NO     = LIST_INFO[listId].total;
 
-  /* 範囲上限を自動補正 */
-  if(settings.rangeEnd > MAX_NO) settings.rangeEnd = MAX_NO;
-
-  /* 覚えたフラグのキーも切替え */
-  rememberKey = rememberKeyBase + listId;
+  /* 設定・覚えたフラグのキーを切替え */
+  rememberKey = REMEMBER_KEY_BASE + listId;
   remembered  = JSON.parse(localStorage.getItem(rememberKey) || "{}");
+
+  /* 範囲上限を自動補正（別リストに変えた直後に out-of-range にならないよう） */
+  if(settings.rangeEnd > MAX_NO) settings.rangeEnd = MAX_NO;
 
   filteredIndexes = calcFilteredIndexes();
   indexPtr = 0;
   renderCard();
+  /* 2つのセレクトを同期 */
+  listSel.value        = listId;
+  drawerListSel.value  = listId;
 }
 
-/* ---------------- 4. 要素取得 ------------------ */
-const wordEl      = document.getElementById('word');
-const meaningEl   = document.getElementById('meaning');
-const showBtn     = document.getElementById('showBtn');
-const randomBtn   = document.getElementById('randomBtn');
-const rememberChk = document.getElementById('rememberChk');
+/* ------------ 4. DOM 要素取得 ------------------------------- */
+const wordEl        = document.getElementById("word");
+const meaningEl     = document.getElementById("meaning");
+const showBtn       = document.getElementById("showBtn");
+const randomBtn     = document.getElementById("randomBtn");
+const rememberChk   = document.getElementById("rememberChk");
 
-const prevBtn     = document.getElementById('prevBtn');
-const nextBtn     = document.getElementById('nextBtn');
-const counterEl   = document.getElementById('counter');
+const prevBtn       = document.getElementById("prevBtn");
+const nextBtn       = document.getElementById("nextBtn");
+const counterEl     = document.getElementById("counter");
 
-const prevPageBtn = document.getElementById('prevPageBtn');
-const nextPageBtn = document.getElementById('nextPageBtn');
-const pageCounter = document.getElementById('pageCounter');
+const prevPageBtn   = document.getElementById("prevPageBtn");
+const nextPageBtn   = document.getElementById("nextPageBtn");
+const pageCounter   = document.getElementById("pageCounter");
 
-const summaryBtn   = document.getElementById('summaryBtn');
-const summaryDlg   = document.getElementById('summaryDialog');
-const summaryList  = document.getElementById('summaryList');
-const closeSummary = document.getElementById('closeSummaryBtn');
+const summaryBtn    = document.getElementById("summaryBtn");
+const summaryDlg    = document.getElementById("summaryDialog");
+const summaryList   = document.getElementById("summaryList");
+const closeSummary  = document.getElementById("closeSummaryBtn");
 
-const searchBtn    = document.getElementById('searchBtn');
-const searchDlg    = document.getElementById('searchDialog');
-const searchInput  = document.getElementById('searchInput');
-const searchGo     = document.getElementById('searchGo');
-const searchClose  = document.getElementById('searchClose');
+/* --- ハンバーガーメニュー関連 --- */
+const menuBtn       = document.getElementById("menuBtn");
+const menuDrawer    = document.getElementById("menuDrawer");
+const drawerSearch  = document.getElementById("drawerSearch");
+const drawerSetting = document.getElementById("drawerSetting");
+const drawerListSel = document.getElementById("drawerListSel");
+const drawerClose   = document.getElementById("drawerClose");
 
-const settingBtn   = document.getElementById('settingBtn');
-const settingDlg   = document.getElementById('settingDialog');
-const optUnrem     = document.getElementById('optUnremembered');
-const rangeStartEl = document.getElementById('rangeStart');
-const rangeEndEl   = document.getElementById('rangeEnd');
-const optIPA       = document.getElementById('optIPA');
-const optVoice     = document.getElementById('optVoice');
+/* --- 検索ダイアログ ---*/
+const searchDlg     = document.getElementById("searchDialog");
+const searchInput   = document.getElementById("searchInput");
+const searchGo      = document.getElementById("searchGo");
+const searchClose   = document.getElementById("searchClose");
 
-const optWords     = document.getElementById('optWords');
-const optPhrases   = document.getElementById('optPhrases');
+/* --- 設定ダイアログ --- */
+const settingDlg    = document.getElementById("settingDialog");
+const optUnrem      = document.getElementById("optUnremembered");
+const rangeStartEl  = document.getElementById("rangeStart");
+const rangeEndEl    = document.getElementById("rangeEnd");
+const optIPA        = document.getElementById("optIPA");
+const optVoice      = document.getElementById("optVoice");
+const optWords      = document.getElementById("optWords");
+const optPhrases    = document.getElementById("optPhrases");
+const settingSave   = document.getElementById("settingSave");
+const settingClose  = document.getElementById("settingClose");
+const resetRangeBtn = document.getElementById("resetRangeBtn");
 
-const resetRangeBtn = document.getElementById('resetRangeBtn');
-/* ★ NEW : リスト切替セレクト */
-const listSel = document.getElementById('whichListSel');
+/* --- ヘッダー右側のリスト切替セレクト --- */
+const listSel       = document.getElementById("whichListSel");
 
-/* ---------------- 5. 進捗バー ------------------ */
-const progressWrap = document.createElement('div');
-progressWrap.id    = 'progressBarWrap';
+/* ------------ 5. 進捗バー（動的に挿入） ---------------------- */
+const progressWrap = document.createElement("div");
+progressWrap.id    = "progressBarWrap";
 progressWrap.innerHTML = '<div id="progressBar"></div>';
-document.body.insertBefore(progressWrap, document.getElementById('card'));
-const progressBar  = document.getElementById('progressBar');
+document.body.insertBefore(progressWrap, document.getElementById("card"));
+const progressBar  = document.getElementById("progressBar");
 
-/* ---------------- 6. 保存ユーティリティ -------- */
+/* ------------ 6. ユーティリティ ------------------------------ */
 function saveRemembered(){
   localStorage.setItem(rememberKey, JSON.stringify(remembered));
 }
 function saveSettings(){
-  /* リスト毎に保存 */
   localStorage.setItem(
-    settingKeyBase + settings.whichList,
+    SETTING_KEY_BASE + settings.whichList,
     JSON.stringify(settings)
   );
 }
 
-/* ---------------- 7. 各種計算 ------------------ */
+/* ------ フィルタ用インデックスを作る ------ */
 const PAGE_SIZE = 100;
-
 function calcFilteredIndexes(){
-  const arr = [];
+  const out = [];
   for(let i=0;i<words.length;i++){
     const w  = words[i];
     const no = i + 1;
 
-    /* 範囲・未記憶・単語/熟語 の３フィルタ */
-    if(no < settings.rangeStart || no > settings.rangeEnd)             continue;
-    if(settings.unrememberedOnly && remembered[w.word])                continue;
-    const isPhrase = /[ /]/.test(w.word);
-    if( ( isPhrase && !settings.showPhrases) ||
-        (!isPhrase && !settings.showWords) )                           continue;
+    /* 範囲 */
+    if(no < settings.rangeStart || no > settings.rangeEnd) continue;
+    /* 未記憶のみ */
+    if(settings.unrememberedOnly && remembered[w.word])    continue;
+    /* 単語／熟語フィルタ */
+    const phrase = /[ /]/.test(w.word);
+    if( ( phrase && !settings.showPhrases ) ||
+        (!phrase && !settings.showWords) )                 continue;
 
-    arr.push(i);
+    out.push(i);
   }
-  return arr.length ? arr : [0];   // 空だと表示できないので保険
+  return out.length ? out : [0];   // 空対策
 }
-function currentPageStart(){
-  return Math.floor(indexPtr / PAGE_SIZE) * PAGE_SIZE;
-}
+const currentPageStart = ()=> Math.floor(indexPtr/PAGE_SIZE)*PAGE_SIZE;
 
-/* ---------------- 8. 画面描画 ------------------ */
+/* ------------ 7. 画面描写 ------------------------------ */
 function renderCard(){
   const realIdx = filteredIndexes[indexPtr];
   const item    = words[realIdx];
 
-  wordEl.textContent    = `${realIdx + 1}. ${item.word}`;
+  /* 単語表示 */
+  wordEl.textContent    = `${realIdx+1}. ${item.word}`;
   meaningEl.textContent = item.meaning;
-  meaningEl.classList.add('hidden');
+  meaningEl.classList.add("hidden");
   rememberChk.checked   = !!remembered[item.word];
 
-  /* カウンタとページ情報 */
-  counterEl.textContent = `${indexPtr + 1} / ${filteredIndexes.length}`;
+  /* カウンタ */
+  counterEl.textContent = `${indexPtr+1} / ${filteredIndexes.length}`;
 
-  const pageStart = currentPageStart();
-  const slice     = filteredIndexes.slice(pageStart, pageStart + PAGE_SIZE);
-  const known     = slice.filter(i=>remembered[words[i].word]).length;
-  progressBar.style.width = `${Math.round(known / slice.length * 100)}%`;
+  /* 進捗バー */
+  const pStart = currentPageStart();
+  const slice  = filteredIndexes.slice(pStart, pStart+PAGE_SIZE);
+  const known  = slice.filter(i=>remembered[words[i].word]).length;
+  progressBar.style.width = `${Math.round(known/slice.length*100)}%`;
 
+  /* ページカウンタ */
   pageCounter.textContent =
-      `${pageStart / PAGE_SIZE + 1} / ${Math.ceil(filteredIndexes.length / PAGE_SIZE)}`;
+       `${pStart/PAGE_SIZE+1} / ${Math.ceil(filteredIndexes.length/PAGE_SIZE)}`;
 
+  /* 発声 */
   if(settings.voiceEnabled) speak(item.word);
 }
 
-/* ---------------- 9. イベント ------------------ */
-/* 9-A 単語カード */
-showBtn.onclick   = ()=>meaningEl.classList.toggle('hidden');
-nextBtn.onclick   = ()=>{ if(indexPtr < filteredIndexes.length-1){ indexPtr++; renderCard(); } };
-prevBtn.onclick   = ()=>{ if(indexPtr > 0){ indexPtr--; renderCard(); } };
+/* =========================================================
+   8. イベントハンドラ
+   ========================================================= */
+/* ---- 8-A 単語カード周り ---- */
+showBtn.onclick = ()=> meaningEl.classList.toggle("hidden");
+nextBtn.onclick = ()=>{ if(indexPtr<filteredIndexes.length-1){ indexPtr++;renderCard(); } };
+prevBtn.onclick = ()=>{ if(indexPtr>0){ indexPtr--;renderCard(); } };
 nextPageBtn.onclick = ()=>{
-  const p = indexPtr + PAGE_SIZE; if(p < filteredIndexes.length){ indexPtr = p; renderCard(); }
+  const p=indexPtr+PAGE_SIZE; if(p<filteredIndexes.length){ indexPtr=p; renderCard(); }
 };
 prevPageBtn.onclick = ()=>{
-  const p = indexPtr - PAGE_SIZE; if(p >= 0){ indexPtr = p; renderCard(); }
+  const p=indexPtr-PAGE_SIZE; if(p>=0){ indexPtr=p; renderCard(); }
 };
 randomBtn.onclick = ()=>{
   indexPtr = Math.floor(Math.random()*filteredIndexes.length);
   renderCard();
 };
 
-/* 9-B 覚えたチェック */
+/* ---- 8-B 覚えたチェック ---- */
 rememberChk.onchange = ()=>{
   const realIdx = filteredIndexes[indexPtr];
   remembered[words[realIdx].word] = rememberChk.checked;
   saveRemembered();
 
+  /* “未記憶のみ” の場合はリスト再構築 */
   if(settings.unrememberedOnly){
     filteredIndexes = calcFilteredIndexes();
     indexPtr = Math.min(indexPtr, filteredIndexes.length-1);
@@ -191,37 +210,37 @@ rememberChk.onchange = ()=>{
   renderCard();
 };
 
-/* 9-C 一覧ダイアログ */
+/* ---- 8-C 一覧ダイアログ ---- */
 summaryBtn.onclick = ()=>{
-  summaryList.innerHTML='';
-  const pageStart = currentPageStart();
-  const slice     = filteredIndexes.slice(pageStart, pageStart + PAGE_SIZE);
+  summaryList.innerHTML = "";
+  const pStart = currentPageStart();
+  const slice  = filteredIndexes.slice(pStart, pStart+PAGE_SIZE);
 
   slice.forEach(i=>{
-    const w  = words[i];
-    const id = 'chk_'+w.word;
-    summaryList.insertAdjacentHTML('beforeend',
+    const w = words[i];
+    summaryList.insertAdjacentHTML("beforeend",
       `<label class="summaryItem" data-idx="${i}">
-         <input type="checkbox" id="${id}" ${remembered[w.word]?'checked':''}>
+         <input type="checkbox" ${remembered[w.word]?"checked":""}>
          <span class="summaryWord">${i+1}. ${w.word}</span>
        </label>`
     );
   });
 
-  /* チェック監視 */
-  slice.forEach(i=>{
-    document.getElementById('chk_'+words[i].word).onchange = e=>{
-      remembered[words[i].word] = e.target.checked;
+  /* チェック変更即反映 */
+  summaryList.querySelectorAll("input[type=checkbox]").forEach((chk,idx)=>{
+    chk.onchange = e=>{
+      const real = slice[idx];
+      remembered[words[real].word] = e.target.checked;
       saveRemembered();
       renderCard();
     };
   });
 
   /* 単語クリックでジャンプ */
-  summaryList.querySelectorAll('.summaryItem').forEach(el=>{
+  summaryList.querySelectorAll(".summaryItem").forEach(el=>{
     el.onclick = e=>{
-      if(e.target.tagName==='INPUT') return;
-      indexPtr  = filteredIndexes.indexOf(Number(el.dataset.idx));
+      if(e.target.tagName==="INPUT") return;
+      indexPtr = filteredIndexes.indexOf(Number(el.dataset.idx));
       renderCard();
       summaryDlg.close();
     };
@@ -229,29 +248,34 @@ summaryBtn.onclick = ()=>{
 
   summaryDlg.showModal();
 };
-closeSummary.onclick = ()=>summaryDlg.close();
-/* ダイアログ外クリックで閉じる */
-summaryDlg.addEventListener('click',e=>{ if(e.target===summaryDlg) summaryDlg.close(); });
+closeSummary.onclick = ()=> summaryDlg.close();
+summaryDlg.addEventListener("click",e=>{
+  if(e.target === summaryDlg) summaryDlg.close();
+});
 
-/* 9-D 検索 */
-searchBtn.onclick = ()=>{ searchInput.value=''; searchDlg.showModal(); };
-searchGo.onclick  = ()=>{
+/* ---- 8-D 検索 ---- */
+function openSearchDialog(){
+  searchInput.value = "";
+  searchDlg.showModal();
+}
+drawerSearch.onclick = ()=>{
+  menuDrawer.close();
+  openSearchDialog();
+};
+searchGo.onclick = ()=>{
   const q = searchInput.value.trim().toLowerCase();
   if(!q){ searchDlg.close(); return; }
-  const realIdx = words.findIndex(w=>w.word.toLowerCase() === q);
-  if(realIdx === -1){ alert('見つかりませんでした'); }
-  else if(!filteredIndexes.includes(realIdx)){
-    alert('現在の設定範囲外です');
-  }else{
-    indexPtr = filteredIndexes.indexOf(realIdx);
-    renderCard();
-  }
+  const realIdx = words.findIndex(w=>w.word.toLowerCase()===q);
+  if(realIdx === -1)       alert("見つかりませんでした");
+  else if(!filteredIndexes.includes(realIdx)) alert("現在の設定範囲外です");
+  else { indexPtr = filteredIndexes.indexOf(realIdx); renderCard(); }
   searchDlg.close();
 };
-searchClose.onclick = ()=>searchDlg.close();
+searchClose.onclick = ()=> searchDlg.close();
 
-/* 9-E 設定ダイアログ */
-settingBtn.onclick = ()=>{
+/* ---- 8-E 設定 ---- */
+function openSettingDialog(){
+  /* 現在値を反映 */
   optUnrem.checked     = settings.unrememberedOnly;
   rangeStartEl.value   = settings.rangeStart;
   rangeEndEl.value     = settings.rangeEnd;
@@ -260,6 +284,10 @@ settingBtn.onclick = ()=>{
   optWords.checked     = settings.showWords;
   optPhrases.checked   = settings.showPhrases;
   settingDlg.showModal();
+}
+drawerSetting.onclick = ()=>{
+  menuDrawer.close();
+  openSettingDialog();
 };
 settingSave.onclick = ()=>{
   settings.unrememberedOnly = optUnrem.checked;
@@ -276,42 +304,48 @@ settingSave.onclick = ()=>{
   renderCard();
   settingDlg.close();
 };
-settingClose.onclick = ()=>settingDlg.close();
+settingClose.onclick = ()=> settingDlg.close();
 
-/* 9-F 覚えた一括リセット */
+/* ---- 8-F 覚えた一括リセット (設定内ボタン) ---- */
 resetRangeBtn.onclick = ()=>{
-  const {rangeStart: s, rangeEnd: e} = settings;
+  const {rangeStart:s, rangeEnd:e} = settings;
   if(!confirm(`${s}〜${e} 番の「覚えた」をすべて外します。よろしいですか？`)) return;
   for(let i=s-1;i<e;i++){ delete remembered[words[i].word]; }
   saveRemembered();
   filteredIndexes = calcFilteredIndexes();
   indexPtr = 0;
   renderCard();
-  alert('リセットしました！');
+  alert("リセットしました！");
 };
 
-/* 9-G 語彙リスト切替 */
-if(listSel){                     // ← HTML が無いと null になる対策
-  listSel.value = settings.whichList;
-  listSel.onchange = ()=>{
-    settings.whichList = listSel.value;   // "1200" or "1900" or "pre1"
-    saveSettings();
-    loadWords(settings.whichList);        // ★ 語彙ファイルを読み替え
-  };
+/* ---- 8-G リスト切替（ヘッダーと Drawer 両対応） ---- */
+function changeList(newId){
+  if(newId === settings.whichList) return;
+  settings.whichList = newId;
+  saveSettings();
+  loadWords(newId);
 }
+listSel.onchange      = ()=> changeList(listSel.value);
+drawerListSel.onchange= ()=>{ changeList(drawerListSel.value); menuDrawer.close(); };
 
-/* ---------------- 10. 音声 --------------------- */
+/* ---- 8-H ハンバーガー制御 ---- */
+menuBtn.onclick   = ()=> menuDrawer.showModal();
+drawerClose.onclick = ()=> menuDrawer.close();
+
+/* ------------ 9. 音声合成 ------------------------------ */
 function speak(text){
   if(!window.speechSynthesis || !settings.voiceEnabled) return;
   const voices = window.speechSynthesis.getVoices();
-  let enVoice  = voices.find(v=>v.lang.startsWith('en'));
-  if(!enVoice && voices.length) enVoice = voices[0];
-  const uttr = new SpeechSynthesisUtterance(text);
-  uttr.lang  = 'en-US';
+  let enVoice = voices.find(v=>v.lang.startsWith("en"));
+  if(!enVoice && voices[0]) enVoice = voices[0];
+
+  const uttr  = new SpeechSynthesisUtterance(text);
+  uttr.lang   = "en-US";
   if(enVoice) uttr.voice = enVoice;
-  window.speechSynthesis.cancel();   // 連打対策
+
+  window.speechSynthesis.cancel();  // 連打対策
   window.speechSynthesis.speak(uttr);
 }
 
-/* ---------------- 11. 起動 --------------------- */
-loadWords(settings.whichList);  // 最初に 1200 をロードして renderCard() まで実行
+/* ------------ 10. 起動 ------------------------------- */
+await loadWords(settings.whichList);   // 1200 をロード → renderCard 実行
